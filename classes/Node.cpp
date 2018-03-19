@@ -4,17 +4,17 @@
 
 #include "../headers/Node.h"
 
-Node::Node(int number) : number(number) {}
+Node::Node(string number) : number(number) {}
 
 Node::~Node() {
 
 }
 
-int Node::getNumber() const {
+string Node::getNumber() const {
     return number;
 }
 
-void Node::setNumber(int number) {
+void Node::setNumber(string number) {
     Node::number = number;
 }
 
