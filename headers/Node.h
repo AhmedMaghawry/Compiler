@@ -15,23 +15,23 @@ using namespace std;
 class Node {
 
 public:
-    Node(string number);
+    Node(string name);
 
     virtual ~Node();
-    string getNumber() const;
+    string getNumber();
 
     void setNumber(string number);
 
-    const vector<string> &getAcceptance() const;
+    vector<string> getAcceptance();
 
     void addAcceptance(string acceptance);
 
-    const vector<Transition> &getTransitions() const;
+    vector<Transition> getTransitions();
 
     void addTransitions(Transition transition);
 
 private:
-    string number;
+    string name;
     vector<string> acceptance;
     vector<Transition> transitions;
 };

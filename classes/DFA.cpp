@@ -2,11 +2,11 @@
 // Created by default on 19/03/18.
 //
 
-#include <algorithm>
 #include "../headers/DFA.h"
 
-const char e ='-1';
-char trans_symb[10];
+const string e ="\\L";
+string trans_symb[10];
+vector<Node> nfaGraph;
 
 vector<Node> remove_e_clousre(vector<Node> graph);
 void e_clousre(vector<Node> &nodes, vector<Transition> trans);
@@ -15,8 +15,14 @@ void remove_duplicates(vector<Node> &nodes);
 
 void add_new_transitions(Node &node, vector<Node> vector);
 
-const vector<Node> &DFA::getDfaGraph() const {
+Node getNode(string basic_string);
+
+vector<Node> DFA::getDfaGraph() {
     return dfaGraph;
+}
+
+void DFA::setDfaGraph(vector<Node> dfa) {
+    dfaGraph = dfa;
 }
 
 /*
@@ -24,10 +30,11 @@ const vector<Node> &DFA::getDfaGraph() const {
  * the graph from NFA to DFA as a vector
  * of Nodes which contain the transition
  */
-void convert_from_NFA_to_DFA(vector<Node> graph) {
-    vector<Node> nfaGraph = graph;
-    nfaGraph = remove_e_clousre(graph);
-
+void DFA::convert_from_NFA_to_DFA(vector<Node> graph) {
+    nfaGraph = graph;
+    vector<Node> nfaGraph_without_clouser = remove_e_clousre(graph);
+    vector<Node> dfaGraph_final;
+    setDfaGraph(dfaGraph_final);
 }
 
 /*
@@ -36,11 +43,13 @@ void convert_from_NFA_to_DFA(vector<Node> graph) {
  */
 vector<Node> remove_e_clousre(vector<Node> graph) {
     int size = graph.size();
-    vector<Node> res(size);
+    //vector<Node> res(size);
+    vector<Node> res;
     for (int i = 0; i < size; ++i) {
-        Node n = Node::Node(graph[i].getNumber());
+        Node n(graph[i].getNumber());
         vector<Transition> trans = n.getTransitions();
-        vector<Node> nodes_by_ebs(trans.size());
+        //vector<Node> nodes_by_ebs(trans.size());
+        vector<Node> nodes_by_ebs;
         e_clousre(nodes_by_ebs, trans);
         remove_duplicates(nodes_by_ebs);
         add_new_transitions(n, nodes_by_ebs);
@@ -57,7 +66,8 @@ void add_new_transitions(Node &node, vector<Node> nodes) {
                     vector<Node> nodes_in_final;
                     e_clousre(nodes_in_final, nodes[j].getTransitions());
                     for (int l = 0; l < nodes_in_final.size(); ++l) {
-                        node.addTransitions(Transition::Transition(nodes_in_final[l] ,trans_symb[i]));
+                        Transition t(nodes_in_final[l].getNumber() ,trans_symb[i]);
+                        node.addTransitions(t);
                         for (int m = 0; m < nodes_in_final[l].getAcceptance().size(); ++m) {
                             node.addAcceptance(nodes_in_final[l].getAcceptance()[m]);
                         }
@@ -69,9 +79,7 @@ void add_new_transitions(Node &node, vector<Node> nodes) {
 }
 
 void remove_duplicates(vector<Node> &nodes){
-    std::sort(nodes.begin(), nodes.end());
-    auto last = std::unique(nodes.begin(), nodes.end());
-    nodes.erase(last, nodes.end());
+
 }
 
 void e_clousre(vector<Node> &nodes, vector<Transition> trans) {
@@ -79,7 +87,14 @@ void e_clousre(vector<Node> &nodes, vector<Transition> trans) {
         Transition transition = trans[i];
         if(transition.getTransition() == e) {
             nodes.push_back(transition.getTo());
-            e_clousre(nodes, transition.getTo().getTransitions());
+            e_clousre(nodes, getNode(transition.getTo()).getTransitions());
         }
+    }
+}
+
+Node getNode(string node_name) {
+    for(Node i : nfaGraph) {
+        if(i.getNumber() == node_name)
+            return i;
     }
 }

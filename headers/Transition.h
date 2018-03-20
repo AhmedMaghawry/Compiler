@@ -2,30 +2,32 @@
 // Created by Ezzat on 18/03/18.
 //
 
+#include <vector>
+#include <string>
+
 #ifndef COMPILER_TRANSITION_H
 #define COMPILER_TRANSITION_H
 
-
-#include "Node.h"
+using namespace std;
 
 class Transition {
 
 public:
-    Transition(const Node &to, char transition);
+    Transition(string to, string transition);
 
     virtual ~Transition();
 
-    const Node &getTo() const;
+    string getTo();
 
-    void setTo(const Node &to);
+    void setTo(string to);
 
-    char getTransition() const;
+    string getTransition();
 
-    void setTransition(char transition);
+    void setTransition(string transition);
 
 private:
-    Node to;
-    char transition;
+    string to;
+    string transition;
 };
 
 

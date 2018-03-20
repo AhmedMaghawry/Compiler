@@ -11,8 +11,9 @@
 class DFA {
 
 public:
-    const vector<Node> &getDfaGraph() const;
-    void convert_from_NFA_to_DFA();
+    vector<Node> getDfaGraph();
+    void convert_from_NFA_to_DFA(vector<Node> nfaGraph);
+    void setDfaGraph(vector<Node> dfaGraph);
 
 private:
     vector<Node> dfaGraph;

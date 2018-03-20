@@ -4,24 +4,24 @@
 
 #include "../headers/Transition.h"
 
-Transition::Transition(const Node &to, char transition) : to(to), transition(transition) {}
+Transition::Transition(string to, string transition) : to(to), transition(transition) {}
 
 Transition::~Transition() {
 
 }
 
-const Node &Transition::getTo() const {
+string Transition::getTo() {
     return to;
 }
 
-void Transition::setTo(const Node &to) {
+void Transition::setTo(string to) {
     Transition::to = to;
 }
 
-char Transition::getTransition() const {
+string Transition::getTransition() {
     return transition;
 }
 
-void Transition::setTransition(char transition) {
+void Transition::setTransition(string transition) {
     Transition::transition = transition;
 }

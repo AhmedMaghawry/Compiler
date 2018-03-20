@@ -4,21 +4,21 @@
 
 #include "../headers/Node.h"
 
-Node::Node(string number) : number(number) {}
+Node::Node(string name) : name(name) {}
 
 Node::~Node() {
 
 }
 
-string Node::getNumber() const {
-    return number;
+string Node::getNumber() {
+    return name;
 }
 
 void Node::setNumber(string number) {
-    Node::number = number;
+    Node::name = number;
 }
 
-const vector<string> &Node::getAcceptance() const {
+vector<string> Node::getAcceptance() {
     return acceptance;
 }
 
@@ -26,7 +26,7 @@ void Node::addAcceptance(string acceptance) {
     Node::acceptance.push_back(acceptance);
 }
 
-const vector<Transition> &Node::getTransitions() const {
+vector<Transition> Node::getTransitions() {
     return transitions;
 }
 
