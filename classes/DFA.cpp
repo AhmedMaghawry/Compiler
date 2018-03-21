@@ -2,10 +2,12 @@
 // Created by default on 19/03/18.
 //
 
+#include <queue>
 #include "../headers/DFA.h"
 
 const string e ="\\L";
-string trans_symb[10];
+Node fi("fi");
+string trans_symb[10] = {"a","b","c","d","e","f","g", "h", "i", "g"};
 vector<Node> nfaGraph;
 
 vector<Node> remove_e_clousre(vector<Node> graph);
@@ -34,7 +36,48 @@ void DFA::convert_from_NFA_to_DFA(vector<Node> graph) {
     nfaGraph = graph;
     vector<Node> nfaGraph_without_clouser = remove_e_clousre(graph);
     vector<Node> dfaGraph_final;
+    run_dfa(&dfaGraph_final, nfaGraph_without_clouser);
     setDfaGraph(dfaGraph_final);
+}
+
+void DFA::run_dfa(vector<Node> *final_graph, vector<Node> nfa_without_clousre) {
+    Node start_node = nfa_without_clousre[0];
+    queue<Node> q;
+    final_graph->push_back(start_node);
+    q.push(start_node);
+
+    //BFS search
+    while (!q.empty()) {
+        Node n = q.front();
+        q.pop();
+        for(string symb : trans_symb) {
+            string name_of_new_node = "";
+            vector<Node> nodes_to_go;
+            for (Transition t : n.getTransitions()) {
+                if(t.getTransition() == symb) {
+                    name_of_new_node.append(t.getTo());
+                    nodes_to_go.push_back(getNode(t.getTo()));
+                }
+            }
+            if(name_of_new_node != fi.getNumber()) {
+                Node new_node = create_new_node(name_of_new_node, nodes_to_go);
+                n.getTransitions().clear();
+                Transition newT(name_of_new_node, symb);
+                n.addTransitions(newT);
+                q.push(new_node);
+                final_graph->push_back(new_node);
+            } else {
+                Transition newT(fi.getNumber(), symb);
+                n.addTransitions(newT);
+            }
+        }
+    }
+}
+
+Node DFA::create_new_node(string name, vector<Node> nodes) {
+    Node res(name);
+    add_new_transitions(res, nodes);
+    return res;
 }
 
 /*
@@ -68,9 +111,7 @@ void add_new_transitions(Node &node, vector<Node> nodes) {
                     for (int l = 0; l < nodes_in_final.size(); ++l) {
                         Transition t(nodes_in_final[l].getNumber() ,trans_symb[i]);
                         node.addTransitions(t);
-                        for (int m = 0; m < nodes_in_final[l].getAcceptance().size(); ++m) {
-                            node.addAcceptance(nodes_in_final[l].getAcceptance()[m]);
-                        }
+                        node.addAcceptance(nodes_in_final[l].getAcceptance());
                     }
                 }
             }
@@ -79,10 +120,17 @@ void add_new_transitions(Node &node, vector<Node> nodes) {
 }
 
 void remove_duplicates(vector<Node> &nodes){
-
+    for (int i = 0; i < nodes.size(); ++i) {
+        for (int j = i + 1; j < nodes.size(); ++j) {
+            if(nodes[i].getNumber() == nodes[j].getNumber()) {
+                nodes.erase(nodes.begin()+j-1);
+            }
+        }
+    }
 }
 
 void e_clousre(vector<Node> &nodes, vector<Transition> trans) {
+    //DFS
     for (int i = 0; i < trans.size() ; ++i) {
         Transition transition = trans[i];
         if(transition.getTransition() == e) {

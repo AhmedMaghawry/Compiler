@@ -22,9 +22,9 @@ public:
 
     void setNumber(string number);
 
-    vector<string> getAcceptance();
+    pair<int,string> getAcceptance();
 
-    void addAcceptance(string acceptance);
+    void addAcceptance(pair<int, string> acceptance);
 
     vector<Transition> getTransitions();
 
@@ -32,7 +32,7 @@ public:
 
 private:
     string name;
-    vector<string> acceptance;
+    pair<int, string> acceptance = {-1, "no"};
     vector<Transition> transitions;
 };
 

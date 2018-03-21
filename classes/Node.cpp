@@ -3,7 +3,6 @@
 //
 
 #include "../headers/Node.h"
-
 Node::Node(string name) : name(name) {}
 
 Node::~Node() {
@@ -18,12 +17,14 @@ void Node::setNumber(string number) {
     Node::name = number;
 }
 
-vector<string> Node::getAcceptance() {
+pair<int, string> Node::getAcceptance() {
     return acceptance;
 }
 
-void Node::addAcceptance(string acceptance) {
-    Node::acceptance.push_back(acceptance);
+void Node::addAcceptance(pair<int, string> acceptance) {
+    pair<int, string> current_acc = getAcceptance();
+    if (current_acc.first == -1 || current_acc.first < acceptance.first)
+        Node::acceptance = acceptance;
 }
 
 vector<Transition> Node::getTransitions() {

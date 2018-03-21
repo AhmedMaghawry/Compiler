@@ -17,6 +17,10 @@ public:
 
 private:
     vector<Node> dfaGraph;
+
+    void run_dfa(vector<Node> *final_graph, vector<Node> nfa_without_clousre);
+
+    Node create_new_node(string basic_string, vector<Node> vector);
 };
 
 
