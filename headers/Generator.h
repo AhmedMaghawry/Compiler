@@ -4,7 +4,8 @@
 
 #ifndef COMPILER_GENERATOR_H
 #define COMPILER_GENERATOR_H
-
+#include "../headers/DFA.h"
+#include "../headers/Reader2.h"
 
 class Generator {
 
