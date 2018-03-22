@@ -30,6 +30,8 @@ public:
 
     void addTransitions(Transition transition);
 
+    void emptyTransitions(string symbole);
+
 private:
     string name;
     pair<int, string> acceptance = {-1, "no"};
