@@ -74,7 +74,7 @@ void test3() {
     Transition tP3("Q","\\L");
     Transition tP4("Q", "b");
     Transition tQ1("P", "a");
-    Transition tQ2("P", "c");
+    //Transition tQ2("P", "c");
     Transition tQ3("Q", "c");
     Transition tQ4("R", "b");
     P.addTransitions(tP1);
@@ -82,7 +82,7 @@ void test3() {
     P.addTransitions(tP3);
     P.addTransitions(tP4);
     Q.addTransitions(tQ1);
-    Q.addTransitions(tQ2);
+    //Q.addTransitions(tQ2);
     Q.addTransitions(tQ3);
     Q.addTransitions(tQ4);
     R.addAcceptance({1,"if"});
@@ -100,7 +100,6 @@ int main() {
 	//RegexParser r;
 	//r.parse_rules();
     test3();
-    //test1();
 	DFA dfa;
 	dfa.convert_from_NFA_to_DFA(graph, symbs);
 	//DFA dfa;

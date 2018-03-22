@@ -4,6 +4,7 @@
 
 #include <queue>
 #include <iostream>
+#include <algorithm>
 #include "../headers/DFA.h"
 
 const string e ="\\L";
@@ -15,7 +16,7 @@ vector<Node> nfa_without_e;
 vector<Node> remove_e_clousre(vector<Node> graph);
 void display_graph(vector<Node> nodes);
 bool isAcceptance(Node node);
-void e_clousre(vector<Node> &nodes, vector<Transition> trans);
+void e_clousre(vector<Node> &nodes, Node &node);
 
 void remove_duplicates(vector<Node> &nodes);
 
@@ -42,15 +43,18 @@ void DFA::convert_from_NFA_to_DFA(vector<Node> graph, vector<string> symbs) {
     for(int i = 0; i < s; i++){
         trans_symb.push_back(symbs[i]);
     }
+    /*Start Remove E Clousre from NFA*/
     vector<Node> nfaGraph_without_clouser = remove_e_clousre(graph);
     nfa_without_e = nfaGraph_without_clouser;
+    cout << "--------------------- NFA without E"<<endl;
     display_graph(nfaGraph_without_clouser);
+    /*End Remove Now we have NFA without E clousre*/
     //Tested Till Here
     vector<Node> dfaGraph_final;
     run_dfa(dfaGraph_final, nfaGraph_without_clouser);
     removeRedundant(dfaGraph_final);
     setDfaGraph(dfaGraph_final);
-    cout << "--------------------- Final"<<endl;
+    cout << "--------------------- Final DFA"<<endl;
     display_graph(getDfaGraph());
 }
 
@@ -74,11 +78,12 @@ void DFA::run_dfa(vector<Node> &final_graph, vector<Node> nfa_without_clousre) {
                 }
             }
             if(name_of_new_node != fi.getNumber()) {
-                Node new_node = create_new_node(name_of_new_node, nodes_to_go);
+                Node new_node = create_new_node(sort_name(name_of_new_node), nodes_to_go);
+                new_node.addAcceptance(n.getAcceptance());
                 n.emptyTransitions(symb);
-                Transition newT(name_of_new_node, symb);
+                Transition newT(sort_name(name_of_new_node), symb);
                 n.addTransitions(newT);
-                if (!isExsist(new_node, q) && new_node.getNumber() != n.getNumber()) {
+                if (!isExsist(new_node, q) && new_node.getNumber() != n.getNumber() && !isExsist_in_list(new_node, final_graph)) {
                     q.push(new_node);
                 }
             } else {
@@ -122,6 +127,19 @@ void DFA::removeRedundant(vector<Node> &list) {
     remove_duplicates(list);
 }
 
+string DFA::sort_name(string basic_string) {
+    sort(basic_string.begin(), basic_string.end());
+    return basic_string;
+}
+
+bool DFA::isExsist_in_list(Node node, vector<Node> final_gra) {
+    for(Node n : final_gra) {
+        if(n.getNumber() == node.getNumber())
+            return true;
+    }
+    return false;
+}
+
 /*
  * Remove the E clousre which take the NFA graph
  * and return NFA but without E clousre
@@ -133,8 +151,9 @@ vector<Node> remove_e_clousre(vector<Node> graph) {
         Node n(graph[i].getNumber());
         vector<Transition> trans = graph[i].getTransitions();
         vector<Node> nodes_by_ebs;
-        nodes_by_ebs.push_back(graph[i]);
-        e_clousre(nodes_by_ebs, trans);
+        Node temp = graph[i];
+        e_clousre(nodes_by_ebs, temp);
+        nodes_by_ebs.push_back(temp);
         remove_duplicates(nodes_by_ebs);
         add_new_transitions(n, nodes_by_ebs);
         res.push_back(n);
@@ -143,22 +162,23 @@ vector<Node> remove_e_clousre(vector<Node> graph) {
 }
 
 void add_new_transitions(Node &node, vector<Node> nodes) {
-    for (int i = 0; i < trans_symb.size(); ++i) {
-        for (int j = 0; j < nodes.size(); ++j) {
-            for (int k = 0; k < nodes[j].getTransitions().size(); ++k) {
-                if(nodes[j].getTransitions()[k].getTransition() == trans_symb[i]) {
+    for (string symb : trans_symb) {
+        for (Node n : nodes) {
+            for (Transition t : n.getTransitions()) {
+                if(t.getTransition() == symb) {
                     vector<Node> nodes_in_final;
-                    Node node_intermediate = getNode(nodes[j].getTransitions()[k].getTo(), nfaGraph);
+                    Node node_intermediate = getNode(t.getTo(), nfaGraph);
                     nodes_in_final.push_back(node_intermediate);
-                    e_clousre(nodes_in_final, node_intermediate.getTransitions());
+                    e_clousre(nodes_in_final, node_intermediate);
                     remove_duplicates(nodes_in_final);
-                    for (int l = 0; l < nodes_in_final.size(); ++l) {
-                        Transition t(nodes_in_final[l].getNumber() ,trans_symb[i]);
-                        node.addTransitions(t);
-                        node.addAcceptance(nodes_in_final[l].getAcceptance());
+                    for (Node final_node : nodes_in_final) {
+                        Transition tran(final_node.getNumber() ,symb);
+                        node.addTransitions(tran);
+                        //node.addAcceptance(final_node.getAcceptance());
                     }
                 }
             }
+            node.addAcceptance(n.getAcceptance());
         }
     }
 }
@@ -173,14 +193,14 @@ void remove_duplicates(vector<Node> &nodes){
     }
 }
 
-void e_clousre(vector<Node> &nodes, vector<Transition> trans) {
+void e_clousre(vector<Node> &nodes, Node &node) {
     //DFS
-    int s = trans.size();
-    for (int i = 0; i < s ; ++i) {
-        Transition transition = trans[i];
+    for (Transition transition : node.getTransitions()) {
         if(transition.getTransition() == e) {
-            nodes.push_back(getNode(transition.getTo(), nfaGraph));
-            e_clousre(nodes, getNode(transition.getTo(), nfaGraph).getTransitions());
+            Node to_go_node = getNode(transition.getTo(), nfaGraph);
+            e_clousre(nodes, to_go_node);
+            node.addAcceptance(to_go_node.getAcceptance());
+            nodes.push_back(to_go_node);
         }
     }
 }
