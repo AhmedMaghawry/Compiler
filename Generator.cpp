@@ -117,7 +117,7 @@ void max_l(char c) {
 			}
 		}
 
-		if (!dfa[new_t].first.getNumber().compare("fi")) {
+		if (!dfa[new_t].first.getNumber().compare("")) {
 
 			if (bo_last_accept) {
 
