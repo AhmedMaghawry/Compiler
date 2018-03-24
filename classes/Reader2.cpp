@@ -26,7 +26,7 @@ void Writer:: writeLinesToFile(string fileName, vector <string> lines)
         const char * consValue =  value.c_str();
         file_obj.write(consValue, value.size());
         file_obj << "\n";
-       // cout <<"hellllo"<<endl;
+        // cout <<"hellllo"<<endl;
     }
     file_obj.close();
 }
@@ -100,7 +100,7 @@ vector <char> Reader:: readStringtoCharacters(string line)
 
     return answer;
 }
-int main1()
+int main11()
 {
     Reader R1 ;
 
@@ -111,4 +111,3 @@ int main1()
     W1.writeLinesToFile("output.txt",ans);
     return 0;
 }
-

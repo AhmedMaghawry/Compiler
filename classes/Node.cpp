@@ -3,7 +3,10 @@
 //
 
 #include "../headers/Node.h"
-Node::Node(string name) : name(name) {}
+Node::Node(string name) : name(name) {
+    groupNumber="-1";
+    totalgroupNumber="";
+}
 
 Node::~Node() {
 
@@ -46,4 +49,23 @@ void Node::emptyTransitions(string symbole) {
             i--;
         }
     }
+}
+void Node::setGroupNumber (string groupNum){
+    groupNumber=groupNum;
+}
+
+string Node::getGroupNumber (){
+    return groupNumber;
+}
+
+void Node::setTotalGroupNumber(string totalNum) {
+    totalgroupNumber=totalNum;
+}
+
+string Node::getTotalGroupNumber (){
+    return  totalgroupNumber;
+}
+
+void Node::setTransitions(vector<Transition> trans) {
+    transitions = trans;
 }

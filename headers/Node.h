@@ -32,10 +32,31 @@ public:
 
     void emptyTransitions(string symbole);
 
+    void setTransitions(vector<Transition> trans);
+
+    void setGroupNumber (string groupNum);
+
+    string getGroupNumber ();
+
+    void setTotalGroupNumber (string totalNum);
+
+    string getTotalGroupNumber ();
+    bool operator < (const Node& e) const {
+        bool result = true;
+        if( (groupNumber == e.groupNumber) &&
+            totalgroupNumber== e.totalgroupNumber ) {
+            result = false;
+        }
+        return result;
+    }
+
+
 private:
     string name;
     pair<int, string> acceptance = {-1, "no"};
     vector<Transition> transitions;
+    string groupNumber;
+    string totalgroupNumber;
 };
 
 

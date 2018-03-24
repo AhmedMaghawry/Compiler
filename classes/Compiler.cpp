@@ -11,6 +11,7 @@
 #include "../headers/RegexParser.h"
 #include "../headers/Node.h"
 #include "../headers/DFA.h"
+#include "../headers/MinimizedDFA.h"
 
 using namespace std;
 
@@ -94,14 +95,26 @@ void test3() {
     symbs.push_back("c");
 }
 
+void display_graph_temp(vector<Node> nodes) {
+    for (Node node : nodes) {
+        for (Transition t : node.getTransitions()) {
+            cout << node.getNumber() << "-- " << t.getTransition() << " --> " << t.getTo() << endl;
+        }
+    }
+}
+
 int main() {
 
 	//NFA nfa;
 	//RegexParser r;
 	//r.parse_rules();
-    test3();
+    test2();
 	DFA dfa;
 	dfa.convert_from_NFA_to_DFA(graph, symbs);
+    MinimizedDFA min(dfa.getDfaGraph());
+    cout << "Minimized Graph -------------------->" << endl;
+    vector<Node> minimized = min.evaluateMinimized();
+    display_graph_temp(minimized);
 	//DFA dfa;
 	//dfa.convert_from_NFA_to_DFA(nfa.getNfaTable());
 	//Generator generator;

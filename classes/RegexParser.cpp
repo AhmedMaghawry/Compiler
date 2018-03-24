@@ -22,7 +22,7 @@ RegexParser::~RegexParser() {
 }
 
 std::string ReplaceAll(std::string str, const std::string& from,
-		const std::string& to) {
+					   const std::string& to) {
 	size_t start_pos = 0;
 	while ((start_pos = str.find(from, start_pos)) != std::string::npos) {
 		str.replace(start_pos, from.length(), to);
@@ -38,33 +38,33 @@ void RegexParser::parse_rules() {
 	vector<string> inpute = R1.readingLines;
 	for (int i = 0; i < inpute.size(); i++) {
 		inpute[i].erase(std::remove(inpute[i].begin(), inpute[i].end(), '\\'),
-				inpute[i].end());
+						inpute[i].end());
 
 		switch (inpute[i][0]) {
-		case '[':
-			Punctuation(inpute[i]);
-			break;
-		case '{':
-			Keyword(inpute[i]);
-			break;
-		default:
-			string s = inpute[i];
-			for (int j = 0; j < inpute[i].size(); ++j) {
-				char c = inpute[i][j];
-				if (c == '=') {
-					string name = inpute[i].substr(0, j );
-					string def = inpute[i].substr(j + 1, inpute[i].size() - 2);
-					regular_definitions(name, def);
-					break;
-				}
-				if (c == ':') {
-					string name = inpute[i].substr(0, j);
-					string exp = inpute[i].substr(j + 1, inpute[i].size() - 2);
-					regular_expressions(name, exp);
+			case '[':
+				Punctuation(inpute[i]);
+				break;
+			case '{':
+				Keyword(inpute[i]);
+				break;
+			default:
+				string s = inpute[i];
+				for (int j = 0; j < inpute[i].size(); ++j) {
+					char c = inpute[i][j];
+					if (c == '=') {
+						string name = inpute[i].substr(0, j );
+						string def = inpute[i].substr(j + 1, inpute[i].size() - 2);
+						regular_definitions(name, def);
+						break;
+					}
+					if (c == ':') {
+						string name = inpute[i].substr(0, j);
+						string exp = inpute[i].substr(j + 1, inpute[i].size() - 2);
+						regular_expressions(name, exp);
 
-					break;
+						break;
+					}
 				}
-			}
 //			for (char c : s) {
 //				if (c == '=') {
 //					regular_definitions(inpute[i]);
@@ -76,7 +76,7 @@ void RegexParser::parse_rules() {
 //				}
 //			}
 
-			break;
+				break;
 		}
 
 	}

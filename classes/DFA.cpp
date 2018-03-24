@@ -2,7 +2,6 @@
 // Created by default on 19/03/18.
 //
 
-#include <queue>
 #include <iostream>
 #include <algorithm>
 #include "../headers/DFA.h"
