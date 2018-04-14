@@ -14,10 +14,10 @@ public:
     vector<Node> getDfaGraph();
     void convert_from_NFA_to_DFA(vector<Node> nfaGraph, vector<string> symbs);
     void setDfaGraph(vector<Node> dfaGraph);
+    vector<pair<Node, vector<int>>> get_saeed_array(vector<Node> nodes);
 
 private:
     vector<Node> dfaGraph;
-
     void run_dfa(vector<Node> &final_graph, vector<Node> nfa_without_clousre);
 
     Node create_new_node(string basic_string, vector<Node> vector);

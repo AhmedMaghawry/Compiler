@@ -1,0 +1,9 @@
+int sum1    ,count,pass,mnt;
+	while(pass!=10)
+{
+pass=pass+1&
+}
+if(count==0)
+mnt=10;
+else
+mnt=30;

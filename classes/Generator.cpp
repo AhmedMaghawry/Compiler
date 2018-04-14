@@ -1,15 +1,15 @@
 #include "../headers/Generator.h"
 
 
-void parse(char c, int mode);
+//void parse(char c, int mode);
 
-void intialize_scan() {
+void Generator::intialize_scan() {
     s2_cur = s_cur = "";
     bo_last_accept = false;
     cur_Node = START_NODE;
 }
 
-void add_error() {
+void Generator::add_error() {
 
     string ms = "line ";
     ms += (cur_line + 48);
@@ -21,7 +21,7 @@ void add_error() {
     intialize_scan();
 
 }
-void max_l_test(char c) {
+void Generator::max_l_test(char c) {
 //	//	Writer w;
     string state2 = "no";
     string state = "id";		//  dfa[cur_Node].first.getAcceptance().second;
@@ -84,7 +84,8 @@ void max_l_test(char c) {
 
 }
 
-void max_l(char c) {
+
+void Generator::max_l(char c) {
 
     string state = dfa[cur_Node].first.getAcceptance().second;
     if (c == ENDL) {			//end of token
@@ -109,15 +110,15 @@ void max_l(char c) {
             intialize_scan();
         }
     } else {			//
-        int new_t;			//= dfa[cur_Node].second[c];
+        int new_t= dfa[cur_Node].second[c];
         if (state.compare("no")) {
             if (s2_cur.size()) {			//test
                 last_accept = make_pair(state, s2_cur);
                 bo_last_accept = true;
             }
         }
-
-        if (!dfa[new_t].first.getNumber().compare("")) {
+        //TODO: Check name
+        if (new_t==-1) {
 
             if (bo_last_accept) {
 
@@ -131,14 +132,69 @@ void max_l(char c) {
             } else
                 add_error();
         } else {
-            cur_Node = new_t;
+            cur_Node = mp_[new_t];
             s2_cur += c;
         }
     }
 
 }
 
-void parse(char c, int mode) {
+
+////void Generator::max_l(char c) {
+//void max_ll(char c) {
+//    string state = dfa[cur_Node].first.getAcceptance().second;
+//    if (c == ENDL) {			//end of token
+//        if (!state.compare("no")) {			//test 2
+//
+//            if (bo_last_accept) {
+//                pair<string, string> ll = last_accept;
+//                symbol_table.push_back(last_accept);
+//                output.push_back(last_accept.first);
+//                string s_cur_ = s_cur.substr(last_accept.second.length());
+//                intialize_scan();
+//                s_cur = s_cur_;
+//                parse(' ', 1);
+//            } else
+//                add_error();
+//
+//            //cout << "tooken not accepted" << endl;
+//        } else {
+//
+//            symbol_table.push_back(make_pair(state, s2_cur));
+//            output.push_back(state);
+//            intialize_scan();
+//        }
+//    } else {			//
+//        int new_t= dfa[cur_Node].second[c];
+//        if (state.compare("no")) {
+//            if (s2_cur.size()) {			//test
+//                last_accept = make_pair(state, s2_cur);
+//                bo_last_accept = true;
+//            }
+//        }
+//        //TODO: Check name
+//        if (new_t==0) {
+//
+//            if (bo_last_accept) {
+//
+//                symbol_table.push_back(last_accept);
+//                output.push_back(last_accept.first);
+//                string s_cur_ = s_cur.substr(last_accept.second.length());
+//                intialize_scan();
+//                s_cur = s_cur_;
+//                parse(' ', 2);
+//                return;
+//            } else
+//                add_error();
+//        } else {
+//            cur_Node = new_t-1;
+//            s2_cur += c;
+//        }
+//    }
+//
+//}
+
+void Generator::parse(char c, int mode) {
 
     switch (mode) {
 
@@ -173,11 +229,18 @@ void parse(char c, int mode) {
 
 }
 
-void scan() {
+void Generator::maping(){
+    for (int i=0;i<dfa.size();i++) {
+        mp_[stoi(dfa[i].first.getNumber())]=i;
+    }
+}
+void Generator::scan() {
 
     Reader R1;
     R1.readFiletoLines("code.txt");
     vector<string> inpute = R1.readingLines;
+    maping();
+    intialize_scan();
     for (cur_line = 0; cur_line < inpute.size(); ++cur_line) {
         for (char c : inpute[cur_line]) {
             parse(c, 0);
@@ -188,7 +251,7 @@ void scan() {
 
 }
 
-void write_outputs() {
+void Generator::write_outputs() {
 
     Writer w;
     w.writeLinesToFile("outpute.txt", output);
@@ -205,13 +268,13 @@ void write_outputs() {
     w.writeLinesToFile("sympoltable.txt", sym);
 }
 
-void lexal_analizer_run() {
+void Generator::lexal_analizer_run() {
     scan();
     write_outputs();
 }
 
-
-/*int main() {
-    lexal_analizer_run();
-    return 0;
-}*/
+//
+//int main_() {
+//    Generator::lexal_analizer_run();
+//    return 0;
+//}

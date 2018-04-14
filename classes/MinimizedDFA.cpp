@@ -49,7 +49,9 @@ vector <Node> MinimizedDFA::evaluateMinimized() {
 
     }
     updateMinimizedDFA(set1);
+    cout<<"hereeeee\n";
     while (!isMinimum(set1)){
+        cout<<"here"<<endl;
         updateMinimizedDFA(set1);
     }
 //    for(int i=0;i<set1.size();i++){
@@ -190,7 +192,7 @@ vector<Node> MinimizedDFA:: createMinDFA (vector <Node> & all) {
     start.addAcceptance(all[firstNodeIndex].getAcceptance());
     start.setGroupNumber(all[firstNodeIndex].getGroupNumber());
     start.setTotalGroupNumber(all[firstNodeIndex].getTotalGroupNumber());
-    for(int j=0;j<states.length();j++) {
+    for(int j=0;j<256;j++) {
         to=states[j];
         Transition minTran=Transition(to,all[firstNodeIndex].getTransitions()[j].getTransition());
         // cout<<all[firstNodeIndex].getTransitions()[j].getTransition()<<" here1\n";

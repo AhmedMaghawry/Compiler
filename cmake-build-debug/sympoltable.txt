@@ -1,0 +1,9 @@
+line 0:  error        |      int
+line 0:  error        |      
+line 0:  error        |      =
+line 0:  error        |      
+line 0:  error        |      
+line 1:  error        |      int
+line 1:  error        |      
+line 1:  error        |      =
+line 1:  error        |      

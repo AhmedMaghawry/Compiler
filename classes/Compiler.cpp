@@ -12,6 +12,9 @@
 #include "../headers/Node.h"
 #include "../headers/DFA.h"
 #include "../headers/MinimizedDFA.h"
+#include "../headers/PostfixInfix.h"
+#include "../headers/DFA.h"
+#include "../headers/Generator.h"
 
 using namespace std;
 
@@ -103,12 +106,13 @@ void display_graph_temp(vector<Node> nodes) {
     }
 }
 
-int main() {
+int main1() {
 
 	//NFA nfa;
 	//RegexParser r;
 	//r.parse_rules();
-    test2();
+//    test3();
+
 	DFA dfa;
 	dfa.convert_from_NFA_to_DFA(graph, symbs);
     MinimizedDFA min(dfa.getDfaGraph());
@@ -127,4 +131,156 @@ int main() {
 //	    Writer W1 ;
 //	    W1.writeLinesToFile("output.txt",ans);
 	    return 0;
+}
+
+int main() {
+    /*PostfixInfix p;
+    vector<string> tests;
+    tests.push_back("c|d");
+    tests.push_back("cd");
+    tests.push_back("c+");
+    tests.push_back("c*");
+    tests.push_back("a-z");
+    tests.push_back("c|d|e");
+    for(int i = 0 ;i < tests.size(); i++){
+        cout<<tests[i]<<endl;
+        vector<string> t;
+        for(int j = 0 ;j < tests[i].size(); j++){
+            string tmp(1, tests[i][j]);
+            t.push_back(tmp);
+        }
+        p.regular_expressions("te" + i, t);
+        cout<<"-----------------------------------------------"<<endl;
+    }*/
+
+    /*PostfixInfix p;
+    vector<string> tests;
+    tests.push_back("Ab(c|d)");
+    tests.push_back("Abbb(c|d)xyz(c|d|e|r)");
+    tests.push_back("Abbb(c|d)xyz(c|d|e|r)");
+    tests.push_back("Ab(c|d*)");
+    tests.push_back("Ab(c|d*)+get");
+    tests.push_back("A-T|543");
+    tests.push_back("Ab|(c|d*)+|get");
+    tests.push_back("A*b+vkhjkg");
+
+
+
+    for(int i = 0 ;i < tests.size(); i++){
+        cout<<tests[i]<<endl;
+        vector<string> t;
+        for(int j = 0 ;j < tests[i].size(); j++){
+            string tmp(1, tests[i][j]);
+            t.push_back(tmp);
+        }
+        string tee = "te";
+        tee.append(std::to_string(i));
+        p.regular_expressions(tee, t,false);
+        cout<<"-----------------------------------------------"<<endl;
+    }
+
+    p.collect();*/
+    /*
+    DFA dfa;
+    dfa.convert_from_NFA_to_DFA(p.get_NFA().getNfaTable(), p.get_symbol_table());
+    MinimizedDFA min(dfa.getDfaGraph());
+    cout << "Minimized Graph -------------------->" << endl;
+    vector<Node> minimized = min.evaluateMinimized();
+    display_graph_temp(minimized);*/
+    //vector<string> t;
+    //t.push_back("te");
+    //t.push_back("+");
+    //t.push_back("test");
+
+    //t.push_back("*");
+    //p.regular_expressions("hdl", t);
+    /*PostfixInfix p;
+    vector<string> tests;
+    tests.push_back("A*");
+
+
+
+    for(int i = 0 ;i < tests.size(); i++){
+        cout<<tests[i]<<endl;
+        vector<string> t;
+        for(int j = 0 ;j < tests[i].size(); j++){
+            string tmp(1, tests[i][j]);
+            t.push_back(tmp);
+        }
+        p.regular_definitions("te", t);
+        cout<<"-----------------------------------------------"<<endl;
+    }
+    vector<string> t;
+    t.push_back("te");
+    t.push_back("*");
+    p.regular_expressions("hdk",t);*/
+
+    /*PostfixInfix p;
+    vector<string> tests;
+    tests.push_back("Ab(c|d)");
+    for(int i = 0 ;i < tests.size(); i++){
+        cout<<tests[i]<<endl;
+        vector<string> t;
+        for(int j = 0 ;j < tests[i].size(); j++){
+            string tmp(1, tests[i][j]);
+            t.push_back(tmp);
+        }
+        string tee = "te";
+        tee.append(std::to_string(i));
+        p.regular_expressions(tee, t,false);
+        cout<<"-----------------------------------------------"<<endl;
+    }
+    p.collect();
+    NFA a = p.get_NFA();*/
+
+
+
+
+    /*DFA dfa;
+    dfa.convert_from_NFA_to_DFA(a.getNfaTable(), r.get_symbol_table());
+    vector<Node> m = dfa.getDfaGraph();
+    //MinimizedDFA min(m);
+    cout << "Minimized Graph -------------------->" << endl;
+    //vector<Node> minimized = min.evaluateMinimized();
+    //display_graph_temp(minimized);
+    Generator g;
+    g.START_NODE = stoi(m[0].getNumber());
+    g.dfa = dfa.get_saeed_array(m);
+    g.lexal_analizer_run();*/
+
+    //write the regular expression you want in the file input.txt
+    /*RegexParser r;
+    NFA a = r.parse_rules();*/
+
+
+    PostfixInfix p;
+    vector<string> tests;
+    tests.push_back("Ab(c|d)");
+    tests.push_back("Abbb(c|d)xyz(c|d|e|r)");
+    tests.push_back("Abbb(c|d)xyz(c|d|e|r)");
+    tests.push_back("Ab(c|d*)");
+    tests.push_back("Ab(c|d*)+get");
+    tests.push_back("A-T|543");
+    tests.push_back("Ab|(c|d*)+|get");
+    tests.push_back("A*b+vkhjkg");
+
+
+
+    for(int i = 0 ;i < tests.size(); i++){
+        cout<<tests[i]<<endl;
+        vector<string> t;
+        for(int j = 0 ;j < tests[i].size(); j++){
+            string tmp(1, tests[i][j]);
+            t.push_back(tmp);
+        }
+        string tee = "te";
+        tee.append(std::to_string(i));
+        p.regular_expressions(tee, t,false);
+        cout<<"-----------------------------------------------"<<endl;
+    }
+
+    p.collect();
+    NFA n = p.get_NFA();
+
+    return 0;
 }
