@@ -35,20 +35,6 @@ void DFA::setDfaGraph(vector<Node> dfa) {
     dfaGraph = dfa;
 }
 
-void renaming(vector<Node> &graphy) {
-    map<string, string> mapy;
-    mapy.insert(pair <string, string> (fi.getNumber(),"0"));
-    for(int i = 1; i <= graphy.size(); i++){
-        mapy.insert(pair <string, string> (graphy[i - 1].getNumber(),to_string(i)));
-    }
-    for(int i = 0; i < graphy.size(); i++) {
-        for(int j = 0; j < graphy[i].getTransitions().size(); j++) {
-            string tt = mapy[graphy[i].getTransitions()[j].getTo()];
-            graphy[i].getTransitions()[j].setTo(tt);
-        }
-    }
-}
-
 /*
  * Use subset Construction Algorithm to convert
  * the graph from NFA to DFA as a vector

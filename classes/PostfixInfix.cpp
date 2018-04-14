@@ -11,11 +11,11 @@
 #include "../headers/Evaluator.h"
 #include <iostream>
 
-vector<string> symbols_ezzat;
+
+vector<string> symbolls;
 
 void PostfixInfix::regular_definitions(string name, vector<string> words, bool pun) {
     empty_all();
-    symbols_ezzat = words;
     NFA definition = construct_regular_expression(words, pun);
     name = trim(name);
     def.insert(pair<string, NFA>(name, definition));
@@ -45,7 +45,6 @@ void PostfixInfix::Keyword(vector<string> words, bool pun) {
         }
         regular_expressions(words[0], tmp, pun);
     }
-
 }
 void PostfixInfix::Punctuation(vector<string> words, bool pun) {
     words = factorize(words);
@@ -242,14 +241,15 @@ string PostfixInfix::trim(string str)
 
 
 vector<string> PostfixInfix::get_symbol_table(){
-    /*if(symbol_table.size() == 0){
+    if(symbol_table.size() == 0){
         for(int i = 0 ;i < 256; i++){
             char x = i;
             string tmp(1, x);
             symbol_table.push_back(tmp);
         }
-    }*/
-    return symbols_ezzat;
+    }
+    return symbol_table;
+    //return symbolls;
 }
 
 NFA PostfixInfix::construct_definition(vector<string> words){

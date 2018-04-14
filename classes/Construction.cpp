@@ -22,3 +22,5 @@ NFA Construction::construct(string exp) {
     return nfa;
 
 }
+
+

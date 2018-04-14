@@ -117,7 +117,17 @@ NFA Evaluator::scaleUP(NFA a, int n) {
 
 
 NFA Evaluator::dash(NFA a, NFA b){
+    Node start_node = a.getStartNode();
     string start = a.getStartNode().getTransitions()[0].getTransition();
+    string end = b.getStartNode().getTransitions()[0].getTransition();
+    for(int i = start.at(0) + 1 ;i <= end.at(0); i++){
+        char tmp = i;
+        string str(1, tmp);
+        start_node.addTransitions(Transition(a.getEndNode().getNumber(),str));
+    }
+    Evaluator::printGraph(a);
+    return a;
+    /*string start = a.getStartNode().getTransitions()[0].getTransition();
     string end = b.getStartNode().getTransitions()[0].getTransition();
     NFA result = Construction::construct(start);
     for(int i = start.at(0) + 1 ;i <= end.at(0); i++){
@@ -126,7 +136,8 @@ NFA Evaluator::dash(NFA a, NFA b){
         result = oring(result, Construction::construct(str));
     }
     Evaluator::printGraph(result);
-    return result;
+    return result;*/
+
 }
 
 /*

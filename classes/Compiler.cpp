@@ -14,6 +14,7 @@
 #include "../headers/MinimizedDFA.h"
 #include "../headers/PostfixInfix.h"
 #include "../headers/Generator.h"
+#include "../headers/Minimize_Ezzat.h"
 //#include "../headers/Generator.h"
 
 using namespace std;
@@ -38,6 +39,18 @@ void addLettersToNode(Node &node, const char to[]) {
         Transition t(to, res);
         node.addTransitions(t);
     }
+    Transition t(to, "A");
+    Transition t1(to, "B");
+    Transition t2(to, "C");
+    Transition t3(to, "D");
+    Transition t4(to, "E");
+    Transition t5(to, "F");
+    node.addTransitions(t);
+    node.addTransitions(t1);
+    node.addTransitions(t2);
+    node.addTransitions(t3);
+    node.addTransitions(t4);
+    node.addTransitions(t5);
 }
 
 void addDigitsToSymboles() {
@@ -388,53 +401,130 @@ void test7() {
     addDigitsToSymboles();
 }
 
+void test8() {
+    Node n1("1");
+    Node n2("2");
+    Node n3("3");
+    Node n4("4");
+    Node n5("5");
+    Transition t11("1","0");
+    Transition t12("2", "0");
+    Transition t13("3", "0");
+    Transition t14("4", "0");
+    Transition t14_1("4", "1");
+    Transition t15("5", "0");
+    Transition t15_1("5", "1");
+    Transition t23("3", "0");
+    Transition t25("5", "1");
+    Transition t32("2", "1");
+    Transition t45("5","0");
+    n5.addAcceptance({1,"if"});
+    n1.addTransitions(t11);
+    n1.addTransitions(t12);
+    n1.addTransitions(t13);
+    n1.addTransitions(t14);
+    n1.addTransitions(t14_1);
+    n1.addTransitions(t15);
+    n1.addTransitions(t15_1);
+    n2.addTransitions(t23);
+    n2.addTransitions(t25);
+    n3.addTransitions(t32);
+    n4.addTransitions(t45);
+    graph.push_back(n1);
+    graph.push_back(n2);
+    graph.push_back(n3);
+    graph.push_back(n4);
+    graph.push_back(n5);
+    symbs.push_back("0");
+    symbs.push_back("1");
+}
+
+void test9() {
+    Node n1("1");
+    Node n2("2");
+    Node n3("3");
+    Node n4("4");
+    Node n5("5");
+    Node n6("6");
+    Transition t12("2","0");
+    Transition t13("3", "1");
+    Transition t21("1", "0");
+    Transition t24("4", "1");
+    Transition t35("5","0");
+    Transition t36("6", "1");
+    Transition t45("5", "0");
+    Transition t46("6", "1");
+    Transition t55("5", "0");
+    Transition t56("6", "1");
+    Transition t66("6", "0");
+    Transition t66_1("6", "1");
+    n3.addAcceptance({1,"if"});
+    n4.addAcceptance({2,"if2"});
+    n5.addAcceptance({3,"if3"});
+    n1.addTransitions(t12);
+    n1.addTransitions(t13);
+    n2.addTransitions(t21);
+    n2.addTransitions(t24);
+    n3.addTransitions(t35);
+    n3.addTransitions(t36);
+    n4.addTransitions(t45);
+    n4.addTransitions(t46);
+    n5.addTransitions(t55);
+    n5.addTransitions(t56);
+    n6.addTransitions(t66);
+    n6.addTransitions(t66_1);
+    graph.push_back(n1);
+    graph.push_back(n2);
+    graph.push_back(n3);
+    graph.push_back(n4);
+    graph.push_back(n5);
+    graph.push_back(n6);
+    symbs.push_back("0");
+    symbs.push_back("1");
+}
+
 void display_graph_temp(vector<Node> nodes) {
     for (Node node : nodes) {
         for (Transition t : node.getTransitions()) {
-            cout << node.getNumber() << "-- " << t.getTransition() << " --> " << t.getTo() << endl;
+            cout << node.getNumber() << "-- " << t.getTransition() << " --> " << t.getTo() << "--" << node.getAcceptance().second << "--" << node.getGroupNumber() << endl;
         }
     }
 }
 
-int main() {
-    test7();
+int main_() {
+    test8();
 	DFA dfa;
 	dfa.convert_from_NFA_to_DFA(graph, symbs);
     //MinimizedDFA min(dfa.getDfaGraph());
     cout << "Minimized Graph -------------------->" << endl;
     //vector<Node> minimized = min.evaluateMinimized();
-    //display_graph_temp(minimized);
+    Minimize_Ezzat m;
+    m.init_mini(dfa.getDfaGraph(), symbs);
+    display_graph_temp(m.getMinimize());
     return 0;
 }
 
-int mainqwe() {
-    /*PostfixInfix p;
+int main() {
+    test9();
+    Minimize_Ezzat m;
+    m.init_mini(graph, symbs);
+    display_graph_temp(m.getMinimize());
+    return 0;
+}
+
+int main2() {
+    PostfixInfix p;
     vector<string> tests;
-    tests.push_back("(a|b)*abb");
-    for(int i = 0 ;i < tests.size(); i++){
-        cout<<tests[i]<<endl;
-        vector<string> t;
-        for(int j = 0 ;j < tests[i].size(); j++){
-            string tmp(1, tests[i][j]);
-            t.push_back(tmp);
-        }
-        p.regular_expressions("te" + i, t, false);
-        cout<<"-----------------------------------------------"<<endl;
-    }*/
-    RegexParser r;
-    NFA a = r.parse_rules();
-    /*vector<string> tests;
-    tests.push_back("(a|b)*abb");
-    /*tests.push_back("Abbb(c|d)xyz(c|d|e|r)");
+    tests.push_back("Ab(c|d)");
+    tests.push_back("Abbb(c|d)xyz(c|d|e|r)");
     tests.push_back("Abbb(c|d)xyz(c|d|e|r)");
     tests.push_back("Ab(c|d*)");
     tests.push_back("Ab(c|d*)+get");
     tests.push_back("A-T|543");
     tests.push_back("Ab|(c|d*)+|get");
-    tests.push_back("a|b");*/
+    tests.push_back("A*b+vkhjkg");
 
-
-    /*for(int i = 0 ;i < tests.size(); i++){
+    for(int i = 0 ;i < tests.size(); i++){
         cout<<tests[i]<<endl;
         vector<string> t;
         for(int j = 0 ;j < tests[i].size(); j++){
@@ -443,52 +533,12 @@ int mainqwe() {
         }
         string tee = "te";
         tee.append(std::to_string(i));
-        pe.regular_expressions(tee, t, false);
+        p.regular_expressions(tee, t,false);
         cout<<"-----------------------------------------------"<<endl;
     }
-
-    pe.collect();*/
-
-    DFA dfa2;
-    dfa2.convert_from_NFA_to_DFA(a.getNfaTable(), r.get_symbol_table());
-    MinimizedDFA min(dfa2.getDfaGraph());
-    cout << "Minimized Graph -------------------->" << endl;
-    /*vector<Node> minimized = min.evaluateMinimized();
-    display_graph_temp(minimized);
-    Generator generator;
-    generator.START_NODE=stoi(minimized[0].getNumber());
-    //generator.dfa = dfa2.get_saeed_array(minimized);
-    //generator.lexal_analizer_run();
-    //vector<string> t;
-    //t.push_back("te");
-    //t.push_back("+");
-    //t.push_back("test");
-
-    //t.push_back("*");
-    //p.regular_expressions("hdl", t);
-    /*PostfixInfix p;
-    vector<string> tests;
-    tests.push_back("A*");
-
-
-
-    for(int i = 0 ;i < tests.size(); i++){
-        cout<<tests[i]<<endl;
-        vector<string> t;
-        for(int j = 0 ;j < tests[i].size(); j++){
-            string tmp(1, tests[i][j]);
-            t.push_back(tmp);
-        }
-        p.regular_definitions("te", t);
-        cout<<"-----------------------------------------------"<<endl;
-    }
-    vector<string> t;
-    t.push_back("te");
-    t.push_back("*");
-    p.regular_expressions("hdk",t);*/
-//
-//    RegexParser r;
-//    r.parse_rules();
-
+    p.collect();
+    NFA n = p.get_NFA();
+    DFA dfa;
+    dfa.convert_from_NFA_to_DFA(n.getNfaTable(), p.get_symbol_table());
     return 0;
 }
