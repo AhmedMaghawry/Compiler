@@ -491,38 +491,32 @@ void display_graph_temp(vector<Node> nodes) {
     }
 }
 
-int main_() {
-    test8();
+int main0() {
+    test7();
 	DFA dfa;
 	dfa.convert_from_NFA_to_DFA(graph, symbs);
     //MinimizedDFA min(dfa.getDfaGraph());
     cout << "Minimized Graph -------------------->" << endl;
     //vector<Node> minimized = min.evaluateMinimized();
     Minimize_Ezzat m;
-    m.init_mini(dfa.getDfaGraph(), symbs);
+    m.init_mini(dfa.getDfaGraph());
+    display_graph_temp(m.getMinimize());
+    return 0;
+}
+
+int main1() {
+    test9();
+    Minimize_Ezzat m;
+    m.init_mini(graph);
     display_graph_temp(m.getMinimize());
     return 0;
 }
 
 int main() {
-    test9();
-    Minimize_Ezzat m;
-    m.init_mini(graph, symbs);
-    display_graph_temp(m.getMinimize());
-    return 0;
-}
-
-int main2() {
     PostfixInfix p;
     vector<string> tests;
-    tests.push_back("Ab(c|d)");
-    tests.push_back("Abbb(c|d)xyz(c|d|e|r)");
-    tests.push_back("Abbb(c|d)xyz(c|d|e|r)");
-    tests.push_back("Ab(c|d*)");
-    tests.push_back("Ab(c|d*)+get");
-    tests.push_back("A-T|543");
-    tests.push_back("Ab|(c|d*)+|get");
-    tests.push_back("A*b+vkhjkg");
+    //tests.push_back("(ab*)*");
+    tests.push_back("(a|b)*abb(a|b)*");
 
     for(int i = 0 ;i < tests.size(); i++){
         cout<<tests[i]<<endl;
@@ -539,6 +533,12 @@ int main2() {
     p.collect();
     NFA n = p.get_NFA();
     DFA dfa;
-    dfa.convert_from_NFA_to_DFA(n.getNfaTable(), p.get_symbol_table());
+    symbs.push_back("a");
+    symbs.push_back("b");
+    dfa.convert_from_NFA_to_DFA(n.getNfaTable(), symbs);
+    Minimize_Ezzat m;
+    m.init_mini(dfa.getDfaGraph());
+    cout << "-------------Min----------------" << endl;
+    display_graph_temp(m.getMinimize());
     return 0;
 }

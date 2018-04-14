@@ -13,7 +13,7 @@ class Minimize_Ezzat {
 public:
     vector<Node> graphy;
     vector<Node> minimized;
-    void init_mini(vector<Node> graph, vector<string> symboles);
+    void init_mini(vector<Node> graph);
     void partition();
 
     bool areEqual(vector<Node> first, vector<Node> second);

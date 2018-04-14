@@ -208,6 +208,11 @@ void e_clousre(vector<Node> &nodes, Node &node) {
 }
 
 Node getNode(string node_name, vector<Node> list) {
+
+    if (node_name == "-1") {
+        return fi;
+    }
+
     for(Node i : list) {
         if(i.getNumber() == node_name)
             return i;
@@ -252,8 +257,8 @@ vector<pair<Node, vector<int>>> DFA::get_saeed_array(vector<Node> nodes) {
 
 void DFA::run_dfa(vector<Node> &final_graph, vector<Node> nfa_without_clousre) {
     Node start_node = nfa_without_clousre[0];
-    int counter = 2;
-    mapy.insert(pair<string, string>(fi.getNumber(), "0"));
+    int counter = 1;
+    mapy.insert(pair<string, string>(fi.getNumber(), "-1"));
     queue<Node> q;
     q.push(start_node);
     //BFS search

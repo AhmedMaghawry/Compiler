@@ -6,11 +6,11 @@
 #include "../headers/Minimize_Ezzat.h"
 
 int counter = 0;
-map<string, bool> mape;
+map<string, string> mape;
 
 Node getNode(string basic_string, vector<Node> list);
 
-void Minimize_Ezzat::init_mini(vector<Node> graph, vector<string> symboles) {
+void Minimize_Ezzat::init_mini(vector<Node> graph) {
     graphy = graph;
     for (int i = 0; i < graphy.size(); ++i) {
         graphy[i].setGroupNumber((graphy[i].getAcceptance().first == -1)? to_string(counter) : to_string(counter + 1));
@@ -70,8 +70,34 @@ vector<Node> Minimize_Ezzat::getMinimize() {
 void Minimize_Ezzat::collect() {
     for (Node n : graphy) {
         if(mape.find(n.getGroupNumber()) == mape.end()) {
-            mape.insert(pair<string, bool>(n.getGroupNumber(), true));
-            minimized.push_back(n);
+            mape.insert(pair<string, string>(n.getGroupNumber(), n.getNumber()));
+        } else {
+            //Choose the highest priority to represent the set
+            Node curr_node = getNode(mape[n.getGroupNumber()],graphy);
+            int curr_Acc = curr_node.getAcceptance().first;
+            if(n.getAcceptance().first != -1 && curr_Acc > n.getAcceptance().first) {
+                mape[n.getGroupNumber()] = n.getNumber();
+            }
         }
+    }
+    map <string, string> :: iterator itr;
+    for (itr = mape.begin(); itr != mape.end(); ++itr)
+    {
+        //Renaming the transitions
+        Node temp = getNode(itr->second, graphy);
+        vector<Transition> newTransitions;
+        for(int i = 0; i < temp.getTransitions().size(); i++) {
+            Node e = getNode(temp.getTransitions()[i].getTo(), graphy);
+            if(e.getGroupNumber() != "-1") {
+                string newTrans = mape[e.getGroupNumber()];
+                //temp.getTransitions()[i].setTo(newTrans);
+                Transition t(newTrans, temp.getTransitions()[i].getTransition());
+                newTransitions.push_back(t);
+            } else {
+                newTransitions.push_back(temp.getTransitions()[i]);
+            }
+        }
+        temp.setTransitions(newTransitions);
+        minimized.push_back(temp);
     }
 }
