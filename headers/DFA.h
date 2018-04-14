@@ -26,8 +26,6 @@ private:
 
     bool isExsist(Node node, queue<Node> pVector);
 
-    void removeRedundant(vector<Node> &list);
-
     string sort_name(string basic_string);
 
     bool isExsist_in_list(Node node, vector<Node> list);

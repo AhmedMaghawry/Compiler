@@ -12,6 +12,8 @@
 #include <iostream>
 
 
+vector<string> symbolls;
+
 void PostfixInfix::regular_definitions(string name, vector<string> words, bool pun) {
     empty_all();
     NFA definition = construct_regular_expression(words, pun);
@@ -43,7 +45,6 @@ void PostfixInfix::Keyword(vector<string> words, bool pun) {
         }
         regular_expressions(words[0], tmp, pun);
     }
-
 }
 void PostfixInfix::Punctuation(vector<string> words, bool pun) {
     words = factorize(words);
@@ -248,6 +249,7 @@ vector<string> PostfixInfix::get_symbol_table(){
         }
     }
     return symbol_table;
+    //return symbolls;
 }
 
 NFA PostfixInfix::construct_definition(vector<string> words){
