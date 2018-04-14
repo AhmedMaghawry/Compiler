@@ -27,7 +27,7 @@ void Minimize_Ezzat::partition() {
         copyNodes(graphy, last_state);
         for (int i = 0; i < graphy.size(); ++i) {
             for (int j = i + 1; j < graphy.size(); ++j) {
-                if(last_state[i].getGroupNumber() == last_state[j].getGroupNumber()) {
+                if(graphy[i].getGroupNumber() == graphy[j].getGroupNumber()) {
                     if(equals_States(graphy[i], graphy[j], last_state)) {
                         graphy[j].setGroupNumber(graphy[i].getGroupNumber());
                     } else {
