@@ -154,7 +154,6 @@ void add_new_transitions(Node &node, vector<Node> nodes) {
     /*for(Node te : nodes) {
         node.addAcceptance(te.getAcceptance());
     }*/
-
     for (string symb : trans_symb) {
         vector<Node> nodes_in_final;
         for (Node n : nodes) {
@@ -193,6 +192,7 @@ bool isSelfi(vector<Node> nodes, string to_go) {
 }
 
 void e_clousre(vector<Node> &nodes, Node &node) {
+
     //DFS
     nodes.push_back(node);
     for (Transition transition : node.getTransitions()) {
@@ -242,7 +242,7 @@ vector<pair<Node, vector<int>>> DFA::get_saeed_array(vector<Node> nodes) {
     sort(nodes.begin(), nodes.end(), compar);
     for(Node n : nodes) {
         vector<int> tr;
-        tr.resize(256,0);
+        tr.resize(128,0);
         for (Transition t: n.getTransitions()) {
             int index =t.getTransition()[0];
             int value = stoi(t.getTo());

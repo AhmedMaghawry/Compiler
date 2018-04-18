@@ -15,12 +15,15 @@
 #include "../headers/PostfixInfix.h"
 #include "../headers/Generator.h"
 #include "../headers/Minimize_Ezzat.h"
+#include "../headers/ModifiedDFA.h"
 //#include "../headers/Generator.h"
 
 using namespace std;
 
 vector<Node> graph;
 vector<string> symbs;
+
+Node getStart(vector<Node> s);
 
 void addLettersToSymboles() {
     for (int i = 0; i < 26; ++i) {
@@ -115,16 +118,16 @@ void test2() {
 
 void test3() {
     Node P("1");
-    Node R("2");
-    Node Q("3");
+    Node Q("2");
+    Node R("3");
     Transition tP1("2","\\L");
-    Transition tP2("2", "c");
+    Transition tP2("2", "b");
     Transition tP3("3","\\L");
-    Transition tP4("3", "b");
+    Transition tP4("3", "c");
     Transition tQ1("1", "a");
     //Transition tQ2("P", "c");
-    Transition tQ3("3", "c");
-    Transition tQ4("2", "b");
+    Transition tQ3("2", "c");
+    Transition tQ4("3", "b");
     P.addTransitions(tP1);
     P.addTransitions(tP2);
     P.addTransitions(tP3);
@@ -491,32 +494,43 @@ void display_graph_temp(vector<Node> nodes) {
     }
 }
 
+Node getStart(vector<Node> s) {
+    for (int i = 0; i < s.size(); ++i) {
+        if(s[i].getNumber() == "0")
+            return s[i];
+    }
+}
+
 int main0() {
-    test7();
-	DFA dfa;
+    test3();
+	ModifiedDFA dfa;
 	dfa.convert_from_NFA_to_DFA(graph, symbs);
-    //MinimizedDFA min(dfa.getDfaGraph());
     cout << "Minimized Graph -------------------->" << endl;
-    //vector<Node> minimized = min.evaluateMinimized();
-    Minimize_Ezzat m;
-    m.init_mini(dfa.getDfaGraph());
-    display_graph_temp(m.getMinimize());
+    //Minimize_Ezzat m;
+    //m.init_mini(dfa.getDfaGraph());
+    //display_graph_temp(m.getMinimize());
     return 0;
 }
 
 int main1() {
-    test9();
+    test1();
+    DFA dfa;
+    dfa.convert_from_NFA_to_DFA(graph, symbs);
+    cout << "----------------------------" << endl;
     Minimize_Ezzat m;
     m.init_mini(graph);
     display_graph_temp(m.getMinimize());
+    Node cur = m.getMinimize()[0];
+    Generator generator(cur,m.getMinimize(),0);
+    generator.lexal_analizer_run();
     return 0;
 }
 
-int main() {
+int main2() {
     PostfixInfix p;
     vector<string> tests;
     //tests.push_back("(ab*)*");
-    tests.push_back("(a|b)*abb(a|b)*");
+    tests.push_back("(a|b)*aab");
 
     for(int i = 0 ;i < tests.size(); i++){
         cout<<tests[i]<<endl;
@@ -532,13 +546,50 @@ int main() {
     }
     p.collect();
     NFA n = p.get_NFA();
-    DFA dfa;
+    clock_t begin = clock();
+    ModifiedDFA dfa;
     symbs.push_back("a");
     symbs.push_back("b");
     dfa.convert_from_NFA_to_DFA(n.getNfaTable(), symbs);
+    clock_t end = clock();
+    double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+    cout << elapsed_secs << endl;
+    display_graph_temp(dfa.getDfaGraph());
     Minimize_Ezzat m;
     m.init_mini(dfa.getDfaGraph());
     cout << "-------------Min----------------" << endl;
     display_graph_temp(m.getMinimize());
+    Node cur = m.getMinimize()[0];
+    Generator generator(cur,m.getMinimize(),0);
+    generator.lexal_analizer_run();
     return 0;
+}
+
+int main() {
+    NFA nfa;
+    RegexParser r;
+    nfa = r.parse_rules();
+    ModifiedDFA dfa;
+    dfa.convert_from_NFA_to_DFA(nfa.getNfaTable(), r.get_symbol_table());
+    cout << "-------------DFA Created----------------" << endl;
+    Minimize_Ezzat m;
+    m.init_mini(dfa.getDfaGraph());
+    cout << "-------------Min----------------" << endl;
+    display_graph_temp(dfa.getDfaGraph());
+    Node cur = getStart(dfa.getDfaGraph());
+    Generator generator(cur,dfa.getDfaGraph(),0);
+    generator.lexal_analizer_run();
+    return 0;
+}
+
+int main4 () {
+    map<string, string> map1;
+    map1.insert(make_pair("a", "e"));
+    map1.insert(make_pair("a", "r"));
+    map<string, string>::iterator it;
+    for ( it = map1.begin(); it != map1.end(); it++ )
+    {
+        cout << it->first << "---- " << it->second << " -----> ";
+        cout << endl;
+    }
 }

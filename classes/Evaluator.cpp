@@ -98,6 +98,7 @@ NFA Evaluator::scaleUP(NFA a, int n) {
     for(int i = 0 ;i < graph.size(); i++){
         Node tmp = graph[i];
         Node nwNode(tmp.getNumber());
+        nwNode.addAcceptance(tmp.getAcceptance());
         for(int j = 0 ;j < tmp.getTransitions().size(); j++){
             Transition t = tmp.getTransitions()[j];
             newIndex = convert(t.getTo());

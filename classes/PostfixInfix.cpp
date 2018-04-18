@@ -52,7 +52,7 @@ void PostfixInfix::Punctuation(vector<string> words, bool pun) {
 }
 
 void PostfixInfix::collect(){
-    regular_exp[0].second.getEndNode().addAcceptance(pair<int, string>(regular_exp.size(),
+    regular_exp[0].second.getEndNode().addAcceptance(pair<int, string>(0,
                                                                        regular_exp[0].first));
     result = regular_exp[0].second;
     for(int i = 1 ;i < regular_exp.size(); i++){
@@ -242,14 +242,13 @@ string PostfixInfix::trim(string str)
 
 vector<string> PostfixInfix::get_symbol_table(){
     if(symbol_table.size() == 0){
-        for(int i = 0 ;i < 256; i++){
+        for(int i = 33 ;i < 127; i++){
             char x = i;
             string tmp(1, x);
             symbol_table.push_back(tmp);
         }
     }
     return symbol_table;
-    //return symbolls;
 }
 
 NFA PostfixInfix::construct_definition(vector<string> words){

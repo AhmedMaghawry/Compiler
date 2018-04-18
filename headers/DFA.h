@@ -8,6 +8,8 @@
 #include <queue>
 #include "Node.h"
 
+Node getNode(string node_name, vector<Node> list);
+
 class DFA {
 
 public:
