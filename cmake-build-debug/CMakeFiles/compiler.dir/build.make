@@ -369,6 +369,54 @@ CMakeFiles/compiler.dir/classes/PostfixInfix.cpp.o.provides: CMakeFiles/compiler
 CMakeFiles/compiler.dir/classes/PostfixInfix.cpp.o.provides.build: CMakeFiles/compiler.dir/classes/PostfixInfix.cpp.o
 
 
+CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.o: CMakeFiles/compiler.dir/flags.make
+CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.o: ../classes/Minimize_Ezzat.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsanuos/eclipse-workspace/compiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.o -c /home/arsanuos/eclipse-workspace/compiler/classes/Minimize_Ezzat.cpp
+
+CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arsanuos/eclipse-workspace/compiler/classes/Minimize_Ezzat.cpp > CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.i
+
+CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arsanuos/eclipse-workspace/compiler/classes/Minimize_Ezzat.cpp -o CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.s
+
+CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.o.requires:
+
+.PHONY : CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.o.requires
+
+CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.o.provides: CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.o.requires
+	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.o.provides.build
+.PHONY : CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.o.provides
+
+CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.o.provides.build: CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.o
+
+
+CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o: CMakeFiles/compiler.dir/flags.make
+CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o: ../classes/ModifiedDFA.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsanuos/eclipse-workspace/compiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o -c /home/arsanuos/eclipse-workspace/compiler/classes/ModifiedDFA.cpp
+
+CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arsanuos/eclipse-workspace/compiler/classes/ModifiedDFA.cpp > CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.i
+
+CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arsanuos/eclipse-workspace/compiler/classes/ModifiedDFA.cpp -o CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.s
+
+CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o.requires:
+
+.PHONY : CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o.requires
+
+CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o.provides: CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o.requires
+	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o.provides.build
+.PHONY : CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o.provides
+
+CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o.provides.build: CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o
+
+
 # Object files for target compiler
 compiler_OBJECTS = \
 "CMakeFiles/compiler.dir/classes/Generator.cpp.o" \
@@ -383,7 +431,9 @@ compiler_OBJECTS = \
 "CMakeFiles/compiler.dir/classes/Evaluator.cpp.o" \
 "CMakeFiles/compiler.dir/classes/OperationHandler.cpp.o" \
 "CMakeFiles/compiler.dir/classes/Construction.cpp.o" \
-"CMakeFiles/compiler.dir/classes/PostfixInfix.cpp.o"
+"CMakeFiles/compiler.dir/classes/PostfixInfix.cpp.o" \
+"CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.o" \
+"CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o"
 
 # External object files for target compiler
 compiler_EXTERNAL_OBJECTS =
@@ -401,9 +451,11 @@ compiler: CMakeFiles/compiler.dir/classes/Evaluator.cpp.o
 compiler: CMakeFiles/compiler.dir/classes/OperationHandler.cpp.o
 compiler: CMakeFiles/compiler.dir/classes/Construction.cpp.o
 compiler: CMakeFiles/compiler.dir/classes/PostfixInfix.cpp.o
+compiler: CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.o
+compiler: CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o
 compiler: CMakeFiles/compiler.dir/build.make
 compiler: CMakeFiles/compiler.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/arsanuos/eclipse-workspace/compiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable compiler"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/arsanuos/eclipse-workspace/compiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable compiler"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/compiler.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -424,6 +476,8 @@ CMakeFiles/compiler.dir/requires: CMakeFiles/compiler.dir/classes/Evaluator.cpp.
 CMakeFiles/compiler.dir/requires: CMakeFiles/compiler.dir/classes/OperationHandler.cpp.o.requires
 CMakeFiles/compiler.dir/requires: CMakeFiles/compiler.dir/classes/Construction.cpp.o.requires
 CMakeFiles/compiler.dir/requires: CMakeFiles/compiler.dir/classes/PostfixInfix.cpp.o.requires
+CMakeFiles/compiler.dir/requires: CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.o.requires
+CMakeFiles/compiler.dir/requires: CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o.requires
 
 .PHONY : CMakeFiles/compiler.dir/requires
 

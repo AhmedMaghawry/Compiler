@@ -27,23 +27,36 @@ NFA Evaluator::concat(NFA a, NFA b) {
  * get a or b NFA
  *
  */
+void Evaluator::display_graph_temp(vector<Node> nodes) {
+    return;
+    for (Node node : nodes) {
+        for (Transition t : node.getTransitions()) {
+            if(node.getAcceptance().second == "no") continue;
+            cout << node.getNumber() << "-- " << t.getTransition() << " --> " << t.getTo() << "--" << node.getAcceptance().second << "--" << node.getGroupNumber() << endl;
+        }
+    }
+}
 
 NFA Evaluator::oring(NFA a, NFA b) {
     //a | b
     Node first("0");
     a = scaleUP(a, 1);
     b = scaleUP(b, a.getNfaTable().size() + 1);
+
     first.addTransitions(Transition(a.getStartNode().getNumber(), eps));
     first.addTransitions(Transition(b.getStartNode().getNumber(), eps));
+
     Node end(Evaluator::getNewEndNodeNumber(a, b));
     a.getEndNode().addTransitions(Transition(Evaluator::getNewEndNodeNumber(a, b), eps));
     b.getEndNode().addTransitions(Transition(Evaluator::getNewEndNodeNumber(a, b), eps));
+
     NFA result;
     result.addNode(first);
     result = addToFirst(result, a);
     result = addToFirst(result, b);
     result.addNode(end);
     Evaluator::printGraph(result);
+    display_graph_temp(result.getNfaTable());
     return result;
 }
 
@@ -56,10 +69,13 @@ NFA Evaluator::star(NFA a) {
     a = scaleUP(a, 1);
     Node first("0");
     Node end(std::to_string(a.getNfaTable().size() + 1));
+
     first.addTransitions(Transition(end.getNumber(), eps));
     first.addTransitions(Transition(a.getNode(0).getNumber(), eps));
+
     a.getEndNode().addTransitions(Transition(end.getNumber(), eps));
-    a.getEndNode().addTransitions(Transition(a.getStartNode().getNumber(), eps));
+    a.getEndNode().addTransitions(Transition(first.getNumber(), eps));
+
     NFA result;
     result.addNode(first);
     result = addToFirst(result, a);
@@ -78,8 +94,10 @@ NFA Evaluator::plus(NFA a){
     Node first("0");
     Node end(std::to_string(a.getNfaTable().size() + 1));
     first.addTransitions(Transition(a.getNode(0).getNumber(), eps));
+
     a.getEndNode().addTransitions(Transition(end.getNumber(), eps));
-    a.getEndNode().addTransitions(Transition(a.getStartNode().getNumber(), eps));
+    a.getEndNode().addTransitions(Transition(first.getNumber(), eps));
+
     NFA result;
     result.addNode(first);
     result = addToFirst(result, a);
@@ -98,6 +116,7 @@ NFA Evaluator::scaleUP(NFA a, int n) {
     for(int i = 0 ;i < graph.size(); i++){
         Node tmp = graph[i];
         Node nwNode(tmp.getNumber());
+        nwNode.addAcceptance(tmp.getAcceptance());
         for(int j = 0 ;j < tmp.getTransitions().size(); j++){
             Transition t = tmp.getTransitions()[j];
             newIndex = convert(t.getTo());
@@ -118,15 +137,22 @@ NFA Evaluator::scaleUP(NFA a, int n) {
 
 NFA Evaluator::dash(NFA a, NFA b){
     Node start_node = a.getStartNode();
+
     string start = a.getStartNode().getTransitions()[0].getTransition();
     string end = b.getStartNode().getTransitions()[0].getTransition();
+
     for(int i = start.at(0) + 1 ;i <= end.at(0); i++){
         char tmp = i;
         string str(1, tmp);
         start_node.addTransitions(Transition(a.getEndNode().getNumber(),str));
     }
     Evaluator::printGraph(a);
-    return a;
+    NFA result;
+    vector<Node> tmp;
+    tmp.push_back(start_node);
+    tmp.push_back(a.getEndNode());
+    result.setNfaTable(tmp);
+    return result;
     /*string start = a.getStartNode().getTransitions()[0].getTransition();
     string end = b.getStartNode().getTransitions()[0].getTransition();
     NFA result = Construction::construct(start);
@@ -167,8 +193,8 @@ string Evaluator::getNewEndNodeNumber(NFA a, NFA b){
 
 
 void Evaluator::printGraph(NFA a){
-    //return;
-    int newIndex = 0;
+    return;
+    /*int newIndex = 0;
     vector<Node> graph = a.getNfaTable();
     for(int i = 0 ;i < graph.size(); i++){
         Node tmp = graph[i];
@@ -178,5 +204,5 @@ void Evaluator::printGraph(NFA a){
             cout<<" "<<t.getTo()<<"("<<t.getTransition()<<")"<<" ";
         }
         cout<<endl;
-    }
+    }*/
 }

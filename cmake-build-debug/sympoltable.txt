@@ -1,9 +1,44 @@
-line 0:  error        |      int
-line 0:  error        |      
-line 0:  error        |      =
+line 0:  error        |      i
 line 0:  error        |      
 line 0:  error        |      
-line 1:  error        |      int
+line 0:  error        |      
+line 0:  error        |      
+pun                   |      ,
+line 0:  error        |      
+line 0:  error        |      
+line 0:  error        |      
+line 0:  error        |      
+line 0:  error        |      
+pun                   |      ,
+line 0:  error        |      
+id                    |      a
+line 0:  error        |      
+line 0:  error        |      
+pun                   |      ,
 line 1:  error        |      
-line 1:  error        |      =
 line 1:  error        |      
+line 1:  error        |      
+line 1:  error        |      
+while                 |      while
+pun                   |      (
+line 1:  error        |      
+id                    |      a
+line 1:  error        |      
+line 1:  error        |      
+relop                 |      !=
+num                   |      10
+pun                   |      )
+pun                   |      {
+line 3:  error        |      
+id                    |      a
+line 3:  error        |      
+line 3:  error        |      
+assign                |      =
+line 3:  error        |      
+id                    |      a
+line 3:  error        |      
+line 3:  error        |      
+addop                 |      +
+num                   |      1
+line 3:  error        |      
+pun                   |      }

@@ -4,7 +4,9 @@
 CMakeFiles/compiler.dir/classes/Compiler.cpp.o: ../classes/Compiler.cpp
 CMakeFiles/compiler.dir/classes/Compiler.cpp.o: ../headers/DFA.h
 CMakeFiles/compiler.dir/classes/Compiler.cpp.o: ../headers/Generator.h
+CMakeFiles/compiler.dir/classes/Compiler.cpp.o: ../headers/Minimize_Ezzat.h
 CMakeFiles/compiler.dir/classes/Compiler.cpp.o: ../headers/MinimizedDFA.h
+CMakeFiles/compiler.dir/classes/Compiler.cpp.o: ../headers/ModifiedDFA.h
 CMakeFiles/compiler.dir/classes/Compiler.cpp.o: ../headers/NFA.h
 CMakeFiles/compiler.dir/classes/Compiler.cpp.o: ../headers/Node.h
 CMakeFiles/compiler.dir/classes/Compiler.cpp.o: ../headers/PostfixInfix.h
@@ -20,8 +22,6 @@ CMakeFiles/compiler.dir/classes/Construction.cpp.o: ../headers/Transition.h
 
 CMakeFiles/compiler.dir/classes/DFA.cpp.o: ../classes/DFA.cpp
 CMakeFiles/compiler.dir/classes/DFA.cpp.o: ../headers/DFA.h
-CMakeFiles/compiler.dir/classes/DFA.cpp.o: ../headers/Evaluator.h
-CMakeFiles/compiler.dir/classes/DFA.cpp.o: ../headers/NFA.h
 CMakeFiles/compiler.dir/classes/DFA.cpp.o: ../headers/Node.h
 CMakeFiles/compiler.dir/classes/DFA.cpp.o: ../headers/Transition.h
 
@@ -39,10 +39,20 @@ CMakeFiles/compiler.dir/classes/Generator.cpp.o: ../headers/Node.h
 CMakeFiles/compiler.dir/classes/Generator.cpp.o: ../headers/Reader2.h
 CMakeFiles/compiler.dir/classes/Generator.cpp.o: ../headers/Transition.h
 
+CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.o: ../classes/Minimize_Ezzat.cpp
+CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.o: ../headers/Minimize_Ezzat.h
+CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.o: ../headers/Node.h
+CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.o: ../headers/Transition.h
+
 CMakeFiles/compiler.dir/classes/MinimizedDFA.cpp.o: ../classes/MinimizedDFA.cpp
 CMakeFiles/compiler.dir/classes/MinimizedDFA.cpp.o: ../headers/MinimizedDFA.h
 CMakeFiles/compiler.dir/classes/MinimizedDFA.cpp.o: ../headers/Node.h
 CMakeFiles/compiler.dir/classes/MinimizedDFA.cpp.o: ../headers/Transition.h
+
+CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o: ../classes/ModifiedDFA.cpp
+CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o: ../headers/ModifiedDFA.h
+CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o: ../headers/Node.h
+CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o: ../headers/Transition.h
 
 CMakeFiles/compiler.dir/classes/NFA.cpp.o: ../classes/NFA.cpp
 CMakeFiles/compiler.dir/classes/NFA.cpp.o: ../headers/NFA.h

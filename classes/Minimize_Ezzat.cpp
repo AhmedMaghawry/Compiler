@@ -3,17 +3,29 @@
 //
 
 #include <map>
+#include <iostream>
 #include "../headers/Minimize_Ezzat.h"
 
 int counter = 0;
 map<string, string> mape;
+map<int, int> accc;
 
 Node getNode(string basic_string, vector<Node> list);
 
 void Minimize_Ezzat::init_mini(vector<Node> graph) {
     graphy = graph;
     for (int i = 0; i < graphy.size(); ++i) {
-        graphy[i].setGroupNumber((graphy[i].getAcceptance().first == -1)? to_string(counter) : to_string(counter + 1));
+        if(graphy[i].getAcceptance().first == -1) {
+            graphy[i].setGroupNumber(to_string(0));
+        } else {
+            if (accc.count(graphy[i].getAcceptance().first) == 0) {
+                graphy[i].setGroupNumber(to_string(++counter));
+                accc.insert(make_pair(graphy[i].getAcceptance().first, counter));
+            } else {
+                graphy[i].setGroupNumber(to_string(accc[graphy[i].getAcceptance().first]));
+            }
+        }
+        //graphy[i].setGroupNumber((graphy[i].getAcceptance().first == -1)? to_string(counter) : to_string(counter + 1));
     }
     counter++;
     partition();
@@ -24,15 +36,28 @@ void Minimize_Ezzat::partition() {
     vector<Node> last_state;
     do{
         last_state.clear();
-        copyNodes(graphy, last_state);
+        last_state.reserve(graphy.size());
+        last_state.insert(last_state.end(),graphy.begin(), graphy.end());
+        //copyNodes(graphy, last_state);
         for (int i = 0; i < graphy.size(); ++i) {
             for (int j = i + 1; j < graphy.size(); ++j) {
-                if(last_state[i].getGroupNumber() == last_state[j].getGroupNumber()) {
-                    if(equals_States(graphy[i], graphy[j], last_state)) {
+                if(graphy[i].getGroupNumber() == graphy[j].getGroupNumber()) {
+                    for (int k = 0; k < graphy[i].getTransitions().size(); ++k) {
+                        Node first = getNode(graphy[i].getTransitions()[k].getTo(), last_state);
+                        Node sec = getNode(graphy[j].getTransitions()[k].getTo(), last_state);
+                        if (first.getGroupNumber() != sec.getGroupNumber()) {
+                            if(first.getGroupNumber() != graphy[i].getGroupNumber()) {
+                                graphy[i].setGroupNumber(to_string(++counter));
+                            } else {
+                                graphy[j].setGroupNumber(to_string(++counter));
+                            }
+                        }
+                    }
+                    /*if(equals_States(graphy[i], graphy[j], last_state)) {
                         graphy[j].setGroupNumber(graphy[i].getGroupNumber());
                     } else {
                         graphy[j].setGroupNumber(to_string(++counter));
-                    }
+                    }*/
                 }
             }
         }

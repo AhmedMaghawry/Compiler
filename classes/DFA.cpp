@@ -5,7 +5,6 @@
 #include <iostream>
 #include <bits/stdc++.h>
 #include "../headers/DFA.h"
-#include "../headers/Evaluator.h"
 
 const string e ="\\L";
 Node fi("");
@@ -28,8 +27,6 @@ void add_new_transitions(Node &node, vector<Node> vector);
 
 Node getNode(string basic_string, vector<Node> list);
 
-string getName_of_e(vector<Node> vector);
-
 vector<Node> DFA::getDfaGraph() {
     return dfaGraph;
 }
@@ -45,13 +42,23 @@ void DFA::setDfaGraph(vector<Node> dfa) {
  */
 void DFA::convert_from_NFA_to_DFA(vector<Node> graph, vector<string> symbs) {
     nfaGraph = graph;
+    /*for (Node a : graph) {
+        for (Transition f : a.getTransitions()) {
+            if (f.getTransition() != e) {
+                cout << a.getNumber() << " ---" << f.getTransition() << "--> " << f.getTo() << endl;
+            }
+        }
+    }*/
+    cout << "------------------NFA----------------" << endl;
+    display_graph(graph);
+    cout << "----------------End-----------" << endl;
     int s = symbs.size();
     if (s == 0)
         return;
     trans_symb = symbs;
     /*Start Remove E Clousre from NFA*/
     vector<Node> nfaGraph_without_clouser = remove_e_clousre(graph);
-    nfa_without_e = nfaGraph_without_clouser;
+    //nfa_without_e = nfaGraph_without_clouser;
     cout << "--------------------- NFA without E"<<endl;
     display_graph(nfaGraph_without_clouser);
     /*End Remove Now we have NFA without E clousre*/
@@ -61,7 +68,7 @@ void DFA::convert_from_NFA_to_DFA(vector<Node> graph, vector<string> symbs) {
     //renaming(dfaGraph_final);
     setDfaGraph(dfaGraph_final);
     cout << "--------------------- Final DFA"<<endl;
-    //display_graph(getDfaGraph());
+    display_graph(getDfaGraph());
 }
 
 /*void DFA::run_dfa(vector<Node> &final_graph, vector<Node> nfa_without_clousre) {
@@ -151,13 +158,12 @@ vector<Node> remove_e_clousre(vector<Node> graph) {
         res.push_back(n);
     }
     return res;
-}*/
+}
 
 void add_new_transitions(Node &node, vector<Node> nodes) {
     /*for(Node te : nodes) {
         node.addAcceptance(te.getAcceptance());
     }*/
-
     for (string symb : trans_symb) {
         vector<Node> nodes_in_final;
         for (Node n : nodes) {
@@ -196,6 +202,7 @@ bool isSelfi(vector<Node> nodes, string to_go) {
 }
 
 void e_clousre(vector<Node> &nodes, Node &node) {
+
     //DFS
     nodes.push_back(node);
     for (Transition transition : node.getTransitions()) {
@@ -245,7 +252,7 @@ vector<pair<Node, vector<int>>> DFA::get_saeed_array(vector<Node> nodes) {
     sort(nodes.begin(), nodes.end(), compar);
     for(Node n : nodes) {
         vector<int> tr;
-        tr.resize(256,0);
+        tr.resize(128,0);
         for (Transition t: n.getTransitions()) {
             int index =t.getTransition()[0];
             int value = stoi(t.getTo());

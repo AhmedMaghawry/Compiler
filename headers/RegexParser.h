@@ -28,6 +28,7 @@ public:
 	void Keyword(string line);
 	void Punctuation(string line);
 	vector<string> get_symbol_table();
+	map<pair<string, string>, vector<string>> get_map();
 };
 
 

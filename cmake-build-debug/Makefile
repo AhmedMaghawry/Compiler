@@ -258,6 +258,33 @@ classes/Generator.cpp.s:
 	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/Generator.cpp.s
 .PHONY : classes/Generator.cpp.s
 
+classes/Minimize_Ezzat.o: classes/Minimize_Ezzat.cpp.o
+
+.PHONY : classes/Minimize_Ezzat.o
+
+# target to build an object file
+classes/Minimize_Ezzat.cpp.o:
+	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.o
+.PHONY : classes/Minimize_Ezzat.cpp.o
+
+classes/Minimize_Ezzat.i: classes/Minimize_Ezzat.cpp.i
+
+.PHONY : classes/Minimize_Ezzat.i
+
+# target to preprocess a source file
+classes/Minimize_Ezzat.cpp.i:
+	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.i
+.PHONY : classes/Minimize_Ezzat.cpp.i
+
+classes/Minimize_Ezzat.s: classes/Minimize_Ezzat.cpp.s
+
+.PHONY : classes/Minimize_Ezzat.s
+
+# target to generate assembly for a file
+classes/Minimize_Ezzat.cpp.s:
+	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.s
+.PHONY : classes/Minimize_Ezzat.cpp.s
+
 classes/MinimizedDFA.o: classes/MinimizedDFA.cpp.o
 
 .PHONY : classes/MinimizedDFA.o
@@ -284,6 +311,33 @@ classes/MinimizedDFA.s: classes/MinimizedDFA.cpp.s
 classes/MinimizedDFA.cpp.s:
 	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/MinimizedDFA.cpp.s
 .PHONY : classes/MinimizedDFA.cpp.s
+
+classes/ModifiedDFA.o: classes/ModifiedDFA.cpp.o
+
+.PHONY : classes/ModifiedDFA.o
+
+# target to build an object file
+classes/ModifiedDFA.cpp.o:
+	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o
+.PHONY : classes/ModifiedDFA.cpp.o
+
+classes/ModifiedDFA.i: classes/ModifiedDFA.cpp.i
+
+.PHONY : classes/ModifiedDFA.i
+
+# target to preprocess a source file
+classes/ModifiedDFA.cpp.i:
+	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.i
+.PHONY : classes/ModifiedDFA.cpp.i
+
+classes/ModifiedDFA.s: classes/ModifiedDFA.cpp.s
+
+.PHONY : classes/ModifiedDFA.s
+
+# target to generate assembly for a file
+classes/ModifiedDFA.cpp.s:
+	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.s
+.PHONY : classes/ModifiedDFA.cpp.s
 
 classes/NFA.o: classes/NFA.cpp.o
 
@@ -498,9 +552,15 @@ help:
 	@echo "... classes/Generator.o"
 	@echo "... classes/Generator.i"
 	@echo "... classes/Generator.s"
+	@echo "... classes/Minimize_Ezzat.o"
+	@echo "... classes/Minimize_Ezzat.i"
+	@echo "... classes/Minimize_Ezzat.s"
 	@echo "... classes/MinimizedDFA.o"
 	@echo "... classes/MinimizedDFA.i"
 	@echo "... classes/MinimizedDFA.s"
+	@echo "... classes/ModifiedDFA.o"
+	@echo "... classes/ModifiedDFA.i"
+	@echo "... classes/ModifiedDFA.s"
 	@echo "... classes/NFA.o"
 	@echo "... classes/NFA.i"
 	@echo "... classes/NFA.s"

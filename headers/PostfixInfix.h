@@ -12,11 +12,10 @@
 
 class PostfixInfix {
 private:
-    std::map<string, NFA> def;
+    map<string, NFA> def;
+    map<pair<string, string>, vector<string>> map_of_transitions;
     string lastAssign;
-    std::stack<string> chars;
-    std::stack<NFA> nfas;
-    std::stack<string> operations;
+    stack<NFA> nfas;
     vector<pair<string,NFA>> regular_exp;
     NFA eval(string operation, NFA a, NFA b);
     NFA eval_unary(string operation, NFA a);
@@ -28,7 +27,10 @@ private:
     void empty_all();
     string trim(string str);
     vector<string> symbol_table;
+    stack<string> chars;
+    stack<string> operations;
     vector<string> factorize(vector<string> words);
+    void prepare_map_and_symbol_table();
 
 public:
     void regular_definitions(string name, vector<string> words, bool pun);
@@ -37,6 +39,7 @@ public:
     void Punctuation(vector<string> words, bool pun);
     void collect();
     NFA  get_NFA();
+    map<pair<string, string>, vector<string>> get_map();
     vector<string> get_symbol_table();
 
 };

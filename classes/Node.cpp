@@ -3,6 +3,7 @@
 //
 
 #include "../headers/Node.h"
+#include <iostream>
 Node::Node(string name) : name(name) {
     groupNumber="-1";
     totalgroupNumber="";
@@ -30,7 +31,7 @@ void Node::addAcceptance(pair<int, string> acceptance) {
     if (acceptance.first == -1)
         return;
 
-    if (current_acc.first == -1 || current_acc.first > acceptance.first)
+    if (current_acc.first == -1 || current_acc.first >= acceptance.first)
         Node::acceptance = acceptance;
 }
 

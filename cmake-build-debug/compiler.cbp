@@ -99,7 +99,13 @@
 		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/classes/Generator.cpp">
 			<Option target="compiler"/>
 		</Unit>
+		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/classes/Minimize_Ezzat.cpp">
+			<Option target="compiler"/>
+		</Unit>
 		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/classes/MinimizedDFA.cpp">
+			<Option target="compiler"/>
+		</Unit>
+		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/classes/ModifiedDFA.cpp">
 			<Option target="compiler"/>
 		</Unit>
 		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/classes/NFA.cpp">
@@ -135,7 +141,13 @@
 		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/headers/Generator.h">
 			<Option target="compiler"/>
 		</Unit>
+		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/headers/Minimize_Ezzat.h">
+			<Option target="compiler"/>
+		</Unit>
 		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/headers/MinimizedDFA.h">
+			<Option target="compiler"/>
+		</Unit>
+		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/headers/ModifiedDFA.h">
 			<Option target="compiler"/>
 		</Unit>
 		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/headers/NFA.h">

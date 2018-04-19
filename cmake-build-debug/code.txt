@@ -1,2 +1,5 @@
-int x = 5;
-int y = 6
+int sum , count , pass ,
+mnt ; while (pass != 10)
+{
+pass = pass + 1 ;
+}

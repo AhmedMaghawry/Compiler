@@ -12,6 +12,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/compiler.dir/classes/OperationHandler.cpp.o"
   "CMakeFiles/compiler.dir/classes/Construction.cpp.o"
   "CMakeFiles/compiler.dir/classes/PostfixInfix.cpp.o"
+  "CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.o"
+  "CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o"
   "compiler.pdb"
   "compiler"
 )

@@ -127,7 +127,7 @@ void RegexParser::regular_expressions(string name, string exp) {
 }
 
 void RegexParser::Keyword(string line) {
-	line = line.substr(1, line.size() - 3);
+	line = line.substr(1, line.size() - 2);
 	cout << line + "	key" << endl;
 	vector<string> words = get_strings(line);
 	p.Keyword(words, false);
@@ -135,7 +135,7 @@ void RegexParser::Keyword(string line) {
 }
 void RegexParser::Punctuation(string line) {
 
-	line = line.substr(1, line.size() - 3);
+	line = line.substr(1, line.size() - 2);
 	vector<string> words = get_strings(line);
 	cout << line + "	pu" << endl;
     p.Punctuation(words, true);
@@ -144,4 +144,8 @@ void RegexParser::Punctuation(string line) {
 
 vector<string> RegexParser::get_symbol_table(){
     return p.get_symbol_table();
+}
+
+map<pair<string, string>, vector<string>> RegexParser::get_map(){
+    return p.get_map();
 }

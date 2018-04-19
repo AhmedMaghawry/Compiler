@@ -21,10 +21,12 @@ bits/stdc++.h
 /home/arsanuos/eclipse-workspace/compiler/headers/MinimizedDFA.h
 ../headers/PostfixInfix.h
 /home/arsanuos/eclipse-workspace/compiler/headers/PostfixInfix.h
-../headers/DFA.h
-/home/arsanuos/eclipse-workspace/compiler/headers/DFA.h
 ../headers/Generator.h
 /home/arsanuos/eclipse-workspace/compiler/headers/Generator.h
+../headers/Minimize_Ezzat.h
+/home/arsanuos/eclipse-workspace/compiler/headers/Minimize_Ezzat.h
+../headers/ModifiedDFA.h
+/home/arsanuos/eclipse-workspace/compiler/headers/ModifiedDFA.h
 
 /home/arsanuos/eclipse-workspace/compiler/classes/Construction.cpp
 ../headers/Construction.h
@@ -39,8 +41,6 @@ bits/stdc++.h
 -
 ../headers/DFA.h
 /home/arsanuos/eclipse-workspace/compiler/headers/DFA.h
-../headers/Evaluator.h
-/home/arsanuos/eclipse-workspace/compiler/headers/Evaluator.h
 
 /home/arsanuos/eclipse-workspace/compiler/classes/Evaluator.cpp
 ../headers/Evaluator.h
@@ -55,6 +55,14 @@ iostream
 /home/arsanuos/eclipse-workspace/compiler/classes/Generator.cpp
 ../headers/Generator.h
 /home/arsanuos/eclipse-workspace/compiler/headers/Generator.h
+
+/home/arsanuos/eclipse-workspace/compiler/classes/Minimize_Ezzat.cpp
+map
+-
+iostream
+-
+../headers/Minimize_Ezzat.h
+/home/arsanuos/eclipse-workspace/compiler/headers/Minimize_Ezzat.h
 
 /home/arsanuos/eclipse-workspace/compiler/classes/MinimizedDFA.cpp
 ../headers/MinimizedDFA.h
@@ -72,6 +80,20 @@ stdlib.h
 string
 -
 
+/home/arsanuos/eclipse-workspace/compiler/classes/ModifiedDFA.cpp
+map
+-
+iostream
+-
+iomanip
+-
+algorithm
+-
+set
+-
+../headers/ModifiedDFA.h
+/home/arsanuos/eclipse-workspace/compiler/headers/ModifiedDFA.h
+
 /home/arsanuos/eclipse-workspace/compiler/classes/NFA.cpp
 ../headers/NFA.h
 /home/arsanuos/eclipse-workspace/compiler/headers/NFA.h
@@ -81,6 +103,8 @@ iostream
 /home/arsanuos/eclipse-workspace/compiler/classes/Node.cpp
 ../headers/Node.h
 /home/arsanuos/eclipse-workspace/compiler/headers/Node.h
+iostream
+-
 
 /home/arsanuos/eclipse-workspace/compiler/classes/OperationHandler.cpp
 ../headers/OperationHandler.h
@@ -98,6 +122,8 @@ iostream
 ../headers/Evaluator.h
 /home/arsanuos/eclipse-workspace/compiler/headers/Evaluator.h
 iostream
+-
+set
 -
 
 /home/arsanuos/eclipse-workspace/compiler/classes/Reader2.cpp
@@ -134,7 +160,17 @@ NFA.h
 ../headers/Reader2.h
 /home/arsanuos/eclipse-workspace/compiler/headers/Reader2.h
 
+/home/arsanuos/eclipse-workspace/compiler/headers/Minimize_Ezzat.h
+Node.h
+/home/arsanuos/eclipse-workspace/compiler/headers/Node.h
+
 /home/arsanuos/eclipse-workspace/compiler/headers/MinimizedDFA.h
+Node.h
+/home/arsanuos/eclipse-workspace/compiler/headers/Node.h
+
+/home/arsanuos/eclipse-workspace/compiler/headers/ModifiedDFA.h
+queue
+-
 Node.h
 /home/arsanuos/eclipse-workspace/compiler/headers/Node.h
 
