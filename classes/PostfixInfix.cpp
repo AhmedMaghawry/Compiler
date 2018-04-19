@@ -10,6 +10,7 @@
 #include "../headers/OperationHandler.h"
 #include "../headers/Evaluator.h"
 #include <iostream>
+#include <set>
 
 
 vector<string> symbolls;
@@ -43,30 +44,90 @@ void PostfixInfix::Keyword(vector<string> words, bool pun) {
         }else{
             tmp.push_back(words[i]);
         }
-        regular_expressions(words[0], tmp, pun);
+        regular_expressions(words[i], tmp, pun);
     }
 }
 void PostfixInfix::Punctuation(vector<string> words, bool pun) {
     words = factorize(words);
-    regular_expressions(words[0],words, pun);
+    Node start_node("0");
+    for(int i = 0 ;i < words.size(); i++){
+        if(words[i] != "\\"){
+            start_node.addTransitions(Transition("1", words[i]));
+        }
+    }
+    Node end_node("1");
+    NFA tmp;
+    vector<Node> table;
+    table.push_back(start_node);
+    table.push_back(end_node);
+    tmp.setNfaTable(table);
+    regular_exp.push_back(make_pair("pun", tmp));
 }
 
 void PostfixInfix::collect(){
-    regular_exp[0].second.getEndNode().addAcceptance(pair<int, string>(0,
-                                                                       regular_exp[0].first));
+    int sum = 1;
+    Node start("0");
+    for(int i = 0 ;i < regular_exp.size(); i++) {
+        regular_exp[i].second.getEndNode().addAcceptance(pair<int, string>(regular_exp.size() - i, regular_exp[i].first));
+        regular_exp[i].second = Evaluator::scaleUP(regular_exp[i].second, sum);
+        start.addTransitions(Transition(regular_exp[i].second.getStartNode().getNumber(), eps));
+        sum += regular_exp[i].second.getNfaTable().size();
+    }
+    vector<Node> ret_table;
+    ret_table.push_back(start);
+    result.setNfaTable(ret_table);
+    for(int i = 0 ;i < regular_exp.size(); i++){
+        regular_exp[i].second.getEndNode().addTransitions(Transition(to_string(sum), eps));
+        result = Evaluator::addToFirst(result, regular_exp[i].second);
+    }
+    Node end(to_string(sum));
+    result.addNode(end);
+    prepare_map_and_symbol_table();
+    /*regular_exp[0].second.getEndNode().addAcceptance(pair<int, string>(regular_exp.size(), regular_exp[0].first));
     result = regular_exp[0].second;
     for(int i = 1 ;i < regular_exp.size(); i++){
-        regular_exp[i].second.getEndNode().addAcceptance(pair<int, string>(i, regular_exp[i].first));
+        regular_exp[i].second.getEndNode().addAcceptance(pair<int, string>(regular_exp.size() - i, regular_exp[i].first));
         result = Evaluator::oring(result, regular_exp[i].second);
     }
+    prepare_map_and_symbol_table();*/
+}
+
+void PostfixInfix::prepare_map_and_symbol_table(){
+    set<string> table;
+    for(int i = 0 ;i < result.getNfaTable().size(); i++){
+        for(int j = 0 ;j < result.getNfaTable()[i].getTransitions().size(); j++){
+            Node n = result.getNfaTable()[i];
+            Transition t = n.getTransitions()[j];
+            pair<string, string> tmp = std::make_pair( n.getNumber(), t.getTransition());
+            map<pair<string, string>, vector<string>>::iterator it = map_of_transitions.find(tmp);
+            vector<string> list;
+            if(it != map_of_transitions.end()){
+                //found
+                list = it->second;
+                list.push_back(t.getTo());
+                map_of_transitions.erase(tmp);
+            }else{
+                list.push_back(t.getTo());
+            }
+            map_of_transitions.insert(make_pair(tmp, list));
+            if (t.getTransition() != "\\L") {
+                table.insert(t.getTransition());
+            }
+        }
+    }
+    set<string>:: iterator it;
+    for(it = table.begin() ;it != table.end(); it++){
+        symbol_table.push_back(*it);
+    }
+}
+
+map<pair<string, string>, vector<string>> PostfixInfix::get_map(){
+    return map_of_transitions;
 }
 
 NFA PostfixInfix::get_NFA(){
     return result;
 }
-
-
-
 
 NFA PostfixInfix::eval(string operation, NFA a, NFA b){
     if(operation == ccat){
@@ -240,14 +301,7 @@ string PostfixInfix::trim(string str)
 }
 
 
-vector<string> PostfixInfix::get_symbol_table(){
-    if(symbol_table.size() == 0){
-        for(int i = 33 ;i < 127; i++){
-            char x = i;
-            string tmp(1, x);
-            symbol_table.push_back(tmp);
-        }
-    }
+vector<string> PostfixInfix::get_symbol_table() {
     return symbol_table;
 }
 

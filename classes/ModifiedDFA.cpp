@@ -33,7 +33,8 @@ vector<Node> ModifiedDFA::getDfaGraph() {
  * the graph from NFA to ModifiedDFA as a vector
  * of Nodes which contain the transition
  */
-void ModifiedDFA::convert_from_NFA_to_DFA(vector<Node> graph, vector<string> symbs) {
+void ModifiedDFA::convert_from_NFA_to_DFA(vector<Node> graph, vector<string> symbs, map<pair<string, string>, vector<string>> tr ) {
+    fullNodesMap = tr;
     int s1 = symbs.size();
     sy = symbs;
     if (s1 == 0)
@@ -43,7 +44,7 @@ void ModifiedDFA::convert_from_NFA_to_DFA(vector<Node> graph, vector<string> sym
         nodesMap.insert(make_pair(graph[i].getNumber(), graph[i]));
     }
 
-    for(int i = 0; i < graph.size(); i++) {
+    /*for(int i = 0; i < graph.size(); i++) {
         for (int j = 0; j < graph[i].getTransitions().size(); ++j) {
             pair<string, string> p = make_pair(graph[i].getNumber(), graph[i].getTransitions()[j].getTransition());
             if (!fullNodesMap.count(p)) {
@@ -56,7 +57,7 @@ void ModifiedDFA::convert_from_NFA_to_DFA(vector<Node> graph, vector<string> sym
                 fullNodesMap[p] = r;
             }
         }
-    }
+    }*/
 
     int counter = 0;
     //Remove E Clousre
@@ -65,6 +66,7 @@ void ModifiedDFA::convert_from_NFA_to_DFA(vector<Node> graph, vector<string> sym
     while(!q.empty()) {
         vector<Node> curr = q.front();
         q.pop();
+
         if(isExsi(curr, dfatr))
             continue;
 
@@ -72,17 +74,27 @@ void ModifiedDFA::convert_from_NFA_to_DFA(vector<Node> graph, vector<string> sym
 
         for (int i = 0; i < symbs.size(); ++i) {
             vector<Node> u = e_clo(get_states(curr, symbs[i]));
-            q.push(u);
-            if(!trueMap.count(getName(curr))) {
-                trueMap.insert(make_pair(getName(curr), to_string(counter)));
+            if(!isExsistQ(u, q))
+                q.push(u);
+
+            string curName = getName(curr);
+            if(!trueMap.count(curName)) {
+                trueMap.insert(make_pair(curName, to_string(counter)));
                 counter++;
             }
-            if(!trueMap.count(getName(u))) {
-                trueMap.insert(make_pair(getName(u), to_string(counter)));
+
+            string uName = getName(u);
+            if(!trueMap.count(uName)) {
+                trueMap.insert(make_pair(uName, to_string(counter)));
                 counter++;
             }
-            finalTransMap.insert(make_pair(make_pair(trueMap[getName(curr)],symbs[i]), trueMap[getName(u)]));
-            accFinal.insert(make_pair(trueMap[getName(curr)],getAcc(curr)));
+
+            if (u.size() == 0)
+                finalTransMap.insert(make_pair(make_pair(trueMap[curName],symbs[i]), "-1"));
+            else
+                finalTransMap.insert(make_pair(make_pair(trueMap[curName],symbs[i]), trueMap[getName(u)]));
+
+            accFinal.insert(make_pair(trueMap[curName],getAcc(curr)));
         }
     }
     //display_map(symbs);
@@ -228,4 +240,17 @@ vector<Node> get_states (vector<Node> ns, string trans) {
 
 Node getNode(string name) {
     return nodesMap.at(name);
+}
+
+bool ModifiedDFA::isExsistQ(vector<Node> node, queue<vector<Node>> list) {
+    queue<vector<Node>> tmp_q = list; //copy the original queue to the temporary queue
+    string nName = getName(node);
+    while (!tmp_q.empty())
+    {
+        vector<Node> q_element = tmp_q.front();
+        if(getName(q_element) == nName)
+            return true;
+        tmp_q.pop();
+    }
+    return false;
 }

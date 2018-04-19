@@ -14,9 +14,10 @@ class Generator{
 
 private:
     Node cur;
+    Node start;
 
 public:
-    Generator(const Node &cur, const vector<Node> &dfa, int START_NODE);
+    Generator(const Node &cur, const vector<Node> &dfa, Node star);
 
     vector<Node> dfa;
     int START_NODE=0;

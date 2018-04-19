@@ -8,6 +8,7 @@
 
 int counter = 0;
 map<string, string> mape;
+map<int, int> accc;
 
 Node getNode(string basic_string, vector<Node> list);
 
@@ -15,9 +16,14 @@ void Minimize_Ezzat::init_mini(vector<Node> graph) {
     graphy = graph;
     for (int i = 0; i < graphy.size(); ++i) {
         if(graphy[i].getAcceptance().first == -1) {
-            graphy[i].setGroupNumber(to_string(counter));
+            graphy[i].setGroupNumber(to_string(0));
         } else {
-            graphy[i].setGroupNumber(to_string(counter + 1));
+            if (accc.count(graphy[i].getAcceptance().first) == 0) {
+                graphy[i].setGroupNumber(to_string(++counter));
+                accc.insert(make_pair(graphy[i].getAcceptance().first, counter));
+            } else {
+                graphy[i].setGroupNumber(to_string(accc[graphy[i].getAcceptance().first]));
+            }
         }
         //graphy[i].setGroupNumber((graphy[i].getAcceptance().first == -1)? to_string(counter) : to_string(counter + 1));
     }

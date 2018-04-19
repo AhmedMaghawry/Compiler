@@ -7,7 +7,7 @@ void Generator::intialize_scan() {
     s2_cur = s_cur = "";
     bo_last_accept = false;
    // cur_Node = START_NODE-1;
-    cur =dfa[START_NODE];
+    cur = start;
 }
 
 void Generator::add_error() {
@@ -275,8 +275,8 @@ string Generator::getTransitionNode(Node node, char c) {
     return "-1";
 }
 
-Generator::Generator(const Node &cur, const vector<Node> &dfa, int START_NODE) : cur(cur), dfa(dfa),
-                                                                                 START_NODE(START_NODE) {}
+Generator::Generator(const Node &cur, const vector<Node> &dfa, Node sta) : cur(cur), dfa(dfa),
+                                                                                 start(sta) {}
 
 
 

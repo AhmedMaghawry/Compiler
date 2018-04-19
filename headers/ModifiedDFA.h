@@ -14,8 +14,9 @@ class ModifiedDFA {
 public:
     ModifiedDFA();
     vector<Node> getDfaGraph();
-    void convert_from_NFA_to_DFA(vector<Node> nfaGraph, vector<string> symbs);
+    void convert_from_NFA_to_DFA(vector<Node> nfaGraph, vector<string> symbs, map<pair<string, string>, vector<string>> tr);
     static bool isExsist_in_list(Node node, vector<Node> list);
+    bool isExsistQ(vector<Node> node, queue<vector<Node>> list);
 
 private:
     string sort_name(string basic_string);

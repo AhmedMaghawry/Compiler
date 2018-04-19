@@ -25,6 +25,23 @@ vector<string> symbs;
 
 Node getStart(vector<Node> s);
 
+
+void write_to_file(vector<Node> nodes){
+    FILE *f = fopen("/home/default/Desktop/test.csv", "w");
+    if(f != NULL){
+        fputs("source,cost,destination,accept\n", f);
+        for (Node node : nodes) {
+            for (Transition t : node.getTransitions()) {
+                //if(node.getAcceptance().second == "no") continue;
+                string tmp = node.getNumber() + "," + t.getTransition() + "," + t.getTo() + "," + node.getAcceptance().second + "\n";
+                fputs(tmp.c_str(), f);
+
+            }
+        }
+        fclose(f);
+    }
+}
+
 void addLettersToSymboles() {
     for (int i = 0; i < 26; ++i) {
         char c = i + 97;
@@ -489,6 +506,16 @@ void test9() {
 void display_graph_temp(vector<Node> nodes) {
     for (Node node : nodes) {
         for (Transition t : node.getTransitions()) {
+            //if(node.getAcceptance().second == "no") continue;
+            cout << node.getNumber() << "-- " << t.getTransition() << " --> " << t.getTo() << "--" << node.getAcceptance().second << "--" << node.getGroupNumber() << endl;
+        }
+    }
+}
+
+void display_acceptance(vector<Node> nodes) {
+    for (Node node : nodes) {
+        for (Transition t : node.getTransitions()) {
+            if(node.getAcceptance().second == "no") continue;
             cout << node.getNumber() << "-- " << t.getTransition() << " --> " << t.getTo() << "--" << node.getAcceptance().second << "--" << node.getGroupNumber() << endl;
         }
     }
@@ -503,8 +530,8 @@ Node getStart(vector<Node> s) {
 
 int main0() {
     test3();
-	ModifiedDFA dfa;
-	dfa.convert_from_NFA_to_DFA(graph, symbs);
+	//ModifiedDFA dfa;
+	//dfa.convert_from_NFA_to_DFA(graph, symbs);
     cout << "Minimized Graph -------------------->" << endl;
     //Minimize_Ezzat m;
     //m.init_mini(dfa.getDfaGraph());
@@ -521,8 +548,8 @@ int main1() {
     m.init_mini(graph);
     display_graph_temp(m.getMinimize());
     Node cur = m.getMinimize()[0];
-    Generator generator(cur,m.getMinimize(),0);
-    generator.lexal_analizer_run();
+//    Generator generator(cur,m.getMinimize(),0);
+    //generator.lexal_analizer_run();
     return 0;
 }
 
@@ -547,21 +574,21 @@ int main2() {
     p.collect();
     NFA n = p.get_NFA();
     clock_t begin = clock();
-    ModifiedDFA dfa;
+//    ModifiedDFA dfa;
     symbs.push_back("a");
     symbs.push_back("b");
-    dfa.convert_from_NFA_to_DFA(n.getNfaTable(), symbs);
+//    dfa.convert_from_NFA_to_DFA(n.getNfaTable(), symbs);
     clock_t end = clock();
     double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
     cout << elapsed_secs << endl;
-    display_graph_temp(dfa.getDfaGraph());
+//    display_graph_temp(dfa.getDfaGraph());
     Minimize_Ezzat m;
-    m.init_mini(dfa.getDfaGraph());
+  //  m.init_mini(dfa.getDfaGraph());
     cout << "-------------Min----------------" << endl;
     display_graph_temp(m.getMinimize());
     Node cur = m.getMinimize()[0];
-    Generator generator(cur,m.getMinimize(),0);
-    generator.lexal_analizer_run();
+//    Generator generator(cur,m.getMinimize(),0);
+ //   generator.lexal_analizer_run();
     return 0;
 }
 
@@ -570,14 +597,21 @@ int main() {
     RegexParser r;
     nfa = r.parse_rules();
     ModifiedDFA dfa;
-    dfa.convert_from_NFA_to_DFA(nfa.getNfaTable(), r.get_symbol_table());
+    //write_to_file(nfa.getNfaTable());
+    display_graph_temp(nfa.getNfaTable());
+    cout << "----------------------" << endl;
+    //display_acceptance(nfa.getNfaTable());
+    dfa.convert_from_NFA_to_DFA(nfa.getNfaTable(), r.get_symbol_table(), r.get_map());
     cout << "-------------DFA Created----------------" << endl;
-    Minimize_Ezzat m;
-    m.init_mini(dfa.getDfaGraph());
-    cout << "-------------Min----------------" << endl;
     display_graph_temp(dfa.getDfaGraph());
+    Minimize_Ezzat m;
+    //m.init_mini(dfa.getDfaGraph());
+    cout << "-------------Min----------------" << endl;
+    //display_graph_temp(dfa.getDfaGraph());
+    /*Node cur = getStart(m.getMinimize());
+    Generator generator(cur,m.getMinimize(),cur);*/
     Node cur = getStart(dfa.getDfaGraph());
-    Generator generator(cur,dfa.getDfaGraph(),0);
+    Generator generator(cur,dfa.getDfaGraph(),cur);
     generator.lexal_analizer_run();
     return 0;
 }
@@ -593,3 +627,4 @@ int main4 () {
         cout << endl;
     }
 }
+

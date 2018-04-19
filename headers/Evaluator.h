@@ -16,10 +16,11 @@ public:
     static NFA plus(NFA a);
     static NFA dash(NFA a, NFA b);
     static int convert(string exp);
-
-private:
+    static void display_graph_temp(vector<Node> tmp);
     static NFA scaleUP(NFA a, int n);
     static NFA addToFirst(NFA a, NFA b);
+
+private:
     static string getNewEndNodeNumber(NFA a, NFA b);
     static void printGraph(NFA a);
 };
