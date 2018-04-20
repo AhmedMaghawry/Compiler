@@ -1,4 +1,5 @@
 #include "../headers/Generator.h"
+#include "../headers/DFA.h"
 
 
 //void parse(char c, int mode);

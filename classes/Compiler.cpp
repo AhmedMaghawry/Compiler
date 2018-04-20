@@ -597,21 +597,14 @@ int main() {
     RegexParser r;
     nfa = r.parse_rules();
     ModifiedDFA dfa;
-    //write_to_file(nfa.getNfaTable());
-    display_graph_temp(nfa.getNfaTable());
     cout << "----------------------" << endl;
-    //display_acceptance(nfa.getNfaTable());
     dfa.convert_from_NFA_to_DFA(nfa.getNfaTable(), r.get_symbol_table(), r.get_map());
     cout << "-------------DFA Created----------------" << endl;
-    display_graph_temp(dfa.getDfaGraph());
     Minimize_Ezzat m;
-    //m.init_mini(dfa.getDfaGraph());
+    m.init_mini(dfa.getDfaGraph());
     cout << "-------------Min----------------" << endl;
-    //display_graph_temp(dfa.getDfaGraph());
-    /*Node cur = getStart(m.getMinimize());
-    Generator generator(cur,m.getMinimize(),cur);*/
-    Node cur = getStart(dfa.getDfaGraph());
-    Generator generator(cur,dfa.getDfaGraph(),cur);
+    Node cur = getStart(m.getMinimize());
+    Generator generator(cur,m.getMinimize(),cur);
     generator.lexal_analizer_run();
     return 0;
 }

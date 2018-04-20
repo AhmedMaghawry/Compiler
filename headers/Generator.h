@@ -4,8 +4,8 @@
 
 #ifndef COMPILER_GENERATOR_H
 #define COMPILER_GENERATOR_H
-#include "../headers/DFA.h"
 #include "../headers/Reader2.h"
+#include "Node.h"
 
 #define ENDL -1
 //#define START_NODE 1
