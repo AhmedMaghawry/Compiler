@@ -16,6 +16,7 @@
 #include "../headers/Generator.h"
 #include "../headers/Minimize_Ezzat.h"
 #include "../headers/ModifiedDFA.h"
+#include "../headers/First_Follow.h"
 //#include "../headers/Generator.h"
 
 using namespace std;
@@ -25,6 +26,8 @@ vector<string> symbs;
 
 Node getStart(vector<Node> s);
 
+
+void displayTables(map<string, vector<string>> mapy);
 
 void write_to_file(vector<Node> nodes){
     FILE *f = fopen("/home/default/Desktop/test.csv", "w");
@@ -592,7 +595,7 @@ int main2() {
     return 0;
 }
 
-int main() {
+int main3() {
     NFA nfa;
     RegexParser r;
     nfa = r.parse_rules();
@@ -617,6 +620,33 @@ int main4 () {
     for ( it = map1.begin(); it != map1.end(); it++ )
     {
         cout << it->first << "---- " << it->second << " -----> ";
+        cout << endl;
+    }
+}
+
+map<string, vector<vector<pair<string, bool>>>> grammer;
+vector<string> n_terminals;
+vector <string> terminals;
+
+int main() {
+    RegexParser r;
+    grammer = r.parse_syn_rules();
+    n_terminals = r.get_non_terminal_symbols();
+    terminals = r.get_terminal_symbols();
+    First_Follow first_follow (grammer, n_terminals, terminals);
+    first_follow.calculate_firsts();
+    first_follow.calculate_follows();
+    displayTables(first_follow.getFirstMap());
+}
+
+void displayTables(map<string, vector<string>> mapy) {
+    map <string,  vector<string> >::iterator it;
+    for ( it = mapy.begin(); it != mapy.end(); it++ )
+    {
+        cout << setw(20) << it->first << " :: " << setw(10);
+        for (int i = 0; i < it->second.size(); ++i) {
+            cout << it->second[i] << " , " << setw(5);
+        }
         cout << endl;
     }
 }

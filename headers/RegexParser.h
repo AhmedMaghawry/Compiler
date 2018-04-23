@@ -15,14 +15,22 @@
 
 using namespace std;
 
-
 class RegexParser {
 private:
 	PostfixInfix p;
+	vector<string> non_terminal, terminal;
+	set<string> terminal_set;
+	map<string, vector<vector<pair<string, bool> > > > rules_map;
+	vector<pair<string, bool> > get_pairs(string line);
+
 public:
 	RegexParser();
-	NFA parse_rules();
 	virtual ~RegexParser();
+	map<string, vector<vector<pair<string, bool>>> > parse_syn_rules();
+	map<string,vector<vector<pair < string, bool>>>>get_rules_map();
+	vector<string>get_non_terminal_symbols();
+	vector<string>get_terminal_symbols();
+	NFA parse_rules();
 	void regular_definitions(string name, string def);
 	void regular_expressions(string name, string exp);
 	void Keyword(string line);
@@ -30,6 +38,5 @@ public:
 	vector<string> get_symbol_table();
 	map<pair<string, string>, vector<string>> get_map();
 };
-
 
 #endif /* REGEXPARSER_H_ */
