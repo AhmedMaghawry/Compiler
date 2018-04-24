@@ -38,7 +38,6 @@ void Minimize_Ezzat::partition() {
         last_state.clear();
         last_state.reserve(graphy.size());
         last_state.insert(last_state.end(),graphy.begin(), graphy.end());
-        //copyNodes(graphy, last_state);
         for (int i = 0; i < graphy.size(); ++i) {
             for (int j = i + 1; j < graphy.size(); ++j) {
                 if(graphy[i].getGroupNumber() == graphy[j].getGroupNumber()) {
@@ -53,11 +52,6 @@ void Minimize_Ezzat::partition() {
                             }
                         }
                     }
-                    /*if(equals_States(graphy[i], graphy[j], last_state)) {
-                        graphy[j].setGroupNumber(graphy[i].getGroupNumber());
-                    } else {
-                        graphy[j].setGroupNumber(to_string(++counter));
-                    }*/
                 }
             }
         }
