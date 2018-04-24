@@ -4,7 +4,7 @@ line 0:  error        |
 line 0:  error        |      
 line 0:  error        |      
 pun                   |      ,
-line 0:  error        |      
+id                    |      c
 line 0:  error        |      
 line 0:  error        |      
 line 0:  error        |      
@@ -18,7 +18,7 @@ pun                   |      ,
 line 1:  error        |      
 line 1:  error        |      
 line 1:  error        |      
-line 1:  error        |      
+pun                   |      ;
 while                 |      while
 pun                   |      (
 line 1:  error        |      
@@ -40,5 +40,5 @@ line 3:  error        |
 line 3:  error        |      
 addop                 |      +
 num                   |      1
-line 3:  error        |      
+pun                   |      ;
 pun                   |      }

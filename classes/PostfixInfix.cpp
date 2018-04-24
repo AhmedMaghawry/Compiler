@@ -110,7 +110,9 @@ void PostfixInfix::prepare_map_and_symbol_table(){
                 list.push_back(t.getTo());
             }
             map_of_transitions.insert(make_pair(tmp, list));
-            table.insert(t.getTransition());
+            if (t.getTransition() != "\\L") {
+                table.insert(t.getTransition());
+            }
         }
     }
     set<string>:: iterator it;

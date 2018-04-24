@@ -27,7 +27,7 @@ Node getStart(vector<Node> s);
 
 
 void write_to_file(vector<Node> nodes){
-    FILE *f = fopen("/home/arsanuos/Desktop/test.csv", "w");
+    FILE *f = fopen("/home/default/Desktop/test.csv", "w");
     if(f != NULL){
         fputs("source,cost,destination,accept\n", f);
         for (Node node : nodes) {
@@ -530,7 +530,7 @@ Node getStart(vector<Node> s) {
 
 int main0() {
     test3();
-	ModifiedDFA dfa;
+	//ModifiedDFA dfa;
 	//dfa.convert_from_NFA_to_DFA(graph, symbs);
     cout << "Minimized Graph -------------------->" << endl;
     //Minimize_Ezzat m;
@@ -574,16 +574,16 @@ int main2() {
     p.collect();
     NFA n = p.get_NFA();
     clock_t begin = clock();
-    ModifiedDFA dfa;
+//    ModifiedDFA dfa;
     symbs.push_back("a");
     symbs.push_back("b");
 //    dfa.convert_from_NFA_to_DFA(n.getNfaTable(), symbs);
     clock_t end = clock();
     double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
     cout << elapsed_secs << endl;
-    display_graph_temp(dfa.getDfaGraph());
+//    display_graph_temp(dfa.getDfaGraph());
     Minimize_Ezzat m;
-    m.init_mini(dfa.getDfaGraph());
+  //  m.init_mini(dfa.getDfaGraph());
     cout << "-------------Min----------------" << endl;
     display_graph_temp(m.getMinimize());
     Node cur = m.getMinimize()[0];
@@ -596,21 +596,22 @@ int main() {
     NFA nfa;
     RegexParser r;
     nfa = r.parse_rules();
-    DFA dfa;
-    write_to_file(nfa.getNfaTable());
-    display_graph_temp(nfa.getNfaTable());
+    ModifiedDFA dfa;
+    //write_to_file(nfa.getNfaTable());
+    //display_graph_temp(nfa.getNfaTable());
     cout << "----------------------" << endl;
-    display_acceptance(nfa.getNfaTable());
-    dfa.convert_from_NFA_to_DFA(nfa.getNfaTable(), r.get_symbol_table());
+    //display_acceptance(nfa.getNfaTable());
+    dfa.convert_from_NFA_to_DFA(nfa.getNfaTable(), r.get_symbol_table(), r.get_map());
     cout << "-------------DFA Created----------------" << endl;
-    Minimize_Ezzat m;
-    m.init_mini(dfa.getDfaGraph());
+   // display_graph_temp(dfa.getDfaGraph());
+    //Minimize_Ezzat m;
+    //m.init_mini(dfa.getDfaGraph());
     cout << "-------------Min----------------" << endl;
     //display_graph_temp(dfa.getDfaGraph());
-    Node cur = getStart(m.getMinimize());
-    Generator generator(cur,m.getMinimize(),cur);
-    /*Node cur = getStart(dfa.getDfaGraph());
-    Generator generator(cur,dfa.getDfaGraph(),cur);*/
+    /*Node cur = getStart(m.getMinimize());
+    Generator generator(cur,m.getMinimize(),cur);*/
+    Node cur = getStart(dfa.getDfaGraph());
+    Generator generator(cur,dfa.getDfaGraph(),cur);
     generator.lexal_analizer_run();
     return 0;
 }
