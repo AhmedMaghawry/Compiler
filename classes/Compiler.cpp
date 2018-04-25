@@ -638,7 +638,10 @@ int main() {
     First_Follow first_follow (grammer, n_terminals, terminals);
     first_follow.calculate_firsts();
     first_follow.calculate_follows();
+    cout << "------------------ First -------------------" << endl;
     displayTables(first_follow.getFirstMap());
+    cout << "------------------ Follow -------------------" << endl;
+    displayTables(first_follow.getFollowMap());
 }
 
 void displayTables(map<string, vector<string>> mapy) {

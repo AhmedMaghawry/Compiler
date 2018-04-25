@@ -25,12 +25,14 @@ private:
     vector<string> terminals;
     map<string, set<pair<string, vector<pair<string, bool>>>>> firstMap;
     map<string, set<string>> followMap;
-    set<pair<string, vector<pair<string, bool>>>> First(string name);
-    set<string> Follow(string name);
+    set<pair<string, vector<pair<string, bool>>>> First(string name, vector<string> recursion_checker);
+    set<string> Follow(string name, vector<string> rec_checker);
     void concat(set<string> &res, set<string> add);
     void concat(set<pair<string, vector<pair<string, bool>>>> &res, set<pair<string, vector<pair<string, bool>>>> add);
-    set<pair<string, vector<pair<string, bool>>>> repair_for_e(set<pair<string, vector<pair<string, bool>>>> vals, vector<pair<string, bool>> symboles);
+    set<pair<string, vector<pair<string, bool>>>> repair_for_e(set<pair<string, vector<pair<string, bool>>>> vals, vector<pair<string, bool>> symboles, int shifter2);
     set<string> replace_e_for_follow(set<pair<string, vector<pair<string, bool>>>> li, string rule);
+
+    bool isIn(string basic_string, vector<string> list);
 };
 
 

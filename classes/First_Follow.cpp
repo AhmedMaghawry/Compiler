@@ -15,11 +15,14 @@ First_Follow::First_Follow(map<string, vector<vector<pair<string, bool>>>> gramm
 void First_Follow::calculate_firsts() {
     for (int i = 0; i < n_terminals.size(); ++i) {
         if (!firstMap.count(n_terminals[i]))
-            firstMap.insert(make_pair(n_terminals[i], First(n_terminals[i])));
+            firstMap.insert(make_pair(n_terminals[i], First(n_terminals[i], {})));
     }
 }
 
-set<pair<string, vector<pair<string, bool>>>> First_Follow::First(string name) {
+set<pair<string, vector<pair<string, bool>>>> First_Follow::First(string name, vector<string> recursion_checker) {
+    if(isIn(name, recursion_checker)){
+        throw invalid_argument( "There is Recursion" );
+    }
     set<pair<string, vector<pair<string, bool>>>> res;
     vector<vector<pair<string, bool>>> str = grammer[name];
 
@@ -46,14 +49,15 @@ set<pair<string, vector<pair<string, bool>>>> First_Follow::First(string name) {
 
             if (!firstMap.count(first_symbol.first)) {
                 //Not Calculated Before
-                result_of_sub = First(first_symbol.first);
+                recursion_checker.push_back(name);
+                result_of_sub = First(first_symbol.first, recursion_checker);
                 firstMap.insert(make_pair(first_symbol.first, result_of_sub));
             } else {
                 //Calculated Before
                 result_of_sub = firstMap[first_symbol.first];
             }
 
-            result_of_sub = repair_for_e(result_of_sub, str[i]);
+            result_of_sub = repair_for_e(result_of_sub, str[i], 0);
             concat(res, result_of_sub);
         }
     }
@@ -70,8 +74,8 @@ void First_Follow::concat(set<pair<string, vector<pair<string, bool>>>> &res, se
     res.insert(add.begin(), add.end());
 }
 
-set<pair<string, vector<pair<string, bool>>>> First_Follow::repair_for_e(set<pair<string, vector<pair<string, bool>>>> vals, vector<pair<string, bool>> symboles){
-    int shifter = 1;
+set<pair<string, vector<pair<string, bool>>>> First_Follow::repair_for_e(set<pair<string, vector<pair<string, bool>>>> vals, vector<pair<string, bool>> symboles, int shifter2){
+    int shifter = shifter2 + 1;
     set<pair<string, vector<pair<string, bool>>>> res;
 
     set<pair<string, vector<pair<string, bool>>>>:: iterator it;
@@ -84,12 +88,18 @@ set<pair<string, vector<pair<string, bool>>>> First_Follow::repair_for_e(set<pai
                 pair<string, bool> sym = symboles[shifter];
                 if (sym.second)
                     res.insert(make_pair(sym.first, symboles));
-                else
-                    concat(res, First(sym.first));
-                shifter++;
+                else {
+                    set<pair<string, vector<pair<string, bool>>>> te = First(sym.first, {});
+                    set<pair<string, vector<pair<string, bool>>>> res2;
+                    set<pair<string, vector<pair<string, bool>>>>:: iterator it2;
+                    for( it2 = te.begin(); it2!=te.end(); ++it2){
+                        res2.insert(make_pair(it2->first, symboles));
+                    }
+                    concat(res, repair_for_e(res2, symboles, shifter));
+                }
             }
         } else {
-            res.insert(*it);
+            res.insert(make_pair(it->first, symboles));
         }
     }
     return res;
@@ -98,11 +108,14 @@ set<pair<string, vector<pair<string, bool>>>> First_Follow::repair_for_e(set<pai
 void First_Follow::calculate_follows() {
     for (int i = 0; i < n_terminals.size(); ++i) {
         if (!followMap.count(n_terminals[i]))
-            followMap.insert(make_pair(n_terminals[i], Follow(n_terminals[i])));
+            followMap.insert(make_pair(n_terminals[i], Follow(n_terminals[i], {})));
     }
 }
 
-set<string> First_Follow::Follow(string name) {
+set<string> First_Follow::Follow(string name, vector<string> rec_checker) {
+    if(isIn(name, rec_checker)){
+        throw invalid_argument("There is Recursion");
+    }
     set<string> res;
 
     if(flag) {
@@ -127,7 +140,8 @@ set<string> First_Follow::Follow(string name) {
                         set<string> res_sub;
                         if (!followMap.count(it->first)) {
                             //Not Calculated Before
-                            res_sub = Follow(it->first);
+                            rec_checker.push_back(name);
+                            res_sub = Follow(it->first, rec_checker);
                             followMap.insert(make_pair(it->first, res_sub));
                         } else {
                             //Calculated Before
@@ -157,7 +171,7 @@ set<string> First_Follow::replace_e_for_follow(set<pair<string, vector<pair<stri
     for( it = li.begin(); it!=li.end(); ++it){
         if(it->first == e) {
             if(!followMap.count(rule)){
-                set<string> r = Follow(rule);
+                set<string> r = Follow(rule, {});
                 followMap.insert(make_pair(rule,r));
                 concat(res, r);
             } else {
@@ -198,4 +212,8 @@ map<string, vector<string>> First_Follow::getFollowMap() {
         res.insert(make_pair(it->first,r));
     }
     return res;
+}
+
+bool First_Follow::isIn(string basic_string, vector<string> list) {
+    return  ( std::find(list.begin(), list.end(), basic_string) != list.end() );
 }
