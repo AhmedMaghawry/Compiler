@@ -15,7 +15,7 @@ public:
     First_Follow(map<string, vector<vector<pair<string, bool>>>> grammer, vector<string> n_terminals, vector<string> terminals);
     void calculate_firsts();
     void calculate_follows();
-    map<string, vector<string>> getFirstMap();
+    map<string, vector<pair<string, vector<pair<string, bool>>>>> getFirstMap();
     map<string, vector<string>> getFollowMap();
 
 private:
@@ -23,13 +23,14 @@ private:
     map<string, vector<vector<pair<string, bool>>>> grammer;
     vector<string> n_terminals;
     vector<string> terminals;
-    map<string, set<string>> firstMap;
+    map<string, set<pair<string, vector<pair<string, bool>>>>> firstMap;
     map<string, set<string>> followMap;
-    set<string> First(string name);
+    set<pair<string, vector<pair<string, bool>>>> First(string name);
     set<string> Follow(string name);
     void concat(set<string> &res, set<string> add);
-    set<string> repair_for_e(set<string> vals, vector<pair<string, bool>> symboles);
-    set<string>replace_e_for_follow(set<string> li, string rule);
+    void concat(set<pair<string, vector<pair<string, bool>>>> &res, set<pair<string, vector<pair<string, bool>>>> add);
+    set<pair<string, vector<pair<string, bool>>>> repair_for_e(set<pair<string, vector<pair<string, bool>>>> vals, vector<pair<string, bool>> symboles);
+    set<string> replace_e_for_follow(set<pair<string, vector<pair<string, bool>>>> li, string rule);
 };
 
 

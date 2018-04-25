@@ -19,8 +19,8 @@ void First_Follow::calculate_firsts() {
     }
 }
 
-set<string> First_Follow::First(string name) {
-    set<string> res;
+set<pair<string, vector<pair<string, bool>>>> First_Follow::First(string name) {
+    set<pair<string, vector<pair<string, bool>>>> res;
     vector<vector<pair<string, bool>>> str = grammer[name];
 
     if (firstMap.count(name))
@@ -39,10 +39,10 @@ set<string> First_Follow::First(string name) {
 
         //If Terminal
         if (first_symbol.second) {
-            res.insert(first_symbol.first);
+            res.insert(make_pair(first_symbol.first, str[i]));
         } else {
             //If Non Terminal
-            set<string> result_of_sub;
+            set<pair<string, vector<pair<string, bool>>>> result_of_sub;
 
             if (!firstMap.count(first_symbol.first)) {
                 //Not Calculated Before
@@ -65,20 +65,25 @@ void First_Follow::concat(set<string> &res, set<string> add) {
     res.insert(add.begin(), add.end());
 }
 
-set<string> First_Follow::repair_for_e(set<string> vals, vector<pair<string, bool>> symboles) {
-    int shifter = 1;
-    set<string> res;
+void First_Follow::concat(set<pair<string, vector<pair<string, bool>>>> &res, set<pair<string, vector<pair<string, bool>>>> add){
+    //res.reserve(res.size() + add.size());
+    res.insert(add.begin(), add.end());
+}
 
-    set<string>:: iterator it;
+set<pair<string, vector<pair<string, bool>>>> First_Follow::repair_for_e(set<pair<string, vector<pair<string, bool>>>> vals, vector<pair<string, bool>> symboles){
+    int shifter = 1;
+    set<pair<string, vector<pair<string, bool>>>> res;
+
+    set<pair<string, vector<pair<string, bool>>>>:: iterator it;
     for( it = vals.begin(); it!=vals.end(); ++it){
-        if (*it == e){
+        if (it->first == e){
             if (symboles.size() <= shifter) {
                 //If All NT go to E
-                res.insert(e);
+                res.insert(make_pair(e, symboles));
             } else {
                 pair<string, bool> sym = symboles[shifter];
                 if (sym.second)
-                    res.insert(sym.first);
+                    res.insert(make_pair(sym.first, symboles));
                 else
                     concat(res, First(sym.first));
                 shifter++;
@@ -146,11 +151,11 @@ set<string> First_Follow::Follow(string name) {
     return res;
 }
 
-set<string> First_Follow::replace_e_for_follow(set<string> li, string rule) {
+set<string> First_Follow::replace_e_for_follow(set<pair<string, vector<pair<string, bool>>>> li, string rule) {
     set<string> res;
-    set<string>:: iterator it;
+    set<pair<string, vector<pair<string, bool>>>>:: iterator it;
     for( it = li.begin(); it!=li.end(); ++it){
-        if(*it == e) {
+        if(it->first == e) {
             if(!followMap.count(rule)){
                 set<string> r = Follow(rule);
                 followMap.insert(make_pair(rule,r));
@@ -159,19 +164,19 @@ set<string> First_Follow::replace_e_for_follow(set<string> li, string rule) {
                 concat(res, followMap[rule]);
             }
         } else {
-            res.insert(*it);
+            res.insert(it->first);
         }
     }
     return res;
 }
 
-map<string, vector<string>> First_Follow::getFirstMap() {
-    map<string, vector<string>> res;
-    map <string,  set<string> >::iterator it;
+map<string, vector<pair<string, vector<pair<string, bool>>>>> First_Follow::getFirstMap() {
+    map<string, vector<pair<string, vector<pair<string, bool>>>>> res;
+    map <string,  set<pair<string, vector<pair<string, bool>>>> >::iterator it;
     for ( it = firstMap.begin(); it != firstMap.end(); it++ )
     {
-        vector<string> r;
-        set<string>:: iterator it2;
+        vector<pair<string, vector<pair<string, bool>>>> r;
+        set<pair<string, vector<pair<string, bool>>>>:: iterator it2;
         for( it2 = it->second.begin(); it2!=it->second.end(); ++it2){
             r.push_back(*it2);
         }

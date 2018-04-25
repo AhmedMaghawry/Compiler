@@ -28,6 +28,8 @@ Node getStart(vector<Node> s);
 
 
 void displayTables(map<string, vector<string>> mapy);
+void displayTables(map<string, vector<pair<string, vector<pair<string, bool>>>>> mapy);
+string getName(vector<pair<string, bool>> in);
 
 void write_to_file(vector<Node> nodes){
     FILE *f = fopen("/home/default/Desktop/test.csv", "w");
@@ -649,5 +651,25 @@ void displayTables(map<string, vector<string>> mapy) {
         }
         cout << endl;
     }
+}
+
+void displayTables(map<string, vector<pair<string, vector<pair<string, bool>>>>> mapy) {
+    map <string,  vector<pair<string, vector<pair<string, bool>>>> >::iterator it;
+    for ( it = mapy.begin(); it != mapy.end(); it++ )
+    {
+        cout << setw(20) << it->first << " :: " << setw(10);
+        for (int i = 0; i < it->second.size(); ++i) {
+            cout << it->second[i].first << setw(10) << " From : " << setw(10) << getName(it->second[i].second) << " , " << setw(5);
+        }
+        cout << endl;
+    }
+}
+
+string getName(vector<pair<string, bool>> in) {
+    string x = "";
+    for (int i = 0; i < in.size(); ++i) {
+        x += in[i].first;
+    }
+    return x;
 }
 
