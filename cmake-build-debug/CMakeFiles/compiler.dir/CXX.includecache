@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/home/arsanuos/eclipse-workspace/compiler/classes/Cleaner.cpp
+../headers/Cleaner.h
+/home/arsanuos/eclipse-workspace/compiler/headers/Cleaner.h
+
 /home/arsanuos/eclipse-workspace/compiler/classes/Compiler.cpp
 iostream
 -
@@ -27,6 +31,10 @@ bits/stdc++.h
 /home/arsanuos/eclipse-workspace/compiler/headers/Minimize_Ezzat.h
 ../headers/ModifiedDFA.h
 /home/arsanuos/eclipse-workspace/compiler/headers/ModifiedDFA.h
+../headers/First_Follow.h
+/home/arsanuos/eclipse-workspace/compiler/headers/First_Follow.h
+../headers/LeftFactoring.h
+/home/arsanuos/eclipse-workspace/compiler/headers/LeftFactoring.h
 
 /home/arsanuos/eclipse-workspace/compiler/classes/Construction.cpp
 ../headers/Construction.h
@@ -52,9 +60,23 @@ sstream
 iostream
 -
 
+/home/arsanuos/eclipse-workspace/compiler/classes/First_Follow.cpp
+../headers/First_Follow.h
+/home/arsanuos/eclipse-workspace/compiler/headers/First_Follow.h
+
 /home/arsanuos/eclipse-workspace/compiler/classes/Generator.cpp
 ../headers/Generator.h
 /home/arsanuos/eclipse-workspace/compiler/headers/Generator.h
+../headers/DFA.h
+/home/arsanuos/eclipse-workspace/compiler/headers/DFA.h
+
+/home/arsanuos/eclipse-workspace/compiler/classes/LeftFactoring.cpp
+../headers/LeftFactoring.h
+/home/arsanuos/eclipse-workspace/compiler/headers/LeftFactoring.h
+
+/home/arsanuos/eclipse-workspace/compiler/classes/LeftRecursion.cpp
+../headers/LeftRecursion.h
+/home/arsanuos/eclipse-workspace/compiler/headers/LeftRecursion.h
 
 /home/arsanuos/eclipse-workspace/compiler/classes/Minimize_Ezzat.cpp
 map
@@ -138,6 +160,14 @@ set
 ../headers/Transition.h
 /home/arsanuos/eclipse-workspace/compiler/headers/Transition.h
 
+/home/arsanuos/eclipse-workspace/compiler/headers/Cleaner.h
+vector
+-
+string
+-
+map
+-
+
 /home/arsanuos/eclipse-workspace/compiler/headers/Construction.h
 NFA.h
 /home/arsanuos/eclipse-workspace/compiler/headers/NFA.h
@@ -154,11 +184,37 @@ Node.h
 NFA.h
 /home/arsanuos/eclipse-workspace/compiler/headers/NFA.h
 
+/home/arsanuos/eclipse-workspace/compiler/headers/First_Follow.h
+bits/stdc++.h
+-
+
 /home/arsanuos/eclipse-workspace/compiler/headers/Generator.h
-../headers/DFA.h
-/home/arsanuos/eclipse-workspace/compiler/headers/DFA.h
 ../headers/Reader2.h
 /home/arsanuos/eclipse-workspace/compiler/headers/Reader2.h
+Node.h
+/home/arsanuos/eclipse-workspace/compiler/headers/Node.h
+
+/home/arsanuos/eclipse-workspace/compiler/headers/LeftFactoring.h
+vector
+-
+string
+-
+map
+-
+iostream
+-
+algorithm
+-
+set
+-
+
+/home/arsanuos/eclipse-workspace/compiler/headers/LeftRecursion.h
+vector
+-
+string
+-
+map
+-
 
 /home/arsanuos/eclipse-workspace/compiler/headers/Minimize_Ezzat.h
 Node.h

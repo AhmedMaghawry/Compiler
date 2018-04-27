@@ -17,6 +17,7 @@
 #include "../headers/Minimize_Ezzat.h"
 #include "../headers/ModifiedDFA.h"
 #include "../headers/First_Follow.h"
+#include "../headers/LeftFactoring.h"
 //#include "../headers/Generator.h"
 
 using namespace std;
@@ -632,13 +633,16 @@ vector <string> terminals;
 
 int main() {
     RegexParser r;
+    LeftFactoring l;
     grammer = r.parse_syn_rules();
-    n_terminals = r.get_non_terminal_symbols();
+    l.factor(grammer);
+
+    /*n_terminals = r.get_non_terminal_symbols();
     terminals = r.get_terminal_symbols();
     First_Follow first_follow (grammer, n_terminals, terminals);
     first_follow.calculate_firsts();
     first_follow.calculate_follows();
-    displayTables(first_follow.getFirstMap());
+    displayTables(first_follow.getFirstMap());*/
 }
 
 void displayTables(map<string, vector<string>> mapy) {

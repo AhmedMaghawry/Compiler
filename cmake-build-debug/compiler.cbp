@@ -84,6 +84,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/classes/Cleaner.cpp">
+			<Option target="compiler"/>
+		</Unit>
 		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/classes/Compiler.cpp">
 			<Option target="compiler"/>
 		</Unit>
@@ -96,7 +99,16 @@
 		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/classes/Evaluator.cpp">
 			<Option target="compiler"/>
 		</Unit>
+		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/classes/First_Follow.cpp">
+			<Option target="compiler"/>
+		</Unit>
 		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/classes/Generator.cpp">
+			<Option target="compiler"/>
+		</Unit>
+		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/classes/LeftFactoring.cpp">
+			<Option target="compiler"/>
+		</Unit>
+		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/classes/LeftRecursion.cpp">
 			<Option target="compiler"/>
 		</Unit>
 		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/classes/Minimize_Ezzat.cpp">
@@ -129,6 +141,9 @@
 		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/classes/Transition.cpp">
 			<Option target="compiler"/>
 		</Unit>
+		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/headers/Cleaner.h">
+			<Option target="compiler"/>
+		</Unit>
 		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/headers/Construction.h">
 			<Option target="compiler"/>
 		</Unit>
@@ -138,7 +153,16 @@
 		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/headers/Evaluator.h">
 			<Option target="compiler"/>
 		</Unit>
+		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/headers/First_Follow.h">
+			<Option target="compiler"/>
+		</Unit>
 		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/headers/Generator.h">
+			<Option target="compiler"/>
+		</Unit>
+		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/headers/LeftFactoring.h">
+			<Option target="compiler"/>
+		</Unit>
+		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/headers/LeftRecursion.h">
 			<Option target="compiler"/>
 		</Unit>
 		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/headers/Minimize_Ezzat.h">

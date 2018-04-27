@@ -27,7 +27,7 @@ public:
 	RegexParser();
 	virtual ~RegexParser();
 	map<string, vector<vector<pair<string, bool>>> > parse_syn_rules();
-	map<string,vector<vector<pair < string, bool>>>>get_rules_map();
+	map<string,vector<vector<pair < string, bool>>>> get_rules_map();
 	vector<string>get_non_terminal_symbols();
 	vector<string>get_terminal_symbols();
 	NFA parse_rules();

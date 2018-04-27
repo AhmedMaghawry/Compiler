@@ -417,6 +417,102 @@ CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o.provides: CMakeFiles/compiler.
 CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o.provides.build: CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o
 
 
+CMakeFiles/compiler.dir/classes/First_Follow.cpp.o: CMakeFiles/compiler.dir/flags.make
+CMakeFiles/compiler.dir/classes/First_Follow.cpp.o: ../classes/First_Follow.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsanuos/eclipse-workspace/compiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/compiler.dir/classes/First_Follow.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/compiler.dir/classes/First_Follow.cpp.o -c /home/arsanuos/eclipse-workspace/compiler/classes/First_Follow.cpp
+
+CMakeFiles/compiler.dir/classes/First_Follow.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/compiler.dir/classes/First_Follow.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arsanuos/eclipse-workspace/compiler/classes/First_Follow.cpp > CMakeFiles/compiler.dir/classes/First_Follow.cpp.i
+
+CMakeFiles/compiler.dir/classes/First_Follow.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/compiler.dir/classes/First_Follow.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arsanuos/eclipse-workspace/compiler/classes/First_Follow.cpp -o CMakeFiles/compiler.dir/classes/First_Follow.cpp.s
+
+CMakeFiles/compiler.dir/classes/First_Follow.cpp.o.requires:
+
+.PHONY : CMakeFiles/compiler.dir/classes/First_Follow.cpp.o.requires
+
+CMakeFiles/compiler.dir/classes/First_Follow.cpp.o.provides: CMakeFiles/compiler.dir/classes/First_Follow.cpp.o.requires
+	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/First_Follow.cpp.o.provides.build
+.PHONY : CMakeFiles/compiler.dir/classes/First_Follow.cpp.o.provides
+
+CMakeFiles/compiler.dir/classes/First_Follow.cpp.o.provides.build: CMakeFiles/compiler.dir/classes/First_Follow.cpp.o
+
+
+CMakeFiles/compiler.dir/classes/Cleaner.cpp.o: CMakeFiles/compiler.dir/flags.make
+CMakeFiles/compiler.dir/classes/Cleaner.cpp.o: ../classes/Cleaner.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsanuos/eclipse-workspace/compiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/compiler.dir/classes/Cleaner.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/compiler.dir/classes/Cleaner.cpp.o -c /home/arsanuos/eclipse-workspace/compiler/classes/Cleaner.cpp
+
+CMakeFiles/compiler.dir/classes/Cleaner.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/compiler.dir/classes/Cleaner.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arsanuos/eclipse-workspace/compiler/classes/Cleaner.cpp > CMakeFiles/compiler.dir/classes/Cleaner.cpp.i
+
+CMakeFiles/compiler.dir/classes/Cleaner.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/compiler.dir/classes/Cleaner.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arsanuos/eclipse-workspace/compiler/classes/Cleaner.cpp -o CMakeFiles/compiler.dir/classes/Cleaner.cpp.s
+
+CMakeFiles/compiler.dir/classes/Cleaner.cpp.o.requires:
+
+.PHONY : CMakeFiles/compiler.dir/classes/Cleaner.cpp.o.requires
+
+CMakeFiles/compiler.dir/classes/Cleaner.cpp.o.provides: CMakeFiles/compiler.dir/classes/Cleaner.cpp.o.requires
+	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/Cleaner.cpp.o.provides.build
+.PHONY : CMakeFiles/compiler.dir/classes/Cleaner.cpp.o.provides
+
+CMakeFiles/compiler.dir/classes/Cleaner.cpp.o.provides.build: CMakeFiles/compiler.dir/classes/Cleaner.cpp.o
+
+
+CMakeFiles/compiler.dir/classes/LeftFactoring.cpp.o: CMakeFiles/compiler.dir/flags.make
+CMakeFiles/compiler.dir/classes/LeftFactoring.cpp.o: ../classes/LeftFactoring.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsanuos/eclipse-workspace/compiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/compiler.dir/classes/LeftFactoring.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/compiler.dir/classes/LeftFactoring.cpp.o -c /home/arsanuos/eclipse-workspace/compiler/classes/LeftFactoring.cpp
+
+CMakeFiles/compiler.dir/classes/LeftFactoring.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/compiler.dir/classes/LeftFactoring.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arsanuos/eclipse-workspace/compiler/classes/LeftFactoring.cpp > CMakeFiles/compiler.dir/classes/LeftFactoring.cpp.i
+
+CMakeFiles/compiler.dir/classes/LeftFactoring.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/compiler.dir/classes/LeftFactoring.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arsanuos/eclipse-workspace/compiler/classes/LeftFactoring.cpp -o CMakeFiles/compiler.dir/classes/LeftFactoring.cpp.s
+
+CMakeFiles/compiler.dir/classes/LeftFactoring.cpp.o.requires:
+
+.PHONY : CMakeFiles/compiler.dir/classes/LeftFactoring.cpp.o.requires
+
+CMakeFiles/compiler.dir/classes/LeftFactoring.cpp.o.provides: CMakeFiles/compiler.dir/classes/LeftFactoring.cpp.o.requires
+	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/LeftFactoring.cpp.o.provides.build
+.PHONY : CMakeFiles/compiler.dir/classes/LeftFactoring.cpp.o.provides
+
+CMakeFiles/compiler.dir/classes/LeftFactoring.cpp.o.provides.build: CMakeFiles/compiler.dir/classes/LeftFactoring.cpp.o
+
+
+CMakeFiles/compiler.dir/classes/LeftRecursion.cpp.o: CMakeFiles/compiler.dir/flags.make
+CMakeFiles/compiler.dir/classes/LeftRecursion.cpp.o: ../classes/LeftRecursion.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsanuos/eclipse-workspace/compiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/compiler.dir/classes/LeftRecursion.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/compiler.dir/classes/LeftRecursion.cpp.o -c /home/arsanuos/eclipse-workspace/compiler/classes/LeftRecursion.cpp
+
+CMakeFiles/compiler.dir/classes/LeftRecursion.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/compiler.dir/classes/LeftRecursion.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arsanuos/eclipse-workspace/compiler/classes/LeftRecursion.cpp > CMakeFiles/compiler.dir/classes/LeftRecursion.cpp.i
+
+CMakeFiles/compiler.dir/classes/LeftRecursion.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/compiler.dir/classes/LeftRecursion.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arsanuos/eclipse-workspace/compiler/classes/LeftRecursion.cpp -o CMakeFiles/compiler.dir/classes/LeftRecursion.cpp.s
+
+CMakeFiles/compiler.dir/classes/LeftRecursion.cpp.o.requires:
+
+.PHONY : CMakeFiles/compiler.dir/classes/LeftRecursion.cpp.o.requires
+
+CMakeFiles/compiler.dir/classes/LeftRecursion.cpp.o.provides: CMakeFiles/compiler.dir/classes/LeftRecursion.cpp.o.requires
+	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/LeftRecursion.cpp.o.provides.build
+.PHONY : CMakeFiles/compiler.dir/classes/LeftRecursion.cpp.o.provides
+
+CMakeFiles/compiler.dir/classes/LeftRecursion.cpp.o.provides.build: CMakeFiles/compiler.dir/classes/LeftRecursion.cpp.o
+
+
 # Object files for target compiler
 compiler_OBJECTS = \
 "CMakeFiles/compiler.dir/classes/Generator.cpp.o" \
@@ -433,7 +529,11 @@ compiler_OBJECTS = \
 "CMakeFiles/compiler.dir/classes/Construction.cpp.o" \
 "CMakeFiles/compiler.dir/classes/PostfixInfix.cpp.o" \
 "CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.o" \
-"CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o"
+"CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o" \
+"CMakeFiles/compiler.dir/classes/First_Follow.cpp.o" \
+"CMakeFiles/compiler.dir/classes/Cleaner.cpp.o" \
+"CMakeFiles/compiler.dir/classes/LeftFactoring.cpp.o" \
+"CMakeFiles/compiler.dir/classes/LeftRecursion.cpp.o"
 
 # External object files for target compiler
 compiler_EXTERNAL_OBJECTS =
@@ -453,9 +553,13 @@ compiler: CMakeFiles/compiler.dir/classes/Construction.cpp.o
 compiler: CMakeFiles/compiler.dir/classes/PostfixInfix.cpp.o
 compiler: CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.o
 compiler: CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o
+compiler: CMakeFiles/compiler.dir/classes/First_Follow.cpp.o
+compiler: CMakeFiles/compiler.dir/classes/Cleaner.cpp.o
+compiler: CMakeFiles/compiler.dir/classes/LeftFactoring.cpp.o
+compiler: CMakeFiles/compiler.dir/classes/LeftRecursion.cpp.o
 compiler: CMakeFiles/compiler.dir/build.make
 compiler: CMakeFiles/compiler.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/arsanuos/eclipse-workspace/compiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable compiler"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/arsanuos/eclipse-workspace/compiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Linking CXX executable compiler"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/compiler.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -478,6 +582,10 @@ CMakeFiles/compiler.dir/requires: CMakeFiles/compiler.dir/classes/Construction.c
 CMakeFiles/compiler.dir/requires: CMakeFiles/compiler.dir/classes/PostfixInfix.cpp.o.requires
 CMakeFiles/compiler.dir/requires: CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.o.requires
 CMakeFiles/compiler.dir/requires: CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o.requires
+CMakeFiles/compiler.dir/requires: CMakeFiles/compiler.dir/classes/First_Follow.cpp.o.requires
+CMakeFiles/compiler.dir/requires: CMakeFiles/compiler.dir/classes/Cleaner.cpp.o.requires
+CMakeFiles/compiler.dir/requires: CMakeFiles/compiler.dir/classes/LeftFactoring.cpp.o.requires
+CMakeFiles/compiler.dir/requires: CMakeFiles/compiler.dir/classes/LeftRecursion.cpp.o.requires
 
 .PHONY : CMakeFiles/compiler.dir/requires
 

@@ -123,6 +123,33 @@ compiler/fast:
 	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/build
 .PHONY : compiler/fast
 
+classes/Cleaner.o: classes/Cleaner.cpp.o
+
+.PHONY : classes/Cleaner.o
+
+# target to build an object file
+classes/Cleaner.cpp.o:
+	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/Cleaner.cpp.o
+.PHONY : classes/Cleaner.cpp.o
+
+classes/Cleaner.i: classes/Cleaner.cpp.i
+
+.PHONY : classes/Cleaner.i
+
+# target to preprocess a source file
+classes/Cleaner.cpp.i:
+	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/Cleaner.cpp.i
+.PHONY : classes/Cleaner.cpp.i
+
+classes/Cleaner.s: classes/Cleaner.cpp.s
+
+.PHONY : classes/Cleaner.s
+
+# target to generate assembly for a file
+classes/Cleaner.cpp.s:
+	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/Cleaner.cpp.s
+.PHONY : classes/Cleaner.cpp.s
+
 classes/Compiler.o: classes/Compiler.cpp.o
 
 .PHONY : classes/Compiler.o
@@ -231,6 +258,33 @@ classes/Evaluator.cpp.s:
 	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/Evaluator.cpp.s
 .PHONY : classes/Evaluator.cpp.s
 
+classes/First_Follow.o: classes/First_Follow.cpp.o
+
+.PHONY : classes/First_Follow.o
+
+# target to build an object file
+classes/First_Follow.cpp.o:
+	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/First_Follow.cpp.o
+.PHONY : classes/First_Follow.cpp.o
+
+classes/First_Follow.i: classes/First_Follow.cpp.i
+
+.PHONY : classes/First_Follow.i
+
+# target to preprocess a source file
+classes/First_Follow.cpp.i:
+	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/First_Follow.cpp.i
+.PHONY : classes/First_Follow.cpp.i
+
+classes/First_Follow.s: classes/First_Follow.cpp.s
+
+.PHONY : classes/First_Follow.s
+
+# target to generate assembly for a file
+classes/First_Follow.cpp.s:
+	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/First_Follow.cpp.s
+.PHONY : classes/First_Follow.cpp.s
+
 classes/Generator.o: classes/Generator.cpp.o
 
 .PHONY : classes/Generator.o
@@ -257,6 +311,60 @@ classes/Generator.s: classes/Generator.cpp.s
 classes/Generator.cpp.s:
 	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/Generator.cpp.s
 .PHONY : classes/Generator.cpp.s
+
+classes/LeftFactoring.o: classes/LeftFactoring.cpp.o
+
+.PHONY : classes/LeftFactoring.o
+
+# target to build an object file
+classes/LeftFactoring.cpp.o:
+	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/LeftFactoring.cpp.o
+.PHONY : classes/LeftFactoring.cpp.o
+
+classes/LeftFactoring.i: classes/LeftFactoring.cpp.i
+
+.PHONY : classes/LeftFactoring.i
+
+# target to preprocess a source file
+classes/LeftFactoring.cpp.i:
+	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/LeftFactoring.cpp.i
+.PHONY : classes/LeftFactoring.cpp.i
+
+classes/LeftFactoring.s: classes/LeftFactoring.cpp.s
+
+.PHONY : classes/LeftFactoring.s
+
+# target to generate assembly for a file
+classes/LeftFactoring.cpp.s:
+	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/LeftFactoring.cpp.s
+.PHONY : classes/LeftFactoring.cpp.s
+
+classes/LeftRecursion.o: classes/LeftRecursion.cpp.o
+
+.PHONY : classes/LeftRecursion.o
+
+# target to build an object file
+classes/LeftRecursion.cpp.o:
+	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/LeftRecursion.cpp.o
+.PHONY : classes/LeftRecursion.cpp.o
+
+classes/LeftRecursion.i: classes/LeftRecursion.cpp.i
+
+.PHONY : classes/LeftRecursion.i
+
+# target to preprocess a source file
+classes/LeftRecursion.cpp.i:
+	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/LeftRecursion.cpp.i
+.PHONY : classes/LeftRecursion.cpp.i
+
+classes/LeftRecursion.s: classes/LeftRecursion.cpp.s
+
+.PHONY : classes/LeftRecursion.s
+
+# target to generate assembly for a file
+classes/LeftRecursion.cpp.s:
+	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/LeftRecursion.cpp.s
+.PHONY : classes/LeftRecursion.cpp.s
 
 classes/Minimize_Ezzat.o: classes/Minimize_Ezzat.cpp.o
 
@@ -537,6 +645,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... compiler"
+	@echo "... classes/Cleaner.o"
+	@echo "... classes/Cleaner.i"
+	@echo "... classes/Cleaner.s"
 	@echo "... classes/Compiler.o"
 	@echo "... classes/Compiler.i"
 	@echo "... classes/Compiler.s"
@@ -549,9 +660,18 @@ help:
 	@echo "... classes/Evaluator.o"
 	@echo "... classes/Evaluator.i"
 	@echo "... classes/Evaluator.s"
+	@echo "... classes/First_Follow.o"
+	@echo "... classes/First_Follow.i"
+	@echo "... classes/First_Follow.s"
 	@echo "... classes/Generator.o"
 	@echo "... classes/Generator.i"
 	@echo "... classes/Generator.s"
+	@echo "... classes/LeftFactoring.o"
+	@echo "... classes/LeftFactoring.i"
+	@echo "... classes/LeftFactoring.s"
+	@echo "... classes/LeftRecursion.o"
+	@echo "... classes/LeftRecursion.i"
+	@echo "... classes/LeftRecursion.s"
 	@echo "... classes/Minimize_Ezzat.o"
 	@echo "... classes/Minimize_Ezzat.i"
 	@echo "... classes/Minimize_Ezzat.s"

@@ -1,0 +1,6 @@
+# METHOD_BODY = 'int' METHOD_BODY2
+# METHOD_BODY2 = 'text' METHOD_BODY3
+# METHOD_BODY3 = STATEMENT_LIST | s 'float' | 'float'
+
+METHOD_BODY = int  METHOD_BODY0 |
+METHOD_BODY0 = STATEMENT_LIST | text | s  float | float  text |
