@@ -21,7 +21,7 @@ void PostfixInfix::regular_definitions(string name, vector<string> words, bool p
     name = trim(name);
     def.insert(pair<string, NFA>(name, definition));
     empty_all();
-    cout<<"-----------------------------------------------------"<<endl;
+    //cout<<"-----------------------------------------------------"<<endl;
 }
 void PostfixInfix::regular_expressions(string name, vector<string> words, bool pun) {
     empty_all();
@@ -29,7 +29,7 @@ void PostfixInfix::regular_expressions(string name, vector<string> words, bool p
     name = trim(name);
     regular_exp.push_back(pair<string, NFA>(name, expression));
     empty_all();
-    cout<<"------------------------------------------------------"<<endl;
+    //cout<<"------------------------------------------------------"<<endl;
 }
 
 void PostfixInfix::Keyword(vector<string> words, bool pun) {
@@ -169,7 +169,7 @@ NFA PostfixInfix::calculate(){
         nfas.push(operation_result);
         chars.push(operation_string);
     }
-    cout<<chars.top()<<endl;
+    //cout<<chars.top()<<endl;
     return operation_result;
 }
 

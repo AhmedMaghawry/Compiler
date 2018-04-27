@@ -17,6 +17,10 @@
 #include "../headers/Minimize_Ezzat.h"
 #include "../headers/ModifiedDFA.h"
 #include "../headers/First_Follow.h"
+#include "../headers/ParseTable.h"
+#include "../headers/Tracer.h"
+#include "../headers/LeftFactoring.h"
+#include "../headers/LeftRecursion.h"
 //#include "../headers/Generator.h"
 
 using namespace std;
@@ -29,6 +33,7 @@ Node getStart(vector<Node> s);
 
 void displayTables(map<string, vector<string>> mapy);
 void displayTables(map<string, vector<pair<string, vector<pair<string, bool>>>>> mapy);
+void displayTables(map<pair<string, string>, vector<pair<string, bool>> > parseTable,vector <string> termin,vector<string>nonTermin);
 string getName(vector<pair<string, bool>> in);
 
 void write_to_file(vector<Node> nodes){
@@ -605,11 +610,13 @@ int main3() {
     cout << "----------------------" << endl;
     dfa.convert_from_NFA_to_DFA(nfa.getNfaTable(), r.get_symbol_table(), r.get_map());
     cout << "-------------DFA Created----------------" << endl;
-    Minimize_Ezzat m;
-    m.init_mini(dfa.getDfaGraph());
+    //Minimize_Ezzat m;
+    //m.init_mini(dfa.getDfaGraph());
     cout << "-------------Min----------------" << endl;
-    Node cur = getStart(m.getMinimize());
-    Generator generator(cur,m.getMinimize(),cur);
+    /*Node cur = getStart(m.getMinimize());
+    Generator generator(cur,m.getMinimize(),cur);*/
+    Node cur = getStart(dfa.getDfaGraph());
+    Generator generator(cur,dfa.getDfaGraph(),cur);
     generator.lexal_analizer_run();
     return 0;
 }
@@ -632,7 +639,22 @@ vector <string> terminals;
 
 int main() {
     RegexParser r;
+    LeftFactoring l;
+    LeftRecursion lr;
     grammer = r.parse_syn_rules();
+    grammer = lr.clean_left_recursion(grammer);
+    n_terminals = r.get_non_terminal_symbols();
+    grammer = l.factor(grammer, n_terminals);
+    r.set_non_terminal_symbols(n_terminals);
+    NFA nfa;
+    nfa = r.parse_rules();
+    cout << "-------------NFA Created----------------" << endl;
+    ModifiedDFA dfa;
+    dfa.convert_from_NFA_to_DFA(nfa.getNfaTable(), r.get_symbol_table(), r.get_map());
+    cout << "-------------DFA Created----------------" << endl;
+    Node cur = getStart(dfa.getDfaGraph());
+    Generator generator(cur,dfa.getDfaGraph(),cur);
+    generator.lexal_analizer_run();
     n_terminals = r.get_non_terminal_symbols();
     terminals = r.get_terminal_symbols();
     First_Follow first_follow (grammer, n_terminals, terminals);
@@ -642,6 +664,51 @@ int main() {
     displayTables(first_follow.getFirstMap());
     cout << "------------------ Follow -------------------" << endl;
     displayTables(first_follow.getFollowMap());
+    cout << "------------------ Parse Table -------------------" << endl;
+    ParseTable p (first_follow.getFirstMap(),first_follow.getFollowMap(),n_terminals,terminals);
+    displayTables(p.getParseTable(),terminals,n_terminals);
+    cout << "------------------ Trace -------------------" << endl;
+    try {
+        Tracer tracer(generator.symbol_table, p.getParseTable_Ezzat(), n_terminals[0]);
+        tracer.evaluateTracingOutput_Ezzat();
+        tracer.writeLeftDerivationFile();
+    } catch(int e)  {
+        cout << "There is an Error in Grammer May be left Rec or Factor" << endl;
+    }
+}
+
+int main6() {
+    RegexParser r;
+    grammer = r.parse_syn_rules();
+    NFA nfa;
+    nfa = r.parse_rules();
+    cout << "-------------NFA Created----------------" << endl;
+    ModifiedDFA dfa;
+    dfa.convert_from_NFA_to_DFA(nfa.getNfaTable(), r.get_symbol_table(), r.get_map());
+    cout << "-------------DFA Created----------------" << endl;
+    Node cur = getStart(dfa.getDfaGraph());
+    Generator generator(cur,dfa.getDfaGraph(),cur);
+    generator.lexal_analizer_run();
+    n_terminals = r.get_non_terminal_symbols();
+    terminals = r.get_terminal_symbols();
+    First_Follow first_follow (grammer, n_terminals, terminals);
+    first_follow.calculate_firsts();
+    first_follow.calculate_follows();
+    cout << "------------------ First -------------------" << endl;
+    displayTables(first_follow.getFirstMap());
+    cout << "------------------ Follow -------------------" << endl;
+    displayTables(first_follow.getFollowMap());
+    cout << "------------------ Parse Table -------------------" << endl;
+    ParseTable p (first_follow.getFirstMap(),first_follow.getFollowMap(),n_terminals,terminals);
+    displayTables(p.getParseTable(),terminals,n_terminals);
+    cout << "------------------ Trace -------------------" << endl;
+    try {
+        Tracer tracer(generator.symbol_table, p.getParseTable_Ezzat(), n_terminals[0]);
+        tracer.evaluateTracingOutput_Ezzat();
+        tracer.writeLeftDerivationFile();
+    } catch(int e)  {
+        cout << "There is an Error in Grammer May be left Rec or Factor" << endl;
+    }
 }
 
 void displayTables(map<string, vector<string>> mapy) {
@@ -665,6 +732,33 @@ void displayTables(map<string, vector<pair<string, vector<pair<string, bool>>>>>
             cout << it->second[i].first << setw(10) << " From : " << setw(10) << getName(it->second[i].second) << " , " << setw(5);
         }
         cout << endl;
+    }
+}
+
+void displayTables(map<pair<string, string>, vector<pair<string, bool>> > parseTable,vector <string> termin,vector<string>nonTermin) {
+    cout<<setw(50);
+    for (int i=0;i<termin.size();i++){
+        cout << termin[i]   << setw(30);
+    }
+    vector<pair<string, bool>> rule;
+    string totalRule="";
+    cout<<"\n";
+    for (int i=0;i<nonTermin.size();i++){
+        cout<<setw(20) << nonTermin[i]<<setw(30);
+        for (int j=0;j<termin.size();j++){
+
+            rule = parseTable[make_pair(nonTermin[i],termin[j])];
+            if(rule.size()==1)
+                cout << rule[0].first << setw(30);
+            else{
+                for(int k=0;k<rule.size();k++){
+                    totalRule.append(rule[k].first);
+                }
+                cout  <<  totalRule << setw(30);
+            }
+            totalRule="";
+        }
+        cout<<"\n";
     }
 }
 

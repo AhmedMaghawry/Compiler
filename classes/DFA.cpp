@@ -49,9 +49,9 @@ void DFA::convert_from_NFA_to_DFA(vector<Node> graph, vector<string> symbs) {
             }
         }
     }*/
-    cout << "------------------NFA----------------" << endl;
+    /*cout << "------------------NFA----------------" << endl;
     display_graph(graph);
-    cout << "----------------End-----------" << endl;
+    cout << "----------------End-----------" << endl;*/
     int s = symbs.size();
     if (s == 0)
         return;
@@ -59,7 +59,7 @@ void DFA::convert_from_NFA_to_DFA(vector<Node> graph, vector<string> symbs) {
     /*Start Remove E Clousre from NFA*/
     vector<Node> nfaGraph_without_clouser = remove_e_clousre(graph);
     //nfa_without_e = nfaGraph_without_clouser;
-    cout << "--------------------- NFA without E"<<endl;
+    //cout << "--------------------- NFA without E"<<endl;
     //display_graph(nfaGraph_without_clouser);
     /*End Remove Now we have NFA without E clousre*/
     //Tested Till Here
@@ -67,7 +67,7 @@ void DFA::convert_from_NFA_to_DFA(vector<Node> graph, vector<string> symbs) {
     run_dfa(dfaGraph_final, nfaGraph_without_clouser);
     //renaming(dfaGraph_final);
     setDfaGraph(dfaGraph_final);
-    cout << "--------------------- Final DFA"<<endl;
+    //cout << "--------------------- Final DFA"<<endl;
     //display_graph(getDfaGraph());
 }
 

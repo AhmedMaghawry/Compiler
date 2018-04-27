@@ -11,14 +11,16 @@ vector<string> get_strings(string line, char sparator);
 string preprocessing(string exp);
 
 RegexParser::RegexParser() {
+	// TODO Auto-generated constructor stub
 
 }
 
 RegexParser::~RegexParser() {
+	// TODO Auto-generated destructor stub
 }
 
 std::string ReplaceAll(std::string str, const std::string& from,
-					   const std::string& to) {
+		const std::string& to) {
 	size_t start_pos = 0;
 	while ((start_pos = str.find(from, start_pos)) != std::string::npos) {
 		str.replace(start_pos, from.length(), to);
@@ -27,11 +29,11 @@ std::string ReplaceAll(std::string str, const std::string& from,
 	return str;
 }
 string trim(string s) {
+	int i;
 
-	for (unsigned char i = s.length() - 1;
-		 i >= 0 && (s[i] == ' ' || s[i] == '\r'); i--)
+	for (i = s.length() - 1; i >= 0 && (s[i] == ' ' || s[i] == '\r'); i--)
 		s[i] = 0;
-	for (unsigned char i = 0; i < s.length() && s[i] == ' '; i++)
+	for (i = 0; i < s.length() && s[i] == ' '; i++)
 		s[i] = 0;
 	s.erase(std::remove(s.begin(), s.end(), 0), s.end());
 	return s;
@@ -66,12 +68,8 @@ map<string, vector<vector<pair<string, bool> > > > RegexParser::parse_syn_rules(
 		}
 		current_rule.second = rules;
 		all_rules.push_back(current_rule);
-//		handle multi rules with the same Nonterminal Name
-		if (rules_map[current_rule.first].size())
-			for (vector<pair<string, bool> > r : current_rule.second)
-				rules_map[current_rule.first].push_back(r);
-		else
-			rules_map[current_rule.first] = current_rule.second;
+		rules_map[current_rule.first] = current_rule.second;
+
 	}
 	for (auto i : terminal_set) {
 		terminal.push_back(i);
@@ -86,12 +84,17 @@ vector<string> RegexParser::get_non_terminal_symbols() {
 	return non_terminal;
 }
 
+void RegexParser::set_non_terminal_symbols(vector<string> new_non_terminals) {
+	non_terminal = new_non_terminals;
+}
+
 vector<string> RegexParser::get_terminal_symbols() {
 	return terminal;
 }
 map<string, vector<vector<pair<string, bool>>> > RegexParser::get_rules_map() {
 	return rules_map;
 }
+
 
 vector<pair<string, bool> > RegexParser::get_pairs(string line) {
 
@@ -101,8 +104,13 @@ vector<pair<string, bool> > RegexParser::get_pairs(string line) {
 	while (std::getline(iss, token, ' ')) {
 		if (token.size() && token.compare("\r")) {
 			pair<string, bool> pr;
-			if (token[0] == -30 || token[0] == '\'') {
+			if (token[0] == -30) {
 				string str = token.substr(3, token.size() - 6);
+				pr = make_pair(str, true);
+				if (str.compare("\\L"))
+					terminal_set.insert(str);
+			} else if(token[0] == '\''){
+				string str = token.substr(1, token.size() - 2);
 				pr = make_pair(str, true);
 				if (str.compare("\\L"))
 					terminal_set.insert(str);
@@ -117,6 +125,7 @@ vector<pair<string, bool> > RegexParser::get_pairs(string line) {
 	return words;
 }
 
+
 NFA RegexParser::parse_rules() {
 
 	Reader R1;
@@ -128,29 +137,29 @@ NFA RegexParser::parse_rules() {
 		inpute[i] = trim(inpute[i]);
 
 		switch (inpute[i][0]) {
-			case '[':
-				Punctuation(inpute[i]);
-				break;
-			case '{':
-				Keyword(inpute[i]);
-				break;
-			default:
-				for (int j = 0; j < inpute[i].size(); ++j) {
-					char c = inpute[i][j];
-					if (c == '=') {
-						string name = trim(inpute[i].substr(0, j));
-						string def = trim(inpute[i].substr(j + 1));
-						regular_definitions(name, def);
-						break;
-					}
-					if (c == ':') {
-						string name = trim(inpute[i].substr(0, j));
-						string exp = trim(inpute[i].substr(j + 1));
-						regular_expressions(name, exp);
-						break;
-					}
+		case '[':
+			Punctuation(inpute[i]);
+			break;
+		case '{':
+			Keyword(inpute[i]);
+			break;
+		default:
+			for (int j = 0; j < inpute[i].size(); ++j) {
+				char c = inpute[i][j];
+				if (c == '=') {
+					string name = trim(inpute[i].substr(0, j));
+					string def = trim(inpute[i].substr(j + 1));
+					regular_definitions(name, def);
+					break;
 				}
-				break;
+				if (c == ':') {
+					string name = trim(inpute[i].substr(0, j));
+					string exp = trim(inpute[i].substr(j + 1));
+					regular_expressions(name, exp);
+					break;
+				}
+			}
+			break;
 		}
 
 	}
@@ -224,3 +233,4 @@ vector<string> RegexParser::get_symbol_table() {
 map<pair<string, string>, vector<string>> RegexParser::get_map() {
 	return p.get_map();
 }
+

@@ -22,7 +22,7 @@ void Writer:: writeLinesToFile(string fileName, vector <string> lines)
     for(std::vector<std::string>::const_iterator it = lines.begin(); it != lines.end(); ++it)
     {
         string value = *it;
-        cout<<*it<<endl;
+        //cout<<*it<<endl;
         const char * consValue =  value.c_str();
         file_obj.write(consValue, value.size());
         file_obj << "\n";
@@ -55,7 +55,7 @@ void Reader:: readFiletoLines (string fileName)
     // Opening file in input mode
     const char * fName =  fileName.c_str();
 
-    cout<<fName<<endl;
+    //cout<<fName<<endl;
     ifstream file_obj ;
     file_obj.open(fName, ios::in);
     if (!file_obj.is_open())
@@ -71,7 +71,7 @@ void Reader:: readFiletoLines (string fileName)
         file_obj.close();
     }
 
-    cout<<answer.size()<<"  hi"<<endl;
+    //cout<<answer.size()<<"  hi"<<endl;
     readingLines = answer;
 
 }

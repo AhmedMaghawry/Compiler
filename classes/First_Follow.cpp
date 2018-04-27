@@ -21,7 +21,7 @@ void First_Follow::calculate_firsts() {
 
 set<pair<string, vector<pair<string, bool>>>> First_Follow::First(string name, vector<string> recursion_checker) {
     if(isIn(name, recursion_checker)){
-        throw invalid_argument( "There is Recursion" );
+        throw invalid_argument( "There is Recursion in " + name );
     }
     set<pair<string, vector<pair<string, bool>>>> res;
     vector<vector<pair<string, bool>>> str = grammer[name];
@@ -113,11 +113,13 @@ void First_Follow::calculate_follows() {
 }
 
 set<string> First_Follow::Follow(string name, vector<string> rec_checker) {
-    if(isIn(name, rec_checker)){
-        throw invalid_argument("There is Recursion");
-    }
     set<string> res;
 
+    if(isIn(name, rec_checker)){
+        //throw invalid_argument("There is Recursion from Follow in " + name);
+        //res.insert("");
+        return res;
+    }
     if(flag) {
         res.insert("$");
         flag = false;
@@ -142,7 +144,10 @@ set<string> First_Follow::Follow(string name, vector<string> rec_checker) {
                             //Not Calculated Before
                             rec_checker.push_back(name);
                             res_sub = Follow(it->first, rec_checker);
-                            followMap.insert(make_pair(it->first, res_sub));
+                            if(res_sub.size() == 0)
+                                followMap.insert(make_pair(it->first, res));
+                            else
+                                followMap.insert(make_pair(it->first, res_sub));
                         } else {
                             //Calculated Before
                             res_sub = followMap[it->first];

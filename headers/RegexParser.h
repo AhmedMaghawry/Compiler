@@ -27,7 +27,7 @@ public:
 	RegexParser();
 	virtual ~RegexParser();
 	map<string, vector<vector<pair<string, bool>>> > parse_syn_rules();
-	map<string,vector<vector<pair < string, bool>>>>get_rules_map();
+	map<string,vector<vector<pair < string, bool>>>> get_rules_map();
 	vector<string>get_non_terminal_symbols();
 	vector<string>get_terminal_symbols();
 	NFA parse_rules();
@@ -37,6 +37,7 @@ public:
 	void Punctuation(string line);
 	vector<string> get_symbol_table();
 	map<pair<string, string>, vector<string>> get_map();
+	void set_non_terminal_symbols(vector<string> new_non_terminals);
 };
 
 #endif /* REGEXPARSER_H_ */
