@@ -15,7 +15,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.o"
   "CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o"
   "CMakeFiles/compiler.dir/classes/First_Follow.cpp.o"
-  "CMakeFiles/compiler.dir/classes/Cleaner.cpp.o"
   "CMakeFiles/compiler.dir/classes/LeftFactoring.cpp.o"
   "CMakeFiles/compiler.dir/classes/LeftRecursion.cpp.o"
   "compiler.pdb"

@@ -123,33 +123,6 @@ compiler/fast:
 	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/build
 .PHONY : compiler/fast
 
-classes/Cleaner.o: classes/Cleaner.cpp.o
-
-.PHONY : classes/Cleaner.o
-
-# target to build an object file
-classes/Cleaner.cpp.o:
-	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/Cleaner.cpp.o
-.PHONY : classes/Cleaner.cpp.o
-
-classes/Cleaner.i: classes/Cleaner.cpp.i
-
-.PHONY : classes/Cleaner.i
-
-# target to preprocess a source file
-classes/Cleaner.cpp.i:
-	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/Cleaner.cpp.i
-.PHONY : classes/Cleaner.cpp.i
-
-classes/Cleaner.s: classes/Cleaner.cpp.s
-
-.PHONY : classes/Cleaner.s
-
-# target to generate assembly for a file
-classes/Cleaner.cpp.s:
-	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/classes/Cleaner.cpp.s
-.PHONY : classes/Cleaner.cpp.s
-
 classes/Compiler.o: classes/Compiler.cpp.o
 
 .PHONY : classes/Compiler.o
@@ -645,9 +618,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... compiler"
-	@echo "... classes/Cleaner.o"
-	@echo "... classes/Cleaner.i"
-	@echo "... classes/Cleaner.s"
 	@echo "... classes/Compiler.o"
 	@echo "... classes/Compiler.i"
 	@echo "... classes/Compiler.s"

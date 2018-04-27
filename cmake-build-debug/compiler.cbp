@@ -84,9 +84,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/classes/Cleaner.cpp">
-			<Option target="compiler"/>
-		</Unit>
 		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/classes/Compiler.cpp">
 			<Option target="compiler"/>
 		</Unit>
@@ -139,9 +136,6 @@
 			<Option target="compiler"/>
 		</Unit>
 		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/classes/Transition.cpp">
-			<Option target="compiler"/>
-		</Unit>
-		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/headers/Cleaner.h">
 			<Option target="compiler"/>
 		</Unit>
 		<Unit filename="/home/arsanuos/eclipse-workspace/compiler/headers/Construction.h">
