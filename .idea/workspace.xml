@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/classes/LeftFactoring.cpp" line="18" mnemonic="0" />
+    <bookmark url="file://$PROJECT_DIR$/classes/LeftFactoring.cpp" line="19" mnemonic="0" />
   </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
@@ -15,37 +15,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63552fba-49e1-47ef-ac72-b4dc998636c9" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/classes/Cleaner.cpp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/classes/LeftFactoring.cpp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/classes/LeftRecursion.cpp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/headers/Cleaner.h" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/headers/LeftFactoring.h" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/headers/LeftRecursion.h" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
       <change beforePath="$PROJECT_DIR$/classes/Compiler.cpp" afterPath="$PROJECT_DIR$/classes/Compiler.cpp" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" />
+      <change beforePath="$PROJECT_DIR$/classes/LeftFactoring.cpp" afterPath="$PROJECT_DIR$/classes/LeftFactoring.cpp" />
+      <change beforePath="$PROJECT_DIR$/classes/LeftRecursion.cpp" afterPath="$PROJECT_DIR$/classes/LeftRecursion.cpp" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/CXX.includecache" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/CXX.includecache" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/DependInfo.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/DependInfo.cmake" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/build.make" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/classes/Compiler.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/classes/Compiler.cpp.o" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/classes/DFA.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/classes/DFA.cpp.o" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/classes/Generator.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/classes/Generator.cpp.o" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/classes/Minimize_Ezzat.cpp.o" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/classes/ModifiedDFA.cpp.o" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/classes/PostfixInfix.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/classes/PostfixInfix.cpp.o" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/classes/RegexParser.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/classes/RegexParser.cpp.o" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/cmake_clean.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/cmake_clean.cmake" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/classes/LeftFactoring.cpp.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/classes/LeftRecursion.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/classes/LeftRecursion.cpp.o" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/depend.internal" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/depend.internal" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/depend.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/depend.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/link.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/link.txt" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/progress.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/compiler.dir/progress.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/compiler" afterPath="$PROJECT_DIR$/cmake-build-debug/compiler" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/compiler.cbp" afterPath="$PROJECT_DIR$/cmake-build-debug/compiler.cbp" />
-      <change beforePath="$PROJECT_DIR$/headers/RegexParser.h" afterPath="$PROJECT_DIR$/headers/RegexParser.h" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/input_syntax.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/input_syntax.txt" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/test.txt" />
+      <change beforePath="$PROJECT_DIR$/headers/LeftFactoring.h" afterPath="$PROJECT_DIR$/headers/LeftFactoring.h" />
+      <change beforePath="$PROJECT_DIR$/headers/LeftRecursion.h" afterPath="$PROJECT_DIR$/headers/LeftRecursion.h" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,8 +45,18 @@
       <file leaf-file-name="LeftFactoring.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/classes/LeftFactoring.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="17" column="29" lean-forward="true" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+            <state relative-caret-position="486">
+              <caret line="62" column="122" lean-forward="false" selection-start-line="62" selection-start-column="122" selection-end-line="62" selection-end-column="122" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LeftRecursion.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/LeftRecursion.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="17" column="63" lean-forward="false" selection-start-line="17" selection-start-column="63" selection-end-line="17" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -71,8 +65,20 @@
       <file leaf-file-name="LeftFactoring.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/headers/LeftFactoring.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="21" column="127" lean-forward="false" selection-start-line="21" selection-start-column="127" selection-end-line="21" selection-end-column="127" />
+            <state relative-caret-position="374">
+              <caret line="22" column="110" lean-forward="false" selection-start-line="22" selection-start-column="110" selection-end-line="22" selection-end-column="110" />
+              <folding>
+                <element signature="e#110#127#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LeftRecursion.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/headers/LeftRecursion.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
               <folding>
                 <element signature="e#110#127#0" expanded="true" />
               </folding>
@@ -84,7 +90,7 @@
         <entry file="file://$PROJECT_DIR$/cmake-build-debug/input_syntax.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="44" lean-forward="false" selection-start-line="0" selection-start-column="44" selection-end-line="0" selection-end-column="44" />
+              <caret line="0" column="74" lean-forward="false" selection-start-line="0" selection-start-column="74" selection-end-line="0" selection-end-column="74" />
               <folding />
             </state>
           </provider>
@@ -93,8 +99,8 @@
       <file leaf-file-name="Compiler.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/Compiler.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="637" column="0" lean-forward="false" selection-start-line="637" selection-start-column="0" selection-end-line="637" selection-end-column="0" />
+            <state relative-caret-position="11520">
+              <caret line="640" column="32" lean-forward="false" selection-start-line="640" selection-start-column="32" selection-end-line="640" selection-end-column="32" />
               <folding>
                 <element signature="e#310#329#0" expanded="true" />
               </folding>
@@ -102,11 +108,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RegexParser.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/RegexParser.cpp">
+      <file leaf-file-name="test.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cmake-build-debug/test.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="590">
-              <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+            <state relative-caret-position="54">
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -116,7 +122,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Transition::</find>
       <find>Node::</find>
       <find>addTr</find>
       <find>erase</find>
@@ -145,6 +150,8 @@
       <find>remove_e_clousre</find>
       <find>e_clousre</find>
       <find>run_dfa</find>
+      <find>print</find>
+      <find>cout</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -199,12 +206,13 @@
         <option value="$PROJECT_DIR$/headers/leftRecursion.h" />
         <option value="$PROJECT_DIR$/classes/Cleaner.cpp" />
         <option value="$PROJECT_DIR$/classes/leftFactoring.cpp" />
-        <option value="$PROJECT_DIR$/headers/LeftRecursion.h" />
         <option value="$PROJECT_DIR$/classes/Compiler.cpp" />
         <option value="$PROJECT_DIR$/cmake-build-debug/test.txt" />
+        <option value="$PROJECT_DIR$/headers/LeftRecursion.h" />
+        <option value="$PROJECT_DIR$/cmake-build-debug/input_syntax.txt" />
+        <option value="$PROJECT_DIR$/classes/LeftRecursion.cpp" />
         <option value="$PROJECT_DIR$/headers/LeftFactoring.h" />
         <option value="$PROJECT_DIR$/classes/LeftFactoring.cpp" />
-        <option value="$PROJECT_DIR$/cmake-build-debug/input_syntax.txt" />
       </list>
     </option>
   </component>
@@ -363,6 +371,8 @@
       <workItem from="1524792632405" duration="5212000" />
       <workItem from="1524801798349" duration="1566000" />
       <workItem from="1524804030828" duration="2707000" />
+      <workItem from="1524816337717" duration="3476000" />
+      <workItem from="1524822556050" duration="1212000" />
     </task>
     <task id="LOCAL-00001" summary="Node and Transition Implementation">
       <created>1521381748709</created>
@@ -424,7 +434,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="189690000" />
+    <option name="totallyTimeSpent" value="194378000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -437,6 +447,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="466" y="-4" width="1857" height="1092" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17085153" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -444,7 +455,7 @@
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32879582" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5043924" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31623036" sideWeight="0.4956076" order="3" side_tool="false" content_ui="tabs" x="992" y="52" width="928" height="1028" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31623036" sideWeight="0.4956076" order="3" side_tool="false" content_ui="tabs" x="992" y="52" width="928" height="1028" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.49707174" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -485,12 +496,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/classes/Compiler.cpp</url>
-          <line>207</line>
+          <line>208</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/classes/Compiler.cpp</url>
-          <line>209</line>
+          <line>210</line>
           <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
@@ -545,7 +556,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/classes/Compiler.cpp</url>
-          <line>272</line>
+          <line>273</line>
           <option name="timeStamp" value="67" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
@@ -575,11 +586,31 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/classes/LeftFactoring.cpp</url>
-          <line>14</line>
+          <line>16</line>
           <option name="timeStamp" value="172" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/classes/LeftFactoring.cpp</url>
+          <line>68</line>
+          <option name="timeStamp" value="175" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/classes/LeftFactoring.cpp</url>
+          <line>43</line>
+          <option name="timeStamp" value="176" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/classes/LeftFactoring.cpp</url>
+          <line>36</line>
+          <option name="timeStamp" value="178" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/classes/LeftRecursion.cpp</url>
+          <line>54</line>
+          <option name="timeStamp" value="179" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="173" />
+      <option name="time" value="180" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
@@ -704,13 +735,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/NFA.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/compiler.cbp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2735">
@@ -745,13 +769,6 @@
         <state relative-caret-position="1908">
           <caret line="106" column="9" lean-forward="false" selection-start-line="106" selection-start-column="9" selection-end-line="106" selection-end-column="9" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/input.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="21" lean-forward="false" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -799,13 +816,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/LeftRecursion.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classes/Cleaner.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -831,14 +841,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="5" column="719" lean-forward="false" selection-start-line="5" selection-start-column="719" selection-end-line="5" selection-end-column="719" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/headers/LeftRecursion.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="13" column="7" lean-forward="false" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -860,14 +862,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="4912" column="0" lean-forward="false" selection-start-line="4912" selection-start-column="0" selection-end-line="4912" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/PostfixInfix.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="107" column="44" lean-forward="false" selection-start-line="107" selection-start-column="41" selection-end-line="107" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -901,35 +895,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/test.txt">
+    <entry file="file://$PROJECT_DIR$/classes/RegexParser.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="63" lean-forward="false" selection-start-line="5" selection-start-column="63" selection-end-line="5" selection-end-column="63" />
+        <state relative-caret-position="1422">
+          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/RegexParser.cpp">
+    <entry file="file://$PROJECT_DIR$/classes/PostfixInfix.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="590">
-          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+        <state relative-caret-position="1836">
+          <caret line="107" column="44" lean-forward="false" selection-start-line="107" selection-start-column="41" selection-end-line="107" selection-end-column="44" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/NFA.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/input.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="13" lean-forward="true" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Compiler.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="637" column="0" lean-forward="false" selection-start-line="637" selection-start-column="0" selection-end-line="637" selection-end-column="0" />
+        <state relative-caret-position="11520">
+          <caret line="640" column="32" lean-forward="false" selection-start-line="640" selection-start-column="32" selection-end-line="640" selection-end-column="32" />
           <folding>
             <element signature="e#310#329#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/headers/LeftFactoring.h">
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/test.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="127" lean-forward="false" selection-start-line="21" selection-start-column="127" selection-end-line="21" selection-end-column="127" />
+        <state relative-caret-position="54">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/headers/LeftRecursion.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
           <folding>
             <element signature="e#110#127#0" expanded="true" />
           </folding>
@@ -939,15 +955,33 @@
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/input_syntax.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="44" lean-forward="false" selection-start-line="0" selection-start-column="44" selection-end-line="0" selection-end-column="44" />
+          <caret line="0" column="74" lean-forward="false" selection-start-line="0" selection-start-column="74" selection-end-line="0" selection-end-column="74" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/LeftRecursion.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="17" column="63" lean-forward="false" selection-start-line="17" selection-start-column="63" selection-end-line="17" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/headers/LeftFactoring.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="110" lean-forward="false" selection-start-line="22" selection-start-column="110" selection-end-line="22" selection-end-column="110" />
+          <folding>
+            <element signature="e#110#127#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/LeftFactoring.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="29" lean-forward="true" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+        <state relative-caret-position="486">
+          <caret line="62" column="122" lean-forward="false" selection-start-line="62" selection-start-column="122" selection-end-line="62" selection-end-column="122" />
           <folding />
         </state>
       </provider>

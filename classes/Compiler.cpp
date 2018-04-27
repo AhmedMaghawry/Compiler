@@ -18,6 +18,7 @@
 #include "../headers/ModifiedDFA.h"
 #include "../headers/First_Follow.h"
 #include "../headers/LeftFactoring.h"
+#include "../headers/LeftRecursion.h"
 //#include "../headers/Generator.h"
 
 using namespace std;
@@ -635,7 +636,10 @@ int main() {
     RegexParser r;
     LeftFactoring l;
     grammer = r.parse_syn_rules();
-    l.factor(grammer);
+    LeftRecursion lr;
+    grammer = lr.clean_left_recursion(grammer);
+    grammer = l.factor(grammer);
+
 
     /*n_terminals = r.get_non_terminal_symbols();
     terminals = r.get_terminal_symbols();

@@ -11,11 +11,12 @@
 
 map<string, vector<vector<pair<string, bool>>>> LeftFactoring::factor(map<string, vector<vector<pair<string, bool>>>> grammar) {
     bool try_again = true;
+    cout<< "-------------------factoring----------------"<<endl;
+    print_grammar(grammar);
     while(try_again){
         grammar = immediate_left_factoring(grammar, try_again);
     }
-
-    //print_grammar(grammar);
+    print_grammar(grammar);
     return grammar;
 }
 
@@ -46,6 +47,7 @@ map<string, vector<vector<pair<string, bool>>>>  LeftFactoring::immediate_left_f
              *  int method_body0
              *
              */
+            modify_current_terminals(original_production_name, all_choices, original_production_name + to_string(count - 1));
             out++;
             modified = true;
             vector<pair<string, bool>> choice;
@@ -58,6 +60,7 @@ map<string, vector<vector<pair<string, bool>>>>  LeftFactoring::immediate_left_f
               * In the next we will replace the all_choices to be new_line_choice.
               */
             all_choices = new_line_choices;
+            modify_current_terminals(original_production_name, all_choices, original_production_name + to_string(count - 2));
             //print_grammar(new_grammar);
         }
         /**
@@ -73,12 +76,11 @@ map<string, vector<vector<pair<string, bool>>>>  LeftFactoring::immediate_left_f
     if(out == 0){
         try_again = false;
     }
-    print_grammar(new_grammar);
     return new_grammar;
 }
 
 void LeftFactoring::print_grammar(map<string, vector<vector<pair<string, bool> > > > &grammar){
-    cout<< "----------------"<<endl;
+    cout<< "================================================================="<<endl;
     auto it  = grammar.begin();
     while(it != grammar.end()){
         string name = it->first;
@@ -142,4 +144,15 @@ string LeftFactoring::get_common_in_position_zero(vector<vector<pair<string, boo
         }
     }
     return common;
+}
+
+void LeftFactoring::modify_current_terminals(string str, vector<vector<pair<string, bool>>> &choices, string new_string){
+    for(int i = 0 ;i < choices.size(); i++){
+        vector<pair<string, bool>> &choice = choices[i];
+        for(int j = 0 ;j < choice.size(); j++){
+            if(choice[j].first == str){
+                choice[j].first = new_string;
+            }
+        }
+    }
 }

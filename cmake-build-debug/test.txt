@@ -1,6 +1,3 @@
-# METHOD_BODY = 'int' METHOD_BODY2
-# METHOD_BODY2 = 'text' METHOD_BODY3
-# METHOD_BODY3 = STATEMENT_LIST | s 'float' | 'float'
+//left factor.
+# METHOD_BODY = 'int' STATEMENT_LIST | 'int' 'float' 'text' | 'int' 'float' s 'float' |  'int' | 'float' 'text' | 'text' | 'text' 'int'
 
-METHOD_BODY = int  METHOD_BODY0 |
-METHOD_BODY0 = STATEMENT_LIST | text | s  float | float  text |

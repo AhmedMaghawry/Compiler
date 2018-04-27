@@ -9,6 +9,7 @@ CMakeFiles/compiler.dir/classes/Compiler.cpp.o: ../headers/DFA.h
 CMakeFiles/compiler.dir/classes/Compiler.cpp.o: ../headers/First_Follow.h
 CMakeFiles/compiler.dir/classes/Compiler.cpp.o: ../headers/Generator.h
 CMakeFiles/compiler.dir/classes/Compiler.cpp.o: ../headers/LeftFactoring.h
+CMakeFiles/compiler.dir/classes/Compiler.cpp.o: ../headers/LeftRecursion.h
 CMakeFiles/compiler.dir/classes/Compiler.cpp.o: ../headers/Minimize_Ezzat.h
 CMakeFiles/compiler.dir/classes/Compiler.cpp.o: ../headers/MinimizedDFA.h
 CMakeFiles/compiler.dir/classes/Compiler.cpp.o: ../headers/ModifiedDFA.h

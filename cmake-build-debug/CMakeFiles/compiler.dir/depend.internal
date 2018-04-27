@@ -10,6 +10,7 @@ CMakeFiles/compiler.dir/classes/Compiler.cpp.o
  /home/arsanuos/eclipse-workspace/compiler/headers/First_Follow.h
  /home/arsanuos/eclipse-workspace/compiler/headers/Generator.h
  /home/arsanuos/eclipse-workspace/compiler/headers/LeftFactoring.h
+ /home/arsanuos/eclipse-workspace/compiler/headers/LeftRecursion.h
  /home/arsanuos/eclipse-workspace/compiler/headers/Minimize_Ezzat.h
  /home/arsanuos/eclipse-workspace/compiler/headers/MinimizedDFA.h
  /home/arsanuos/eclipse-workspace/compiler/headers/ModifiedDFA.h

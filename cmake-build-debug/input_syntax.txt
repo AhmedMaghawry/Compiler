@@ -1,1 +1,1 @@
-# METHOD_BODY = 'int' STATEMENT_LIST | 'int' 'float' 'text' | 'int' 'float' s 'float' |  'int' | 'float' 'text' | 'text' | 'text' 'int'
+# METHOD_BODY = METHOD_BODY 'a' | METHOD_BODY 'a' 'b' | METHOD_BODY 'c' 'r' | 't'

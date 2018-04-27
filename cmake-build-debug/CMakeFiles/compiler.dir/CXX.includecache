@@ -35,6 +35,8 @@ bits/stdc++.h
 /home/arsanuos/eclipse-workspace/compiler/headers/First_Follow.h
 ../headers/LeftFactoring.h
 /home/arsanuos/eclipse-workspace/compiler/headers/LeftFactoring.h
+../headers/LeftRecursion.h
+/home/arsanuos/eclipse-workspace/compiler/headers/LeftRecursion.h
 
 /home/arsanuos/eclipse-workspace/compiler/classes/Construction.cpp
 ../headers/Construction.h
@@ -214,6 +216,8 @@ vector
 string
 -
 map
+-
+iostream
 -
 
 /home/arsanuos/eclipse-workspace/compiler/headers/Minimize_Ezzat.h
