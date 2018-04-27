@@ -23,7 +23,10 @@ map<string, vector<vector<pair<string, bool> > > > LeftRecursion::clean_left_rec
         string new_non_terminal = all_choices.first + to_string(count);
         vector<vector<pair<string, bool>>> new_line_choices = detect_and_delete_left_recursion(all_choices.second, all_choices.first, new_non_terminal);
         new_grammar.insert(make_pair(all_choices.first, all_choices.second));
-        new_grammar.insert(make_pair(new_non_terminal, new_line_choices));
+        if(!(new_line_choices.size() == 1 && new_line_choices[0][0].first == eps)){
+            new_grammar.insert(make_pair(new_non_terminal, new_line_choices));
+        }
+
         count++;
     }
     print_grammar(new_grammar);
