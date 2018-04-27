@@ -9,7 +9,7 @@
 
 
 
-map<string, vector<vector<pair<string, bool>>>> LeftFactoring::factor(map<string, vector<vector<pair<string, bool>>>> grammar) {
+map<string, vector<vector<pair<string, bool>>>> LeftFactoring::factor(map<string, vector<vector<pair<string, bool>>>> grammar, vector<string> &non_terminals) {
     bool try_again = true;
     cout<< "-------------------factoring----------------"<<endl;
     print_grammar(grammar);
@@ -17,6 +17,7 @@ map<string, vector<vector<pair<string, bool>>>> LeftFactoring::factor(map<string
         grammar = immediate_left_factoring(grammar, try_again);
     }
     print_grammar(grammar);
+    modify_non_terminals(grammar, non_terminals);
     return grammar;
 }
 
@@ -47,6 +48,9 @@ map<string, vector<vector<pair<string, bool>>>>  LeftFactoring::immediate_left_f
              *  int method_body0
              *
              */
+            while(new_grammar.find(original_production_name + to_string(count - 1)) != new_grammar.end()){
+                count++;
+            }
             modify_current_terminals(original_production_name, all_choices, original_production_name + to_string(count - 1));
             out++;
             modified = true;
@@ -67,9 +71,13 @@ map<string, vector<vector<pair<string, bool>>>>  LeftFactoring::immediate_left_f
          * add rest of previous choices.
          */
         if(!modified){
+
             new_grammar.insert(make_pair(original_production_name, all_choices));
         }else if(!all_choices.empty()){
             //print_grammar(new_grammar);
+            while(new_grammar.find(original_production_name + to_string(count - 1)) != new_grammar.end()){
+                count++;
+            }
             new_grammar.insert(make_pair(original_production_name + to_string(count - 1), all_choices));
         }
     }
@@ -95,6 +103,28 @@ void LeftFactoring::print_grammar(map<string, vector<vector<pair<string, bool> >
         }
         cout<<endl;
         it++;
+    }
+}
+
+void LeftFactoring::modify_non_terminals(map<string, vector<vector<pair<string, bool> > > > &grammar, vector<string> &non_terminals){
+    set<string> new_non_terminals;
+    auto it  = grammar.begin();
+    while(it != grammar.end()){
+        string name = it->first;
+        vector<vector<pair<string, bool>>> &choices = it->second;
+        for(int i = 0 ;i < choices.size(); i++){
+            vector<pair<string, bool>> &production = choices[i];
+            for(int k = 0 ;k < production.size(); k++){
+                if(production[k].second == non_terminal){
+                    new_non_terminals.insert(production[k].first);
+                }
+            }
+        }
+        it++;
+    }
+    non_terminals.empty();
+    for(auto str : new_non_terminals){
+        non_terminals.push_back(str);
     }
 }
 

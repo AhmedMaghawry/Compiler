@@ -84,6 +84,10 @@ vector<string> RegexParser::get_non_terminal_symbols() {
 	return non_terminal;
 }
 
+void RegexParser::set_non_terminal_symbols(vector<string> new_non_terminals) {
+	non_terminal = new_non_terminals;
+}
+
 vector<string> RegexParser::get_terminal_symbols() {
 	return terminal;
 }

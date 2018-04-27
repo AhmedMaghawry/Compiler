@@ -21,9 +21,10 @@ private:
     void print_grammar(map<string, vector<vector<pair<string, bool> > > > &grammar);
     map<string, vector<vector<pair<string, bool>>>>  immediate_left_factoring(map<string, vector<vector<pair<string, bool>>>> &grammar, bool &try_again);
     void modify_current_terminals(string str, vector<vector<pair<string, bool>>> &choices, string new_string);
+    void modify_non_terminals(map<string, vector<vector<pair<string, bool> > > > &grammar, vector<string> &non_terminals);
 
 public:
-    map<string, vector<vector<pair<string, bool> > > > factor(map<string, vector<vector<pair<string, bool> > > > grammar);
+    map<string, vector<vector<pair<string, bool> > > > factor(map<string, vector<vector<pair<string, bool> > > > grammar, vector<string> &non_terminals);
 
 };
 

@@ -638,10 +638,10 @@ int main() {
     grammer = r.parse_syn_rules();
     LeftRecursion lr;
     grammer = lr.clean_left_recursion(grammer);
-    grammer = l.factor(grammer);
-
-
-    /*n_terminals = r.get_non_terminal_symbols();
+    n_terminals = r.get_non_terminal_symbols();
+    grammer = l.factor(grammer, n_terminals);
+    r.set_non_terminal_symbols(n_terminals);
+    /*
     terminals = r.get_terminal_symbols();
     First_Follow first_follow (grammer, n_terminals, terminals);
     first_follow.calculate_firsts();

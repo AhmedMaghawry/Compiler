@@ -22,8 +22,9 @@ map<string, vector<vector<pair<string, bool> > > > LeftRecursion::clean_left_rec
     for(auto &all_choices : grammar) {
         string new_non_terminal = all_choices.first + to_string(count);
         vector<vector<pair<string, bool>>> new_line_choices = detect_and_delete_left_recursion(all_choices.second, all_choices.first, new_non_terminal);
+
         new_grammar.insert(make_pair(all_choices.first, all_choices.second));
-        if(!(new_line_choices.size() == 1 && new_line_choices[0][0].first == eps)){
+        if(!(new_line_choices.size() == 1 && new_line_choices[0][0].first == eps) && !new_line_choices.empty()){
             new_grammar.insert(make_pair(new_non_terminal, new_line_choices));
         }
 
@@ -54,6 +55,14 @@ void LeftRecursion::print_grammar(map<string, vector<vector<pair<string, bool> >
 
 vector<vector<pair<string, bool>>> LeftRecursion::detect_and_delete_left_recursion(vector<vector<pair<string, bool> > > &all_choices, string all_choice_first, string new_non_terminal){
     vector<vector<pair<string, bool>>> new_line_choices;
+    bool found = false;
+    for(int i = 0 ;i < all_choices.size(); i++){
+        vector<pair<string, bool> > &choice = all_choices[i];
+        if(!choice[0].second && all_choice_first == choice[0].first) {
+            found = true;
+        }
+    }
+    if(!found) return new_line_choices;
     for(int i = 0 ;i < all_choices.size(); i++){
         vector<pair<string, bool> > &choice = all_choices[i];
         if(!choice[0].second && all_choice_first == choice[0].first){

@@ -37,6 +37,7 @@ public:
 	void Punctuation(string line);
 	vector<string> get_symbol_table();
 	map<pair<string, string>, vector<string>> get_map();
+	void set_non_terminal_symbols(vector<string> new_non_terminals);
 };
 
 #endif /* REGEXPARSER_H_ */
