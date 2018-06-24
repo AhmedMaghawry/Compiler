@@ -1,0 +1,13 @@
+int i;
+i = 0;
+int i;
+while (i < 5) {
+	i = i + 1;
+}
+int j;
+j = i;
+if (j == 5) {
+	j = i * 3;
+} else {
+	j = i + 3;
+}

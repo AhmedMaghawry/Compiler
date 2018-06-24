@@ -1,0 +1,8 @@
+Command to run :
+	flex tokens.l
+	bison -y -d Bisi.y
+	!! Add to y.tab.c :
+		#include<vector>
+		using namespace std;
+	g++ -std=c++11 lex.yy.c y.tab.c
+	./a.out code.txt
